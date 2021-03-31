@@ -26,31 +26,41 @@
                                             <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                                         </div> -->
                                         <form class="user">
-                                            <div class="form-group row">
+                                            <!-- <div class="form-group row">
                                                 <div class="col-sm-6 mb-3 mb-sm-0">
+                                                    <label for="output">Komponen</label>
                                                     <input type="text" class="form-control form-control-user" id="exampleFirstName"
                                                         placeholder="First Name">
                                                 </div>
                                                 <div class="col-sm-6">
+                                                    <label for="output">Kegiatan</label>
                                                     <input type="text" class="form-control form-control-user" id="exampleLastName"
                                                         placeholder="Last Name">
                                                 </div>
+                                            </div> -->
+                                            <div class="form-group">
+                                                <label for="komponen">Komponen</label>
+                                                <input type="text" class="form-control form-control-user" id="komponen"
+                                                    placeholder="Komponen">
                                             </div>
                                             <div class="form-group">
-                                                <input type="email" class="form-control form-control-user" id="exampleInputEmail"
-                                                    placeholder="Email Address">
+                                                <label for="kegiatan">Kegiatan</label>
+                                                <input type="text" class="form-control form-control-user" id="kegiatan"
+                                                    placeholder="Kegiatan">
                                             </div>
                                             <div class="form-group row">
                                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                                    <input type="password" class="form-control form-control-user"
-                                                        id="exampleInputPassword" placeholder="Password">
+                                                    <label for="volume">Volume</label>
+                                                    <input type="number" class="form-control form-control-user"
+                                                        id="exampleInputPassword" placeholder="Volume">
                                                 </div>
                                                 <div class="col-sm-6">
+                                                    <label for="satuan">Satuan</label>
                                                     <input type="password" class="form-control form-control-user"
-                                                        id="exampleRepeatPassword" placeholder="Repeat Password">
+                                                        id="exampleRepeatPassword" placeholder="Satuan">
                                                 </div>
                                             </div>
-                                            <a href="login.html" class="btn btn-primary btn-user btn-block">
+                                            <a href="#" class="btn btn-primary btn-user btn-block">
                                                 Simpan
                                             </a>
                                         </form>

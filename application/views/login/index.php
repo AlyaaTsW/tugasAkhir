@@ -33,10 +33,11 @@
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
                         <div class="row">
-                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
-                            <div class="col-lg-6">
+                            <!-- <div class="col-lg-6 d-none d-lg-block bg-login-image"></div> -->
+                            <div class="col-lg-12">
                                 <div class="p-5">
                                     <div class="text-center">
+                                        <img src="<?php echo base_url('assets/img/logoBPS.png') ?>" style="height: 100px;">
                                         <h1 class="h4 text-gray-900 mb-4">Sistem Informasi Kinerja Pegawai</h1>
                                     </div>
                                     <form class="user">
