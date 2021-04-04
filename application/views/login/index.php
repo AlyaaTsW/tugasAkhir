@@ -40,12 +40,12 @@
                                         <img src="<?php echo base_url('assets/img/logoBPS.png') ?>" style="height: 100px;">
                                         <h1 class="h4 text-gray-900 mb-4">Sistem Informasi Kinerja Pegawai</h1>
                                     </div>
-                                    <form class="user">
+                                    <form class="user" action="<?php echo base_url(); ?>Login/proses_login" method="post">
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address...">
+                                            <input type="text" class="form-control form-control-user" id="username" name="username" aria-describedby="emailHelp" placeholder="Enter Email Address...">
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+                                            <input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Password">
                                         </div>
                                         <!-- <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
@@ -54,9 +54,10 @@
                                                     Me</label>
                                             </div>
                                         </div> -->
-                                        <a href="<?php echo base_url('AdminMain/index') ?>" class="btn btn-primary btn-user btn-block">
+                                        <button class="btn btn-primary btn-user btn-block"> Login</button>
+                                        <!-- <a href="" class="btn btn-primary btn-user btn-block">
                                             Login
-                                        </a>
+                                        </a> -->
                                         <!-- <hr> -->
                                         <!-- <a href="index.html" class="btn btn-google btn-user btn-block">
                                             <i class="fab fa-google fa-fw"></i> Login with Google
