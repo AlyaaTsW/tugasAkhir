@@ -34,6 +34,7 @@ class Login extends CI_Controller
 			$this->session->set_userdata('id_user', $row->id_user);
 			$this->session->set_userdata('nama', $row->nama);
 			$this->session->set_userdata('level', $row->level);
+			$this->session->set_userdata('jabatan', $row->jabatan);
 
 			if ($this->session->userdata('level') == "admin") {
 				redirect('AdminMain\index');

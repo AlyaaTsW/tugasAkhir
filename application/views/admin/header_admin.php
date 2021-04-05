@@ -17,9 +17,12 @@
 
     <!-- Custom styles for this template-->
     <link href="<?php echo base_url('assets/css/sb-admin-2.min.css') ?>" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    
 
     <!-- Custom styles for this page -->
     <link href="<?php echo base_url('assets/vendor/datatables/dataTables.bootstrap4.min.css') ?>" rel="stylesheet">
+
 
 </head>
 
@@ -303,7 +306,7 @@
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Halo, Admin</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Halo, <?php echo $this->session->userdata('level');?></span>
                                 <img class="img-profile rounded-circle" src="img/profil.png">
                             </a>
                             <!-- Dropdown - User Information -->
