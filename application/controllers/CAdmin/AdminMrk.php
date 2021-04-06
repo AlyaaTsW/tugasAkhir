@@ -39,9 +39,17 @@ class AdminMrk extends CI_Controller
 
 	public function tambah_mrk()
 	{
-		$data['title'] = "Tabel MRK";
+		$data['title'] = "Tambah MRK";
 		$this->load->view('admin/header_admin', $data);
 		$this->load->view('admin/mrk/tambah_mrk', $data);
+		$this->load->view('admin/footer_admin', $data);
+	}
+
+	public function edit_mrk()
+	{
+		$data['title'] = "Edit MRK";
+		$this->load->view('admin/header_admin', $data);
+		$this->load->view('admin/mrk/edit_mrk', $data);
 		$this->load->view('admin/footer_admin', $data);
 	}
 }
