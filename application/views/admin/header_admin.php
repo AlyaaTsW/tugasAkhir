@@ -18,7 +18,7 @@
     <!-- Custom styles for this template-->
     <link href="<?php echo base_url('assets/css/sb-admin-2.min.css') ?>" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    
+
 
     <!-- Custom styles for this page -->
     <link href="<?php echo base_url('assets/vendor/datatables/dataTables.bootstrap4.min.css') ?>" rel="stylesheet">
@@ -49,7 +49,7 @@
             <li class="nav-item <?php if ($title == "Dashboard") {
                                     echo "active";
                                 } ?>">
-                <a class="nav-link" href="<?php echo base_url('AdminMain/index') ?>">
+                <a class="nav-link" href="<?php echo base_url('CAdmin/AdminMain/index') ?>">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -73,10 +73,10 @@
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <!-- <h6 class="collapse-header">Custom Utilities:</h6> -->
-                        <a class="collapse-item" href="<?php echo base_url('AdminMrk/distribusi') ?>">Seksi Distribusi</a>
-                        <a class="collapse-item" href="<?php echo base_url('AdminMrk/sosial') ?>">Seksi Sosial</a>
-                        <a class="collapse-item" href="<?php echo base_url('AdminMrk/nerwilis') ?>">Seksi Nerwilis</a>
-                        <a class="collapse-item" href="<?php echo base_url('AdminMrk/produksi') ?>">Seksi Produksi</a>
+                        <a class="collapse-item" href="<?php echo base_url('CAdmin/AdminMrk/distribusi') ?>">Seksi Distribusi</a>
+                        <a class="collapse-item" href="<?php echo base_url('CAdmin/AdminMrk/sosial') ?>">Seksi Sosial</a>
+                        <a class="collapse-item" href="<?php echo base_url('CAdmin/AdminMrk/nerwilis') ?>">Seksi Nerwilis</a>
+                        <a class="collapse-item" href="<?php echo base_url('CAdmin/AdminMrk/produksi') ?>">Seksi Produksi</a>
                     </div>
                 </div>
             </li>
@@ -91,8 +91,8 @@
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <!-- <h6 class="collapse-header">Custom Utilities:</h6> -->
-                        <a class="collapse-item" href="<?php echo base_url('AdminCkp/ckp_pegawai') ?>">CKP Pegawai</a>
-                        <a class="collapse-item" href="<?php echo base_url('AdminCkp/index') ?>">CKP Anda</a>
+                        <a class="collapse-item" href="<?php echo base_url('CAdmin/AdminCkp/ckp_pegawai') ?>">CKP Pegawai</a>
+                        <a class="collapse-item" href="<?php echo base_url('CAdmin/AdminCkp/index') ?>">CKP Anda</a>
                     </div>
                 </div>
             </li>
@@ -101,7 +101,7 @@
             <li class="nav-item <?php if ($title == "Daftar Tugas") {
                                     echo "active";
                                 } ?>">
-                <a class="nav-link" href="<?php echo base_url('AdminTugas/tugas') ?>">
+                <a class="nav-link" href="<?php echo base_url('CAdmin/AdminTugas/tugas') ?>">
                     <i class="fas fa-fw fa-address-book"></i>
                     <span>Tugas Saya</span></a>
             </li>
@@ -111,14 +111,14 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Addons
+                Kelola
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item <?php if ($title == "Daftar Pegawai" || $title == "Tambah Pegawai" || $title == "Detail Pegawai" || $title == "Akun Anda") {
+            <li class="nav-item <?php if ($title == "Daftar Pegawai" || $title == "Tambah Pegawai" || $title == "Edit Pegawai") {
                                     echo "active";
                                 } ?>">
-                <a class="nav-link" href="<?php echo base_url('AdminPengguna/daftar_pegawai') ?>">
+                <a class="nav-link" href="<?php echo base_url('CAdmin/AdminPengguna/daftar_pegawai') ?>">
                     <i class="fas fa-fw fa-address-book"></i>
                     <span>Pengguna</span></a>
             </li>
@@ -306,7 +306,7 @@
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Halo, <?php echo $this->session->userdata('level');?></span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Halo, <?php echo $this->session->userdata('level'); ?></span>
                                 <img class="img-profile rounded-circle" src="img/profil.png">
                             </a>
                             <!-- Dropdown - User Information -->
