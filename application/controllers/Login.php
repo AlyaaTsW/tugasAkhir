@@ -39,9 +39,9 @@ class Login extends CI_Controller
 			if ($this->session->userdata('level') == "admin") {
 				redirect('CAdmin\AdminMain\index');
 			} else if ($this->session->userdata('level') == "supervisor") {
-				redirect('CSupervisor\index');
+				redirect('CSupervisor\SupervisorMain\index');
 			} else if ($this->session->userdata('level') == "operator") {
-				redirect('Operator\index');
+				redirect('COperator\OperatorMain\index');
 			}
 		} else {
 			$data['pesan'] = 'Username dan Password Anda Salah';
