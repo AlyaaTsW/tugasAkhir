@@ -37,7 +37,7 @@ class Login extends CI_Controller
 			$this->session->set_userdata('jabatan', $row->jabatan);
 
 			if ($this->session->userdata('level') == "admin") {
-				redirect('AdminMain\index');
+				redirect('CAdmin\AdminMain\index');
 			} else if ($this->session->userdata('level') == "supervisor") {
 				redirect('CSupervisor\index');
 			} else if ($this->session->userdata('level') == "operator") {
@@ -53,7 +53,7 @@ class Login extends CI_Controller
 
 	public function logout()
 	{
-		// $this->session->sess_destroy();
+		$this->session->sess_destroy();
 		redirect('Login');
 	}
 }

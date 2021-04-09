@@ -16,22 +16,42 @@ class AdminPengguna extends CI_Controller
 	{
 		if (isset($_SESSION['id_user'])) {
 			$data['title'] = "Daftar Pegawai";
-			// $data['notif'] = $this->admin_model->hitungNew();
+
 			$data['user'] = $this->admin_model->all();
 			$this->load->view('admin/header_admin', $data);
 			$this->load->view('admin/pengguna/daftar_pegawai', $data);
 			$this->load->view('admin/footer_admin', $data);
 		} else {
-			// redirect('CLogin/logout');
+			redirect('Login/logout');
 		}
 	}
 
 	public function tambah_pegawai()
 	{
-		$data['title'] = "Tambah Pegawai";
-		$this->load->view('admin/header_admin', $data);
-		$this->load->view('admin/pengguna/tambah_pegawai', $data);
-		$this->load->view('admin/footer_admin', $data);
+		if (isset($_SESSION['id_user'])) {
+
+			$data['title'] = 'Tambah Pegawai';
+
+			$this->form_validation->set_rules('nama', 'nama', 'required');
+			$this->form_validation->set_rules('nip', 'nip', 'required');
+			$this->form_validation->set_rules('jabatan', 'jabatan', 'required');
+			$this->form_validation->set_rules('email', 'email', 'required');
+			$this->form_validation->set_rules('password', 'password', 'required');
+			$this->form_validation->set_rules('pendidikan', 'pendidikan', 'required');
+			$this->form_validation->set_rules('level', 'level', 'required');
+
+			if ($this->form_validation->run() == FALSE) {
+				$this->load->view('admin/header_admin', $data);
+				$this->load->view('admin/pengguna/tambah_pegawai', $data);
+				$this->load->view('admin/footer_admin', $data);
+			} else {
+				$this->admin_model->proses_tambah_pengguna();
+				echo "<script>alert('Anda berhasil menambah data');</script>";
+				redirect('CAdmin/AdminPengguna/daftar_pegawai', 'refresh');
+			}
+		} else {
+			redirect('Login/logout');
+		}
 	}
 
 	public function edit_pegawai($id)
@@ -39,7 +59,7 @@ class AdminPengguna extends CI_Controller
 		if (isset($_SESSION['id_user'])) {
 
 			$data['title'] = 'Edit Pegawai';
-			// $data['notif'] = $this->admin_model->hitungNew();
+
 			$data['user'] = $this->admin_model->getPenggunaById($id);
 
 			$this->form_validation->set_rules('nama', 'nama', 'required');
@@ -57,10 +77,10 @@ class AdminPengguna extends CI_Controller
 			} else {
 				$this->admin_model->proses_edit_pengguna();
 				echo "<script>alert('Anda berhasil mengedit data');</script>";
-				redirect('CAdmin/pengguna', 'refresh');
+				redirect('CAdmin/AdminPengguna/daftar_pegawai', 'refresh');
 			}
 		} else {
-			redirect('CLogin/logout');
+			redirect('Login/logout');
 		}
 	}
 
@@ -74,9 +94,9 @@ class AdminPengguna extends CI_Controller
 				$this->session->set_flashdata('hapus_pengguna', false);
 			}
 			echo "<script>alert('Data Berhasil Dihapus :)');</script>";
-			redirect('CAdmin/pengguna', 'refresh');
+			redirect('CAdmin/AdminPengguna/daftar_pegawai', 'refresh');
 		} else {
-			redirect('CLogin/logout');
+			redirect('Login/logout');
 		}
 	}
 
