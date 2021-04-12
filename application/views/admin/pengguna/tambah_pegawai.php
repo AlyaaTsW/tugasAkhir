@@ -43,13 +43,25 @@
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <div class="col-sm-6 mb-3 mb-sm-0">
-                                                <label for="jabatan">Jabatan</label>
-                                                <input type="text" class="form-control form-control-user" id="jabatan" name="jabatan">
-                                            </div>
                                             <div class="col-sm-6">
-                                                <label for="pendidikan">Pendidikan</label>
-                                                <input type="text" class="form-control form-control-user" id="pendidikan" name="pendidikan">
+                                                <label for="jabatan">Jabatan</label>
+                                                <select class="form-control" id="jabatan" name="jabatan">
+                                                    <option selected>--- Pilih Jabatan ---</option>
+                                                    <option value="Kepala">Kepala</option>
+                                                    <option value="Kasubbag Umum">Kasubbag Umum</option>
+                                                    <option value="Koordinator Fungsional">Koordinator Fungsional</option>
+                                                    <option value="Bendahara">Bendahara</option>
+                                                    <option value="Statistisi Pelaksana Lanjutan">Statistisi Pelaksana Lanjutan</option>
+                                                    <option value="Statistisi Pertama">Statistisi Pertama</option>
+                                                    <option value="Statistisi Muda">Statistisi Muda</option>
+                                                    <option value="Statistisi Penyelia">Statistisi Penyelia</option>
+                                                    <option value="Statistisi Pelaksana">Statistisi Pelaksana</option>
+                                                    <option value="Fungsional Umum">Fungsional Umum</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-sm-6" id="div_bagian">
+                                                <label for="bagian">Bagian</label>
+                                                <input type="text" class="form-control form-control-user" readonly="true">
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -58,18 +70,17 @@
                                                 <input type="email" class="form-control form-control-user" id="email" name="email">
                                             </div>
                                             <div class="col-sm-6">
-                                                <label for="level">Level</label>
-                                                <select class="form-control" id="level" name="level">
-                                                    <option value="admin">Admin</option>
-                                                    <option value="supervisor">Supervisor</option>
-                                                    <option value="operator">Operator</option>
-                                                </select>
+                                                <label for="pendidikan">Pendidikan</label>
+                                                <input type="text" class="form-control form-control-user" id="pendidikan" name="pendidikan">
                                             </div>
                                         </div>
-                                        <div class="form-group row" hidden>
+                                        <div class="form-group row">
                                             <div class="col-sm-6 mb-3 mb-sm-0">
                                                 <label for="password">Password</label>
                                                 <input type="password" class="form-control form-control-user" id="password" name="password" value="12345">
+                                            </div><div class="col-sm-6 mb-3 mb-sm-0">
+                                                <label for="level">Level</label>
+                                                <input type="text" class="form-control form-control-user" id="level" name="level">
                                             </div>
                                         </div>
                                         <button type="submit" name="submit" class="btn btn-primary btn-user btn-block">Simpan</button>

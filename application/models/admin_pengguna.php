@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class admin_model extends CI_Model
+class admin_pengguna extends CI_Model
 {
     //PENGGUNA
     function all()
@@ -23,6 +23,7 @@ class admin_model extends CI_Model
             "nama" => $this->input->post('nama', true),
             "nip" => $this->input->post('nip', true),
             "jabatan" => $this->input->post('jabatan', true),
+            "bagian" => $this->input->post('bagian', true),
             "email" =>  $this->input->post('email', true),
             "password" => $this->input->post('password', true),
             "pendidikan" => $this->input->post('pendidikan', true),

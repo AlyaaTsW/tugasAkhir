@@ -11,7 +11,7 @@
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <!-- <h6 class="m-0 font-weight-bold text-primary">Data MRK</h6> -->
-                            <a href="<?php echo base_url('CAdmin/AdminPengguna/tambah_pegawai') ?>" class="btn btn-info btn-icon-split">
+                            <a href="<?php echo base_url('CAdmin/AdminPengguna/tambah_pegawai') ?>" class="d-none d-sm-inline-block btn btn-sm btn-info shadow-sm">
                                 <span class="icon text-white-50">
                                     <i class="fas fa-folder-plus"></i>
                                 </span>
