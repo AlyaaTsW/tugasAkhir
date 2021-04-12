@@ -37,6 +37,14 @@ class AdminMrk extends CI_Controller
 		$this->load->view('admin/footer_admin', $data);
 	}
 
+	public function ipds()
+	{
+		$data['title'] = "Tabel MRK";
+		$this->load->view('admin/header_admin', $data);
+		$this->load->view('admin/mrk/ipds/index_ipds', $data);
+		$this->load->view('admin/footer_admin', $data);
+	}
+
 	public function tambah_mrk()
 	{
 		$data['title'] = "Tambah MRK";

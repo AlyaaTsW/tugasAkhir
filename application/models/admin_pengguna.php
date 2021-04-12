@@ -31,6 +31,7 @@ class admin_pengguna extends CI_Model
         ];
         $this->db->insert('user', $data);
     }
+    
 
     public function proses_edit_pengguna()
     {

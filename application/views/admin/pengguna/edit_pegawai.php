@@ -44,13 +44,25 @@
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <div class="col-sm-6 mb-3 mb-sm-0">
-                                                <label for="jabatan">Jabatan</label>
-                                                <input type="text" class="form-control form-control-user" id="jabatan" name="jabatan" value="<?= $user['jabatan']; ?>">
-                                            </div>
                                             <div class="col-sm-6">
-                                                <label for="pendidikan">Pendidikan</label>
-                                                <input type="text" class="form-control form-control-user" id="pendidikan" name="pendidikan" value="<?= $user['pendidikan']; ?>">
+                                                <label for="jabatan">Jabatan</label>
+                                                <select class="form-control" id="jabatan" name="jabatan">
+                                                    <option selected>--- Pilih Jabatan ---</option>
+                                                    <option value="Kepala" <?php if ($user['jabatan'] == 'Kepala') echo "selected"; ?>>Kepala</option>
+                                                    <option value="Kasubbag Umum" <?php if ($user['jabatan'] == 'Kasubbag Umum') echo "selected"; ?>>Kasubbag Umum</option>
+                                                    <option value="Koordinator Fungsional" <?php if ($user['jabatan'] == 'Koordnator Fungsional') echo "selected"; ?>>Koordinator Fungsional</option>
+                                                    <option value="Bendahara" <?php if ($user['jabatan'] == 'Bendahara') echo "selected"; ?>>Bendahara</option>
+                                                    <option value="Statistisi Pelaksana Lanjutan" <?php if ($user['jabatan'] == 'Statistisi Pelaksana Lanjutan') echo "selected"; ?>>Statistisi Pelaksana Lanjutan</option>
+                                                    <option value="Statistisi Pertama" <?php if ($user['jabatan'] == 'Statistisi Pertama') echo "selected"; ?>>Statistisi Pertama</option>
+                                                    <option value="Statistisi Muda" <?php if ($user['jabatan'] == 'Statistisi Muda') echo "selected"; ?>>Statistisi Muda</option>
+                                                    <option value="Statistisi Penyelia" <?php if ($user['jabatan'] == 'Statistisi Penyelia') echo "selected"; ?>>Statistisi Penyelia</option>
+                                                    <option value="Statistisi Pelaksana" <?php if ($user['jabatan'] == 'Statistisi Pelaksana') echo "selected"; ?>>Statistisi Pelaksana</option>
+                                                    <option value="Fungsional Umum" <?php if ($user['jabatan'] == 'Fungsional Umum') echo "selected"; ?>>Fungsional Umum</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-sm-6" id="div_bagian" value="<?= $user['bagian']; ?>">
+                                                <label for="bagian">Bagian</label>
+                                                <input type="text" class="form-control form-control-user" readonly="true">
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -59,11 +71,15 @@
                                                 <input type="email" class="form-control form-control-user" id="email" name="email" value="<?= $user['email']; ?>">
                                             </div>
                                             <div class="col-sm-6">
-                                                <label for="password">Password</label>
-                                                <input type="text" class="form-control form-control-user" id="password" name="password" value="<?= $user['password']; ?>">
+                                                <label for="pendidikan">Pendidikan</label>
+                                                <input type="text" class="form-control form-control-user" id="pendidikan" name="pendidikan" value="<?= $user['pendidikan']; ?>">
                                             </div>
                                         </div>
                                         <div class="form-group row">
+                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                <label for="password">Password</label>
+                                                <input type="text" class="form-control form-control-user" id="password" name="password" value="<?= $user['password']; ?>">
+                                            </div>
                                             <div class="col-sm-6">
                                                 <label for="level">Level</label>
                                                 <select class="form-control" id="level" name="level">

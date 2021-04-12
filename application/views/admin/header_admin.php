@@ -77,6 +77,7 @@
                         <a class="collapse-item" href="<?php echo base_url('CAdmin/AdminMrk/sosial') ?>">Seksi Sosial</a>
                         <a class="collapse-item" href="<?php echo base_url('CAdmin/AdminMrk/nerwilis') ?>">Seksi Nerwilis</a>
                         <a class="collapse-item" href="<?php echo base_url('CAdmin/AdminMrk/produksi') ?>">Seksi Produksi</a>
+                        <a class="collapse-item" href="<?php echo base_url('CAdmin/AdminMrk/ipds') ?>">Seksi Ipds</a>
                     </div>
                 </div>
             </li>
@@ -115,7 +116,7 @@
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item <?php if ($title == "Daftar Pegawai" || $title == "Tambah Pegawai" || $title == "Edit Pegawai") {
+            <li class="nav-item <?php if ($title == "Daftar Pegawai" || $title == "Tambah Pegawai" || $title == "Edit Pegawai" || $title == "Detail Data Pegawai") {
                                     echo "active";
                                 } ?>">
                 <a class="nav-link" href="<?php echo base_url('CAdmin/AdminPengguna/daftar_pegawai') ?>">

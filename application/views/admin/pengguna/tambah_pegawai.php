@@ -77,8 +77,9 @@
                                         <div class="form-group row">
                                             <div class="col-sm-6 mb-3 mb-sm-0">
                                                 <label for="password">Password</label>
-                                                <input type="password" class="form-control form-control-user" id="password" name="password" value="12345">
-                                            </div><div class="col-sm-6 mb-3 mb-sm-0">
+                                                <input type="text" class="form-control form-control-user" id="password" name="password" value="12345">
+                                            </div>
+                                            <div class="col-sm-6 mb-3 mb-sm-0">
                                                 <label for="level">Level</label>
                                                 <input type="text" class="form-control form-control-user" id="level" name="level">
                                             </div>

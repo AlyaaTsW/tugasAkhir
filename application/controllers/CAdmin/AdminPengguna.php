@@ -54,6 +54,20 @@ class AdminPengguna extends CI_Controller
 		}
 	}
 
+	public function detail_pegawai($id)
+	{
+		if (isset($_SESSION['id_user'])) {
+
+			$data['title'] = 'Detail Data Pegawai';
+			$data['user'] = $this->admin_pengguna->getPenggunaById($id);
+			$this->load->view('admin/header_admin', $data);
+			$this->load->view('admin/pengguna/detail_pegawai', $data);
+			$this->load->view('admin/footer_admin', $data);
+		} else {
+			redirect('CLogin/logout');
+		}
+	}
+
 	public function edit_pegawai($id)
 	{
 		if (isset($_SESSION['id_user'])) {
