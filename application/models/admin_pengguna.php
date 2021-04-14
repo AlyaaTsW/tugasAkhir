@@ -31,7 +31,7 @@ class admin_pengguna extends CI_Model
         ];
         $this->db->insert('user', $data);
     }
-    
+
 
     public function proses_edit_pengguna()
     {
@@ -40,6 +40,7 @@ class admin_pengguna extends CI_Model
         $this->nama = $post["nama"];
         $this->nip = $post["nip"];
         $this->jabatan = $post["jabatan"];
+        $this->bagian = $post["bagian"];
         $this->email = $post["email"];
         $this->password = $post["password"];
         $this->pendidikan = $post["pendidikan"];
