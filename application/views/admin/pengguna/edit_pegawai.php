@@ -50,7 +50,7 @@
                                                     <option selected>--- Pilih Jabatan ---</option>
                                                     <option value="Kepala" <?php if ($user['jabatan'] == 'Kepala') echo "selected"; ?>>Kepala</option>
                                                     <option value="Kasubbag Umum" <?php if ($user['jabatan'] == 'Kasubbag Umum') echo "selected"; ?>>Kasubbag Umum</option>
-                                                    <option value="Koordinator Fungsional" <?php if ($user['jabatan'] == 'Koordnator Fungsional') echo "selected"; ?>>Koordinator Fungsional</option>
+                                                    <option value="Koordinator Fungsional" <?php if ($user['jabatan'] == 'Koordinator Fungsional') echo "selected"; ?>>Koordinator Fungsional</option>
                                                     <option value="Bendahara" <?php if ($user['jabatan'] == 'Bendahara') echo "selected"; ?>>Bendahara</option>
                                                     <option value="Statistisi Pelaksana Lanjutan" <?php if ($user['jabatan'] == 'Statistisi Pelaksana Lanjutan') echo "selected"; ?>>Statistisi Pelaksana Lanjutan</option>
                                                     <option value="Statistisi Pertama" <?php if ($user['jabatan'] == 'Statistisi Pertama') echo "selected"; ?>>Statistisi Pertama</option>
@@ -62,7 +62,22 @@
                                             </div>
                                             <div class="col-sm-6" id="div_bagian" value="<?= $user['bagian']; ?>">
                                                 <label for="bagian">Bagian</label>
-                                                <input type="text" class="form-control form-control-user" readonly="true">
+                                                <?php
+                                                    if ($user['jabatan'] == 'Koordinator Fungsional') {
+                                                ?>
+                                                        <select class="form-control" id="bagian" name="bagian">
+                                                            <option value="1" <?php if ($user['bagian'] == '1') echo "selected"; ?>>Distribusi</option>
+                                                            <option value="2" <?php if ($user['bagian'] == '2') echo "selected"; ?>>Nerwilis</option>
+                                                            <option value="3" <?php if ($user['bagian'] == '3') echo "selected"; ?>>Produksi</option>
+                                                            <option value="4" <?php if ($user['bagian'] == '4') echo "selected"; ?>>Sosial</option><option value="5" <?php if ($user['bagian'] == '5') echo "selected"; ?>>IPDS</option>
+                                                        </select>
+                                                <?php
+                                                    } else {
+                                                ?>
+                                                        <input type="text" class="form-control form-control-user" readonly="true">
+                                                <?php
+                                                    }
+                                                ?>
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -75,7 +90,7 @@
                                                 <input type="text" class="form-control form-control-user" id="pendidikan" name="pendidikan" value="<?= $user['pendidikan']; ?>">
                                             </div>
                                         </div>
-                                        <div class="form-group row">
+                                        <div class="form-group row" hidden="true">
                                             <div class="col-sm-6 mb-3 mb-sm-0">
                                                 <label for="password">Password</label>
                                                 <input type="text" class="form-control form-control-user" id="password" name="password" value="<?= $user['password']; ?>">

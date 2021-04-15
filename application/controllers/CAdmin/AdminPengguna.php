@@ -86,7 +86,7 @@ class AdminPengguna extends CI_Controller
 			if ($this->form_validation->run() == FALSE) {
 				$this->load->view('admin/header_admin', $data);
 				$this->load->view('admin/pengguna/edit_pegawai', $data);
-				$this->load->view('admin/footer_admin', $data);
+				$this->load->view('admin/footer_admin_pengguna', $data);
 			} else {
 				$this->admin_pengguna->proses_edit_pengguna();
 				echo "<script>alert('Anda berhasil mengedit data');</script>";

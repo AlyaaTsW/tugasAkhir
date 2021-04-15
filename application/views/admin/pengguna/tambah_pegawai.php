@@ -74,7 +74,7 @@
                                                 <input type="text" class="form-control form-control-user" id="pendidikan" name="pendidikan">
                                             </div>
                                         </div>
-                                        <div class="form-group row">
+                                        <div class="form-group row" hidden="true">
                                             <div class="col-sm-6 mb-3 mb-sm-0">
                                                 <label for="password">Password</label>
                                                 <input type="text" class="form-control form-control-user" id="password" name="password" value="12345">
