@@ -11,7 +11,7 @@
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <!-- <h6 class="m-0 font-weight-bold text-primary">Data MRK</h6> -->
-                            <a href="<?php echo base_url('Cadmin/AdminMrk/tambah_mrk') ?>" class="d-none d-sm-inline-block btn btn-sm btn-info shadow-sm">
+                            <a href="<?php echo base_url('Cadmin/AdminMrk/tambah_mrk_prod') ?>" class="d-none d-sm-inline-block btn btn-sm btn-info shadow-sm">
                                 <span class="icon text-white-50">
                                     <i class="fas fa-folder-plus"></i>
                                 </span>
@@ -28,33 +28,55 @@
                                             <th>Kegiatan</th>
                                             <th>Volume</th>
                                             <th>Satuan</th>
+                                            <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
 
                                     <?php
                                     $no=1;
+                                    foreach ($mrk as $u) {
                                     ?>
 
                                     <tbody>
                                         <tr>
                                             <td><?= $no; ?></td>
-                                            <td>Ini contoh komponen milik mrk</td>
-                                            <td>contoh kegiatan penugasan</td>
-                                            <td>61</td>
-                                            <td>O-H</td>
+                                            <td><?php echo $u->komponen ?></td>
+                                            <td><?php echo $u->kegiatan ?></td>
+                                            <td><?php echo $u->volume ?></td>
+                                            <td><?php echo $u->satuan ?></td>
+                                            <td><?php if ($u->status == '1') {
+                                                    echo "ditugaskan";
+                                                } else {
+                                                    echo "tersedia";
+                                                } ?>
+                                            </td>
                                             <td>
-                                                <a href="#" class="btn btn-primary btn-circle btn-sm">
-                                                    <i class="fas fa-user-tag"></i>
-                                                </a>
-                                                <a href="<?php echo base_url('Cadmin/AdminMrk/edit_mrk') ?>" class="btn btn-warning btn-circle btn-sm">
+                                                <?php if ($u->status == '1') {
+                                                ?>
+                                                    <a href="<?php echo base_url('Cadmin/AdminMrk/penugasan_mrk/<?= $u->id_mrk; ?>') ?>" class="btn btn-primary btn-circle btn-sm">
+                                                        <i class="fas fa-user-check"></i>
+                                                    </a>
+                                                <?php
+                                                } else {
+                                                ?>
+                                                    <a href="<?php echo base_url('Cadmin/AdminMrk/penugasan_mrk/<?= $u->id_mrk; ?>') ?>" class="btn btn-primary btn-circle btn-sm">
+                                                        <i class="fas fa-user-plus"></i>
+                                                    </a>
+                                                <?php
+                                                } ?>
+                                                <a href="<?php echo base_url('Cadmin/AdminMrk/edit_mrk/<?= $u->id_mrk; ?>') ?>" class="btn btn-warning btn-circle btn-sm">
                                                     <i class="fas fa-edit"></i>
                                                 </a>
-                                                <a href="#" class="btn btn-danger btn-circle btn-sm">
+                                                <a href="<?php echo base_url('Cadmin/AdminMrk/hapus_mrk/<?= $u->id_mrk; ?>') ?>" class="btn btn-danger btn-circle btn-sm">
                                                     <i class="fas fa-trash"></i>
                                                 </a>
                                             </td>
                                         </tr>
+                                    <?php
+                                            $no++;
+                                        }
+                                    ?>
                                     </tbody>
                                 </table>
                             </div>
