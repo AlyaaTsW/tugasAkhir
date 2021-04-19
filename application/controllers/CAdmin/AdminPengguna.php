@@ -90,6 +90,7 @@ class AdminPengguna extends CI_Controller
 			} else {
 				$this->admin_pengguna->proses_edit_pengguna();
 				echo "<script>alert('Anda berhasil mengedit data');</script>";
+				die();
 				redirect('CAdmin/AdminPengguna/daftar_pegawai', 'refresh');
 			}
 		} else {
@@ -131,7 +132,6 @@ class AdminPengguna extends CI_Controller
 			$this->form_validation->set_rules('nama', 'nama', 'required');
 			$this->form_validation->set_rules('nip', 'nip', 'required');
 			$this->form_validation->set_rules('jabatan', 'jabatan', 'required');
-			$this->form_validation->set_rules('bagian', 'bagian', 'required');
 			$this->form_validation->set_rules('email', 'email', 'required');
 			$this->form_validation->set_rules('password', 'password', 'required');
 			$this->form_validation->set_rules('pendidikan', 'pendidikan', 'required');

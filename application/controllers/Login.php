@@ -44,7 +44,8 @@ class Login extends CI_Controller
 				redirect('COperator\OperatorMain\index');
 			}
 		} else {
-			$data['pesan'] = 'Username dan Password Anda Salah';
+			echo "<script>alert('Email / Password yang Anda masukkan salah !');</script>";
+			// $data['pesan'] = 'Username dan Password Anda Salah';
 			$data['title'] = 'Login Admin';
 			$this->load->view('login/index', $data);
 			// redirect('CLogin');

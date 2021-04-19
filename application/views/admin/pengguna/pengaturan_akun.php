@@ -72,7 +72,7 @@
                                                 <input type="text" class="form-control form-control-user" id="level" name="level" value="<?= $user['level']; ?>" readonly>
                                             </div>
                                         </div>
-                                        <button type="submit" name="submit" class="btn btn-primary btn-user btn-block">Simpan</button>
+                                        <button type="submit" name="submit" class="btn btn-primary btn-user btn-block">UBAH</button>
                                     </form>
                                 </form>
                             </div>

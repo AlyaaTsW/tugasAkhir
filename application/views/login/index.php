@@ -40,9 +40,10 @@
                                         <img src="<?php echo base_url('assets/img/logoBPS.png') ?>" style="height: 100px;">
                                         <h1 class="h4 text-gray-900 mb-4">Sistem Informasi Kinerja Pegawai</h1>
                                     </div>
+
                                     <form class="user" action="<?php echo base_url(); ?>Login/proses_login" method="post">
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-control-user" id="username" name="username" aria-describedby="emailHelp" placeholder="Enter Email Address...">
+                                            <input type="text" class="form-control form-control-user" id="username" name="username" aria-describedby="emailHelp" placeholder="Masukkan Email Resmi Anda...">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Password">

@@ -187,8 +187,8 @@ class AdminMrk extends CI_Controller
 	//EDIT MRK
 	public function edit_mrk_dis($id)
 	{
-		
-		
+
+
 		if (isset($_SESSION['id_user'])) {
 
 			$data['title'] = "Edit MRK";

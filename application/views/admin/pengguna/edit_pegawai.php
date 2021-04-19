@@ -30,7 +30,7 @@
                                         <?php echo validation_errors(); ?>
                                     </div>
                                 <?php endif; ?>
-                                <form action="<?= base_url('CAdmin/AdminPengguna/edit_pegawai') ?>" method="post">
+                                <form action="<?= base_url('CAdmin/AdminPengguna/edit_pegawai/' . $user['id_user']) ?>" method="post">
                                     <form class="user">
                                         <input type="hidden" name="id_user" value="<?= $user['id_user']; ?>">
                                         <div class="form-group row">
@@ -63,20 +63,21 @@
                                             <div class="col-sm-6" id="div_bagian" value="<?= $user['bagian']; ?>">
                                                 <label for="bagian">Bagian</label>
                                                 <?php
-                                                    if ($user['jabatan'] == 'Koordinator Fungsional') {
+                                                if ($user['jabatan'] == 'Koordinator Fungsional') {
                                                 ?>
-                                                        <select class="form-control" id="bagian" name="bagian">
-                                                            <option value="1" <?php if ($user['bagian'] == '1') echo "selected"; ?>>Distribusi</option>
-                                                            <option value="2" <?php if ($user['bagian'] == '2') echo "selected"; ?>>Nerwilis</option>
-                                                            <option value="3" <?php if ($user['bagian'] == '3') echo "selected"; ?>>Produksi</option>
-                                                            <option value="4" <?php if ($user['bagian'] == '4') echo "selected"; ?>>Sosial</option><option value="5" <?php if ($user['bagian'] == '5') echo "selected"; ?>>IPDS</option>
-                                                        </select>
+                                                    <select class="form-control" id="bagian" name="bagian">
+                                                        <option value="1" <?php if ($user['bagian'] == '1') echo "selected"; ?>>Distribusi</option>
+                                                        <option value="2" <?php if ($user['bagian'] == '2') echo "selected"; ?>>Nerwilis</option>
+                                                        <option value="3" <?php if ($user['bagian'] == '3') echo "selected"; ?>>Produksi</option>
+                                                        <option value="4" <?php if ($user['bagian'] == '4') echo "selected"; ?>>Sosial</option>
+                                                        <option value="5" <?php if ($user['bagian'] == '5') echo "selected"; ?>>IPDS</option>
+                                                    </select>
                                                 <?php
-                                                    } else {
+                                                } else {
                                                 ?>
-                                                        <input type="text" class="form-control form-control-user" readonly="true">
+                                                    <input type="text" class="form-control form-control-user" readonly="true">
                                                 <?php
-                                                    }
+                                                }
                                                 ?>
                                             </div>
                                         </div>

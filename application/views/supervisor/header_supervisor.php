@@ -49,7 +49,7 @@
             <li class="nav-item <?php if ($title == "Dashboard") {
                                     echo "active";
                                 } ?>">
-                <a class="nav-link" href="<?php echo base_url('CAdmin/AdminMain/index') ?>">
+                <a class="nav-link" href="<?php echo base_url('CSupervisor/SupervisorMain/index') ?>">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -108,22 +108,22 @@
             </li>
 
             <!-- Divider -->
-            <hr class="sidebar-divider">
+            <!-- <hr class="sidebar-divider"> -->
 
             <!-- Heading -->
-            <div class="sidebar-heading">
+            <!-- <div class="sidebar-heading">
                 Kelola
-            </div>
+            </div> -->
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item <?php if ($title == "Daftar Pegawai" || $title == "Tambah Pegawai" || $title == "Edit Pegawai" || $title == "Detail Data Pegawai") {
-                                    echo "active";
-                                } ?>">
+            <!-- <li class="nav-item <?php if ($title == "Daftar Pegawai" || $title == "Tambah Pegawai" || $title == "Edit Pegawai" || $title == "Detail Data Pegawai") {
+                                            echo "active";
+                                        } ?>">
                 <a class="nav-link" href="<?php echo base_url('CAdmin/AdminPengguna/daftar_pegawai') ?>">
                     <i class="fas fa-fw fa-address-book"></i>
                     <span>Pengguna</span></a>
             </li>
-            </li>
+            </li> -->
 
             <!-- Nav Item - Charts -->
             <!-- <li class="nav-item">
@@ -305,15 +305,15 @@
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown" id="collapseUser">
-                                <a class="dropdown-item" href="<?= base_url(); ?>CAdmin/AdminPengguna/pengaturan_akun/<?= $_SESSION['id_user'] ?>">
+                                <a class="dropdown-item" href="<?php echo base_url('CAdmin/AdminPengguna/pengaturan_akun') ?>">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Pengaturan Akun
-                                    </href=>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        Keluar
-                                    </a>
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Keluar
+                                </a>
                             </div>
                         </li>
 

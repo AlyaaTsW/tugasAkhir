@@ -49,7 +49,7 @@
             <li class="nav-item <?php if ($title == "Dashboard") {
                                     echo "active";
                                 } ?>">
-                <a class="nav-link" href="<?php echo base_url('CAdmin/AdminMain/index') ?>">
+                <a class="nav-link" href="<?php echo base_url('COperator/OperatorMain/index') ?>">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -61,76 +61,24 @@
             <div class="sidebar-heading">
                 Penugasan
             </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item <?php if ($title == "Tabel MRK" || $title == "Tambah MRK" || $title == "Detail MRK" || $title == "Edit MRK") {
-                                    echo "active";
-                                } ?>">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>MRK</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <!-- <h6 class="collapse-header">Custom Utilities:</h6> -->
-                        <a class="collapse-item" href="<?php echo base_url('CAdmin/AdminMrk/distribusi') ?>">Seksi Distribusi</a>
-                        <a class="collapse-item" href="<?php echo base_url('CAdmin/AdminMrk/sosial') ?>">Seksi Sosial</a>
-                        <a class="collapse-item" href="<?php echo base_url('CAdmin/AdminMrk/nerwilis') ?>">Seksi Nerwilis</a>
-                        <a class="collapse-item" href="<?php echo base_url('CAdmin/AdminMrk/produksi') ?>">Seksi Produksi</a>
-                        <a class="collapse-item" href="<?php echo base_url('CAdmin/AdminMrk/ipds') ?>">Seksi Ipds</a>
-                    </div>
-                </div>
-            </li>
             <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item <?php if ($title == "Data CKP Saya" || $title == "Data CKP Pegawai" || $title == "Detail CKP") {
-                                    echo "active";
-                                } ?>">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>CKP</span>
-                </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <!-- <h6 class="collapse-header">Custom Utilities:</h6> -->
-                        <a class="collapse-item" href="<?php echo base_url('CAdmin/AdminCkp/ckp_pegawai') ?>">CKP Pegawai</a>
-                        <a class="collapse-item" href="<?php echo base_url('CAdmin/AdminCkp/index') ?>">CKP Anda</a>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item <?php if ($title == "Daftar Tugas") {
                                     echo "active";
                                 } ?>">
-                <a class="nav-link" href="<?php echo base_url('CAdmin/AdminTugas/tugas') ?>">
+                <a class="nav-link" href="<?php echo base_url('COperator/OperatorTugas/tugas') ?>">
                     <i class="fas fa-fw fa-address-book"></i>
-                    <span>Tugas Saya</span></a>
+                    <span>Tugas Saya</span>
+                </a>
             </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Kelola
-            </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item <?php if ($title == "Daftar Pegawai" || $title == "Tambah Pegawai" || $title == "Edit Pegawai" || $title == "Detail Data Pegawai") {
+            <li class="nav-item <?php if ($title == "Data CKP") {
                                     echo "active";
                                 } ?>">
-                <a class="nav-link" href="<?php echo base_url('CAdmin/AdminPengguna/daftar_pegawai') ?>">
-                    <i class="fas fa-fw fa-address-book"></i>
-                    <span>Pengguna</span></a>
+                <a class="nav-link" href="<?php echo base_url('COperator/OperatorCkp/index') ?>">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>CKP Saya</span></a>
             </li>
-            </li>
-
-            <!-- Nav Item - Charts -->
-            <!-- <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-male"></i>
-                    <span>Log Out</span></a>
-            </li> -->
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -305,15 +253,15 @@
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown" id="collapseUser">
-                                <a class="dropdown-item" href="<?= base_url(); ?>CAdmin/AdminPengguna/pengaturan_akun/<?= $_SESSION['id_user'] ?>">
+                                <a class="dropdown-item" href="<?php echo base_url('CAdmin/AdminPengguna/pengaturan_akun') ?>">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Pengaturan Akun
-                                    </href=>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        Keluar
-                                    </a>
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Keluar
+                                </a>
                             </div>
                         </li>
 
