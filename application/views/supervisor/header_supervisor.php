@@ -66,20 +66,9 @@
             <li class="nav-item <?php if ($title == "Tabel MRK" || $title == "Tambah MRK" || $title == "Detail MRK" || $title == "Edit MRK") {
                                     echo "active";
                                 } ?>">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+                <a class="nav-link" href="<?php echo base_url()?>CSupervisor/SupervisorMrk/mainTabel/<?php echo $this->session->userdata('bagian');?>">
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>MRK</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <!-- <h6 class="collapse-header">Custom Utilities:</h6> -->
-                        <a class="collapse-item" href="<?php echo base_url('CAdmin/AdminMrk/distribusi') ?>">Seksi Distribusi</a>
-                        <a class="collapse-item" href="<?php echo base_url('CAdmin/AdminMrk/sosial') ?>">Seksi Sosial</a>
-                        <a class="collapse-item" href="<?php echo base_url('CAdmin/AdminMrk/nerwilis') ?>">Seksi Nerwilis</a>
-                        <a class="collapse-item" href="<?php echo base_url('CAdmin/AdminMrk/produksi') ?>">Seksi Produksi</a>
-                        <a class="collapse-item" href="<?php echo base_url('CAdmin/AdminMrk/ipds') ?>">Seksi Ipds</a>
-                    </div>
-                </div>
+                    <span>MRK</span></a>
             </li>
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item <?php if ($title == "Data CKP Saya" || $title == "Data CKP Pegawai" || $title == "Detail CKP") {
