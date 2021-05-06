@@ -54,23 +54,23 @@
                                             <td>
                                                 <?php if ($u->status == '1') {
                                                 ?>
-                                                    <a href="<?php echo base_url('Cadmin/AdminMrk/penugasan_mrk/<?= $u->id_mrk; ?>') ?>" class="btn btn-primary btn-circle btn-sm">
+                                                    <a href="<?php echo base_url('CAdmin/AdminMrk/penugasan_mrk_nrw/') ?><?php echo $u->id_mrk ?>" class="btn btn-primary btn-circle btn-sm">
                                                         <i class="fas fa-user-check"></i>
                                                     </a>
                                                 <?php
                                                 } else {
                                                 ?>
-                                                    <a href="<?php echo base_url('Cadmin/AdminMrk/penugasan_mrk/<?= $u->id_mrk; ?>') ?>" class="btn btn-primary btn-circle btn-sm">
+                                                    <a href="<?php echo base_url('CAdmin/AdminMrk/penugasan_mrk_nrw/') ?><?php echo $u->id_mrk ?>" class="btn btn-primary btn-circle btn-sm">
                                                         <i class="fas fa-user-plus"></i>
+                                                    </a>
+                                                    <a href="<?php echo base_url('CAdmin/AdminMrk/edit_mrk_nrw/') ?><?php echo $u->id_mrk ?>" class="btn btn-warning btn-circle btn-sm">
+                                                        <i class="fas fa-edit"></i>
+                                                    </a>
+                                                    <a href="<?php echo base_url('CAdmin/AdminMrk/hapus_mrk_nrw/') ?><?php echo $u->id_mrk ?>" class="btn btn-danger btn-circle btn-sm">
+                                                        <i class="fas fa-trash"></i>
                                                     </a>
                                                 <?php
                                                 } ?>
-                                                <a href="<?php echo base_url('Cadmin/AdminMrk/edit_mrk/<?= $u->id_mrk; ?>') ?>" class="btn btn-warning btn-circle btn-sm">
-                                                    <i class="fas fa-edit"></i>
-                                                </a>
-                                                <a href="<?php echo base_url('Cadmin/AdminMrk/hapus_mrk/<?= $u->id_mrk; ?>') ?>" class="btn btn-danger btn-circle btn-sm">
-                                                    <i class="fas fa-trash"></i>
-                                                </a>
                                             </td>
                                         </tr>
                                     <?php
