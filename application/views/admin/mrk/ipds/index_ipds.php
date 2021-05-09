@@ -54,7 +54,7 @@
                                             <td>
                                                 <?php if ($u->status == '1') {
                                                 ?>
-                                                    <a href="<?php echo base_url('CAdmin/AdminMrk/penugasan_mrk_ipds/') ?><?php echo $u->id_mrk ?>" class="btn btn-primary btn-circle btn-sm">
+                                                    <a href="<?php echo base_url('CAdmin/AdminMrk/edit_penugasan_mrk_ipds/') ?><?php echo $u->id_mrk ?>" class="btn btn-primary btn-circle btn-sm">
                                                         <i class="fas fa-user-check"></i>
                                                     </a>
                                                 <?php

@@ -88,5 +88,25 @@ class admin_mrk extends CI_Model
         $this->db->update('mrk', $data, array('id_mrk' => $post['id_mrk']));
     }
 
+    public function getTugasByMrk($id)
+    {
+        $query = $this->db->get_where('tugas', array('id_mrk' => $id));
+        return $query->row_array();
+    }
+
+    public function proses_edit_tugas()
+    {
+        $post = $this->input->post();
+        $data = [
+            "id_mrk" => $this->input->post('id_mrk', true),
+            "id_tugas" => $this->input->post('id_tugas', true),
+            "id_user" => $this->input->post('id_user', true),
+            "bulan" => $this->input->post('bulan', true),
+            "tahun" => $this->input->post('tahun', true),
+        ];
+
+        $this->db->update('tugas', $data, array('id_tugas' => $post['id_tugas']));
+    }
+
 }
 ?>

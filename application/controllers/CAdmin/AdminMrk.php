@@ -430,7 +430,7 @@ class AdminMrk extends CI_Controller
 			} else {
 				$this->admin_mrk->proses_tambah_tugas();
 				$this->admin_mrk->proses_edit_status();
-				echo "<script>alert('Anda berhasil mengedit data');</script>";
+				echo "<script>alert('Anda berhasil menambah data');</script>";
 				redirect('CAdmin/AdminMrk/distribusi', 'refresh');
 			}
 		} else {
@@ -455,7 +455,7 @@ class AdminMrk extends CI_Controller
 			} else {
 				$this->admin_mrk->proses_tambah_tugas();
 				$this->admin_mrk->proses_edit_status();
-				echo "<script>alert('Anda berhasil mengedit data');</script>";
+				echo "<script>alert('Anda berhasil menambah data');</script>";
 				redirect('CAdmin/AdminMrk/ipds', 'refresh');
 			}
 		} else {
@@ -480,7 +480,7 @@ class AdminMrk extends CI_Controller
 			} else {
 				$this->admin_mrk->proses_tambah_tugas();
 				$this->admin_mrk->proses_edit_status();
-				echo "<script>alert('Anda berhasil mengedit data');</script>";
+				echo "<script>alert('Anda berhasil menambah data');</script>";
 				redirect('CAdmin/AdminMrk/nerwilis', 'refresh');
 			}
 		} else {
@@ -505,7 +505,7 @@ class AdminMrk extends CI_Controller
 			} else {
 				$this->admin_mrk->proses_tambah_tugas();
 				$this->admin_mrk->proses_edit_status();
-				echo "<script>alert('Anda berhasil mengedit data');</script>";
+				echo "<script>alert('Anda berhasil menambah data');</script>";
 				redirect('CAdmin/AdminMrk/produksi', 'refresh');
 			}
 		} else {
@@ -530,6 +530,132 @@ class AdminMrk extends CI_Controller
 			} else {
 				$this->admin_mrk->proses_tambah_tugas();
 				$this->admin_mrk->proses_edit_status();
+				echo "<script>alert('Anda berhasil menambah data');</script>";
+				redirect('CAdmin/AdminMrk/sosial', 'refresh');
+			}
+		} else {
+			redirect('Login/logout');
+		}
+	}
+
+	//EDIT PENUGASAN
+	public function edit_penugasan_mrk_dis($id)
+	{
+		if (isset($_SESSION['id_user'])) {
+
+			$data['title'] = "Penugasan MRK";
+			$data['user'] = $this->admin_pengguna->all();
+			$data['mrk'] = $this->admin_mrk->getMrkById($id);
+			$data['tugas'] = $this->admin_mrk->getTugasByMrk($id);
+
+			$this->form_validation->set_rules('id_user', 'id_user', 'required');
+
+			if ($this->form_validation->run() == FALSE) {
+				$this->load->view('admin/header_admin', $data);
+				$this->load->view('admin/mrk/distribusi/edit_tugas_mrk', $data);
+				$this->load->view('admin/footer_admin', $data);
+			} else {
+				$this->admin_mrk->proses_edit_tugas();
+				echo "<script>alert('Anda berhasil mengedit data');</script>";
+				redirect('CAdmin/AdminMrk/distribusi', 'refresh');
+			}
+		} else {
+			redirect('Login/logout');
+		}
+	}
+
+	public function edit_penugasan_mrk_ipds($id)
+	{
+		if (isset($_SESSION['id_user'])) {
+
+			$data['title'] = "Penugasan MRK";
+			$data['user'] = $this->admin_pengguna->all();
+			$data['mrk'] = $this->admin_mrk->getMrkById($id);
+			$data['tugas'] = $this->admin_mrk->getTugasByMrk($id);
+
+			$this->form_validation->set_rules('id_user', 'id_user', 'required');
+
+			if ($this->form_validation->run() == FALSE) {
+				$this->load->view('admin/header_admin', $data);
+				$this->load->view('admin/mrk/ipds/edit_tugas_mrk', $data);
+				$this->load->view('admin/footer_admin', $data);
+			} else {
+				$this->admin_mrk->proses_edit_tugas();
+				echo "<script>alert('Anda berhasil mengedit data');</script>";
+				redirect('CAdmin/AdminMrk/ipds', 'refresh');
+			}
+		} else {
+			redirect('Login/logout');
+		}
+	}
+
+	public function edit_penugasan_mrk_nrw($id)
+	{
+		if (isset($_SESSION['id_user'])) {
+
+			$data['title'] = "Penugasan MRK";
+			$data['user'] = $this->admin_pengguna->all();
+			$data['mrk'] = $this->admin_mrk->getMrkById($id);
+			$data['tugas'] = $this->admin_mrk->getTugasByMrk($id);
+
+			$this->form_validation->set_rules('id_user', 'id_user', 'required');
+
+			if ($this->form_validation->run() == FALSE) {
+				$this->load->view('admin/header_admin', $data);
+				$this->load->view('admin/mrk/nerwilis/edit_tugas_mrk', $data);
+				$this->load->view('admin/footer_admin', $data);
+			} else {
+				$this->admin_mrk->proses_edit_tugas();
+				echo "<script>alert('Anda berhasil mengedit data');</script>";
+				redirect('CAdmin/AdminMrk/nerwilis', 'refresh');
+			}
+		} else {
+			redirect('Login/logout');
+		}
+	}
+
+	public function edit_penugasan_mrk_prod($id)
+	{
+		if (isset($_SESSION['id_user'])) {
+
+			$data['title'] = "Penugasan MRK";
+			$data['user'] = $this->admin_pengguna->all();
+			$data['mrk'] = $this->admin_mrk->getMrkById($id);
+			$data['tugas'] = $this->admin_mrk->getTugasByMrk($id);
+
+			$this->form_validation->set_rules('id_user', 'id_user', 'required');
+
+			if ($this->form_validation->run() == FALSE) {
+				$this->load->view('admin/header_admin', $data);
+				$this->load->view('admin/mrk/produksi/edit_tugas_mrk', $data);
+				$this->load->view('admin/footer_admin', $data);
+			} else {
+				$this->admin_mrk->proses_edit_tugas();
+				echo "<script>alert('Anda berhasil mengedit data');</script>";
+				redirect('CAdmin/AdminMrk/produksi', 'refresh');
+			}
+		} else {
+			redirect('Login/logout');
+		}
+	}
+
+	public function edit_penugasan_mrk_sos($id)
+	{
+		if (isset($_SESSION['id_user'])) {
+
+			$data['title'] = "Penugasan MRK";
+			$data['user'] = $this->admin_pengguna->all();
+			$data['mrk'] = $this->admin_mrk->getMrkById($id);
+			$data['tugas'] = $this->admin_mrk->getTugasByMrk($id);
+
+			$this->form_validation->set_rules('id_user', 'id_user', 'required');
+
+			if ($this->form_validation->run() == FALSE) {
+				$this->load->view('admin/header_admin', $data);
+				$this->load->view('admin/mrk/sosial/edit_tugas_mrk', $data);
+				$this->load->view('admin/footer_admin', $data);
+			} else {
+				$this->admin_mrk->proses_edit_tugas();
 				echo "<script>alert('Anda berhasil mengedit data');</script>";
 				redirect('CAdmin/AdminMrk/sosial', 'refresh');
 			}
@@ -537,4 +663,5 @@ class AdminMrk extends CI_Controller
 			redirect('Login/logout');
 		}
 	}
+
 }
