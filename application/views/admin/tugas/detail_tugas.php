@@ -88,7 +88,54 @@
                                         </tr>
                                         <tr>
                                             <th>Terakhir Diubah</th>
-                                            <td><?= $tugas['tgl_ubah']; ?></td>
+                                            <td><?php 
+                                                    if (date("l", strtotime($tugas['tgl_ubah'])) == "Monday" ) {
+                                                         echo "Senin, ";
+                                                     } if (date("l", strtotime($tugas['tgl_ubah'])) == "Tuesday" ) {
+                                                         echo "Selasa, ";
+                                                     } if (date("l", strtotime($tugas['tgl_ubah'])) == "Wednesday" ) {
+                                                         echo "Rabu, ";
+                                                     } if (date("l", strtotime($tugas['tgl_ubah'])) == "Thursday" ) {
+                                                         echo "Kamis, ";
+                                                     } if (date("l", strtotime($tugas['tgl_ubah'])) == "Friday" ) {
+                                                         echo "Jum'at, ";
+                                                     } if (date("l", strtotime($tugas['tgl_ubah'])) == "Saturday" ) {
+                                                         echo "Sabtu, ";
+                                                     } if (date("l", strtotime($tugas['tgl_ubah'])) == "Sunday" ) {
+                                                         echo "Minggu, ";
+                                                     } 
+                                                    echo date("d", strtotime($tugas['tgl_ubah']));
+                                                    echo " ";
+
+                                                    if (date("m", strtotime($tugas['tgl_ubah'])) == '01') {
+                                                        echo "Januari ";
+                                                    }  if (date("m", strtotime($tugas['tgl_ubah'])) == '02') {
+                                                        echo "Februari ";
+                                                    }  if (date("m", strtotime($tugas['tgl_ubah'])) == '03') {
+                                                        echo "Maret ";
+                                                    }  if (date("m", strtotime($tugas['tgl_ubah'])) == '04') {
+                                                        echo "April ";
+                                                    }  if (date("m", strtotime($tugas['tgl_ubah'])) == '05') {
+                                                        echo "Mei ";
+                                                    }  if (date("m", strtotime($tugas['tgl_ubah'])) == '06') {
+                                                        echo "Juni ";
+                                                    }  if (date("m", strtotime($tugas['tgl_ubah'])) == '07') {
+                                                        echo "Juli ";
+                                                    }  if (date("m", strtotime($tugas['tgl_ubah'])) == '08') {
+                                                        echo "Agustus ";
+                                                    }  if (date("m", strtotime($tugas['tgl_ubah'])) == '09') {
+                                                        echo "September ";
+                                                    }  if (date("m", strtotime($tugas['tgl_ubah'])) == '10') {
+                                                        echo "Oktober ";
+                                                    }  if (date("m", strtotime($tugas['tgl_ubah'])) == '11') {
+                                                        echo "November ";
+                                                    }  if (date("m", strtotime($tugas['tgl_ubah'])) == '12') {
+                                                        echo "Desember ";
+                                                    }
+
+                                                    echo date("Y", strtotime($tugas['tgl_ubah']));
+                                                ?>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <th>Laporan</th>
