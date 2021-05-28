@@ -10,7 +10,7 @@ class admin_mrk extends CI_Model
 	//TABEL MRK
 	public function tabel($bagian)
 	{
-		$query = $this->db->get_where('mrk', array('bagian' => $bagian));
+		$query = $this->db->get_where('mrk', array('bag' => $bagian));
         return $query->result();
 	}
 
@@ -23,7 +23,7 @@ class admin_mrk extends CI_Model
             "kegiatan" => $this->input->post('kegiatan', true),
             "volume" => $this->input->post('volume', true),
             "satuan" => $this->input->post('satuan', true),
-            "bagian" => $this->input->post('bagian', true),
+            "bag" => $this->input->post('bagian', true),
             "tahun" => $this->input->post('tahun', true),
         ];
         $this->db->insert('mrk', $data);
@@ -45,7 +45,7 @@ class admin_mrk extends CI_Model
             "kegiatan" => $this->input->post('kegiatan', true),
             "volume" => $this->input->post('volume', true),
             "satuan" => $this->input->post('satuan', true),
-            "bagian" => $this->input->post('bagian', true),
+            "bag" => $this->input->post('bagian', true),
             "tahun" => $this->input->post('tahun', true),
         ];
 
@@ -64,7 +64,6 @@ class admin_mrk extends CI_Model
             "id_mrk" => $this->input->post('id_mrk', true),
             "id_user" => $this->input->post('id_user', true),
             "bulan" => $this->input->post('bulan', true),
-            "tahun" => $this->input->post('tahun', true),
         ];
         $this->db->insert('tugas', $data);
     }
@@ -80,8 +79,7 @@ class admin_mrk extends CI_Model
             "kegiatan" => $this->input->post('kegiatan', true),
             "volume" => $this->input->post('volume', true),
             "satuan" => $this->input->post('satuan', true),
-            "bagian" => $this->input->post('bagian', true),
-            "tahun" => $this->input->post('tahun', true),
+            "bag" => $this->input->post('bagian', true),
             "status" => $status,
         ];
 
@@ -102,7 +100,6 @@ class admin_mrk extends CI_Model
             "id_tugas" => $this->input->post('id_tugas', true),
             "id_user" => $this->input->post('id_user', true),
             "bulan" => $this->input->post('bulan', true),
-            "tahun" => $this->input->post('tahun', true),
         ];
 
         $this->db->update('tugas', $data, array('id_tugas' => $post['id_tugas']));

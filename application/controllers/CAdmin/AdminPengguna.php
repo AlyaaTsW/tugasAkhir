@@ -90,7 +90,6 @@ class AdminPengguna extends CI_Controller
 			} else {
 				$this->admin_pengguna->proses_edit_pengguna();
 				echo "<script>alert('Anda berhasil mengedit data');</script>";
-				die();
 				redirect('CAdmin/AdminPengguna/daftar_pegawai', 'refresh');
 			}
 		} else {

@@ -93,7 +93,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <!-- <h6 class="collapse-header">Custom Utilities:</h6> -->
                         <a class="collapse-item" href="<?php echo base_url('CAdmin/AdminCkp/ckp_pegawai') ?>">CKP Pegawai</a>
-                        <a class="collapse-item" href="<?php echo base_url('CAdmin/AdminCkp/index') ?>">CKP Anda</a>
+                        <a class="collapse-item" href="<?php echo base_url('CAdmin/AdminCkp/index') ?>">CKP Saya</a>
                     </div>
                 </div>
             </li>
@@ -102,9 +102,17 @@
             <li class="nav-item <?php if ($title == "Daftar Tugas") {
                                     echo "active";
                                 } ?>">
-                <a class="nav-link" href="<?php echo base_url('CAdmin/AdminTugas/tugas') ?>">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTugas" aria-expanded="true" aria-controls="collapseTugas">
                     <i class="fas fa-fw fa-address-book"></i>
-                    <span>Tugas Saya</span></a>
+                    <span>Daftar Tugas</span>
+                </a>
+                <div id="collapseTugas" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <!-- <h6 class="collapse-header">Custom Utilities:</h6> -->
+                        <a class="collapse-item" href="#">Tugas Pegawai</a>
+                        <a class="collapse-item" href="<?php echo base_url('CAdmin/AdminTugas/tugas/'.$this->session->userdata('id_user')) ?>">Tugas Saya</a>
+                    </div>
+                </div>
             </li>
 
             <!-- Divider -->

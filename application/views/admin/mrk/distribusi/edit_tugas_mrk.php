@@ -122,7 +122,7 @@
                                                 </div>
                                                 <div class="col-sm-6 mb-3 mb-sm-0" hidden>
                                                     <label for="volume">Bagian</label>
-                                                    <input type="number" class="form-control form-control-user" id="bagian" name="bagian" value="<?= $mrk['bagian']; ?>">
+                                                    <input type="number" class="form-control form-control-user" id="bagian" name="bagian" value="<?= $mrk['bag']; ?>">
                                                     <input type="number" class="form-control form-control-user" id="id_tugas" name="id_tugas" value="<?= $tugas['id_tugas']; ?>">
                                                 </div>
                                             </div>

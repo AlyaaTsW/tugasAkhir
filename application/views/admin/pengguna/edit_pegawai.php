@@ -88,7 +88,16 @@
                                             </div>
                                             <div class="col-sm-6">
                                                 <label for="pendidikan">Pendidikan</label>
-                                                <input type="text" class="form-control form-control-user" id="pendidikan" name="pendidikan" value="<?= $user['pendidikan']; ?>">
+                                                <select class="form-control" id="pendidikan" name="pendidikan">
+                                                    <option selected>--- Pilih Pendidikan Terakhir ---</option>
+                                                    <option value="SMA" <?php if ($user['pendidikan'] == 'SMA') echo "selected"; ?>>SMA</option>
+                                                    <option value="SMK" <?php if ($user['pendidikan'] == 'SMK') echo "selected"; ?>>SMK</option>
+                                                    <option value="D3" <?php if ($user['pendidikan'] == 'D3') echo "selected"; ?>>D3</option>
+                                                    <option value="D4" <?php if ($user['pendidikan'] == 'D4') echo "selected"; ?>>D4</option>
+                                                    <option value="S1" <?php if ($user['pendidikan'] == 'S1') echo "selected"; ?>>S1</option>
+                                                    <option value="S2" <?php if ($user['pendidikan'] == 'S2') echo "selected"; ?>>S2</option>
+                                                    <option value="S3" <?php if ($user['pendidikan'] == 'S3') echo "selected"; ?>>S3</option>
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="form-group row" hidden="true">
