@@ -106,4 +106,3 @@ class admin_mrk extends CI_Model
     }
 
 }
-?>

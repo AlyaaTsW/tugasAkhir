@@ -19,7 +19,7 @@ class SupervisorMrk extends CI_Controller
 		$data['title'] = "Tabel MRK";
 		$data['mrk'] = $this->supervisor_mrk->tabel($bagian);
 		$this->load->view('supervisor/header_supervisor', $data);
-		$this->load->view('supervisor/index_mrk', $data);
+		$this->load->view('supervisor/mrk/index_mrk', $data);
 		$this->load->view('supervisor/footer_supervisor', $data);
 	}
 
@@ -36,7 +36,7 @@ class SupervisorMrk extends CI_Controller
 
 			if ($this->form_validation->run() == FALSE) {
 				$this->load->view('supervisor/header_supervisor', $data);
-				$this->load->view('supervisor/tambah_mrk', $data);
+				$this->load->view('supervisor/mrk/tambah_mrk', $data);
 				$this->load->view('supervisor/footer_supervisor', $data);
 			} else {
 				$this->supervisor_mrk->proses_tambah_mrk();
@@ -49,4 +49,3 @@ class SupervisorMrk extends CI_Controller
 		}
 	}
 }
-?>

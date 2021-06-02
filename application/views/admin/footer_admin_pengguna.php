@@ -1,11 +1,11 @@
 <!-- Footer -->
-<footer class="sticky-footer bg-white">
+<!-- <footer class="sticky-footer bg-white">
     <div class="container my-auto">
         <div class="copyright text-center my-auto">
             <span>Copyright &copy; Your Website 2020</span>
         </div>
     </div>
-</footer>
+</footer> -->
 <!-- End of Footer -->
 
 </div>
@@ -64,23 +64,25 @@
 
 <!-- Page level custom scripts -->
 <script type="text/javascript">
-      $(document).ready(function() {
-          $('#jabatan').change(function() {
-              var id = $(this).val();
-                var html = '<label for="bagian">Bagian</label>'; 
-                if (id=="Kepala" || id=="Kasubbag Umum" || id=="Bendahara") {
-                    html += '<input type="text" class="form-control form-control-user" readonly="true">';
-                    $('#level').val("admin");
-                } if (id=="Koordinator Fungsional") {
-                    html += '<select class="form-control" id="bagian" name="bagian"><option value="1">Distribusi</option><option value="2">Nerwilis</option><option value="3">Produksi</option><option value="4">Sosial</option><option value="5">IPDS</option></select>';
-                    $('#level').val("supervisor");
-                } if (id=="Statistisi Pelaksana Lanjutan" || id=="Statistisi Pertama" || id=="Statistisi Muda" || id=="Statistisi Penyelia" || id=="Statistisi Pelaksana" || id=="Fungsional Umum") {
-                    html += '<input type="text" class="form-control form-control-user" readonly="true">';
-                    $('#level').val("operator");
-                } 
-                $('#div_bagian').html(html);
-          });
-      });
+    $(document).ready(function() {
+        $('#jabatan').change(function() {
+            var id = $(this).val();
+            var html = '<label for="bagian">Bagian</label>';
+            if (id == "Kepala" || id == "Kasubbag Umum" || id == "Bendahara") {
+                html += '<input type="text" class="form-control form-control-user" readonly="true">';
+                $('#level').val("admin");
+            }
+            if (id == "Koordinator Fungsional") {
+                html += '<select class="form-control" id="bagian" name="bagian"><option value="1">Distribusi</option><option value="2">Nerwilis</option><option value="3">Produksi</option><option value="4">Sosial</option><option value="5">IPDS</option></select>';
+                $('#level').val("supervisor");
+            }
+            if (id == "Statistisi Pelaksana Lanjutan" || id == "Statistisi Pertama" || id == "Statistisi Muda" || id == "Statistisi Penyelia" || id == "Statistisi Pelaksana" || id == "Fungsional Umum") {
+                html += '<input type="text" class="form-control form-control-user" readonly="true">';
+                $('#level').val("operator");
+            }
+            $('#div_bagian').html(html);
+        });
+    });
 </script>
 
 

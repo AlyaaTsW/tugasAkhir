@@ -34,50 +34,50 @@
                                     </thead>
 
                                     <?php
-                                    $no=1;
+                                    $no = 1;
                                     foreach ($mrk as $u) {
                                     ?>
 
-                                    <tbody>
-                                        <tr>
-                                            <td><?= $no; ?></td>
-                                            <td><?php echo $u->komponen ?></td>
-                                            <td><?php echo $u->kegiatan ?></td>
-                                            <td><?php echo $u->volume ?></td>
-                                            <td><?php echo $u->satuan ?></td>
-                                            <td><?php if ($u->status == '1') {
-                                                    echo "ditugaskan";
-                                                } else {
-                                                    echo "tersedia";
-                                                } ?>
-                                            </td>
-                                            <td>
-                                                <?php if ($u->status == '1') {
-                                                ?>
-                                                    <a href="<?php echo base_url('CAdmin/AdminMrk/edit_penugasan_mrk_nrw/') ?><?php echo $u->id_mrk ?>" class="btn btn-primary btn-circle btn-sm">
-                                                        <i class="fas fa-user-check"></i>
-                                                    </a>
-                                                <?php
-                                                } else {
-                                                ?>
-                                                    <a href="<?php echo base_url('CAdmin/AdminMrk/penugasan_mrk_nrw/') ?><?php echo $u->id_mrk ?>" class="btn btn-primary btn-circle btn-sm">
-                                                        <i class="fas fa-user-plus"></i>
-                                                    </a>
-                                                    <a href="<?php echo base_url('CAdmin/AdminMrk/edit_mrk_nrw/') ?><?php echo $u->id_mrk ?>" class="btn btn-warning btn-circle btn-sm">
-                                                        <i class="fas fa-edit"></i>
-                                                    </a>
-                                                    <a href="<?php echo base_url('CAdmin/AdminMrk/hapus_mrk_nrw/') ?><?php echo $u->id_mrk ?>" class="btn btn-danger btn-circle btn-sm">
-                                                        <i class="fas fa-trash"></i>
-                                                    </a>
-                                                <?php
-                                                } ?>
-                                            </td>
-                                        </tr>
-                                    <?php
-                                            $no++;
-                                        }
-                                    ?>
-                                    </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td><?= $no; ?></td>
+                                                <td><?php echo $u->komponen ?></td>
+                                                <td><?php echo $u->kegiatan ?></td>
+                                                <td><?php echo $u->volume ?></td>
+                                                <td><?php echo $u->satuan ?></td>
+                                                <td><?php if ($u->status == '1') {
+                                                        echo "ditugaskan";
+                                                    } else {
+                                                        echo "tersedia";
+                                                    } ?>
+                                                </td>
+                                                <td>
+                                                    <?php if ($u->status == '1') {
+                                                    ?>
+                                                        <a href="<?php echo base_url('CAdmin/AdminMrk/edit_penugasan_mrk_nrw/') ?><?php echo $u->id_mrk ?>" class="btn btn-success btn-circle btn-sm">
+                                                            <i class="fas fa-user-check" title="Edit Penugasan"></i>
+                                                        </a>
+                                                    <?php
+                                                    } else {
+                                                    ?>
+                                                        <a href="<?php echo base_url('CAdmin/AdminMrk/penugasan_mrk_nrw/') ?><?php echo $u->id_mrk ?>" class="btn btn-primary btn-circle btn-sm">
+                                                            <i class="fas fa-user-plus" title="Tugaskan MRK"></i>
+                                                        </a>
+                                                        <a href="<?php echo base_url('CAdmin/AdminMrk/edit_mrk_nrw/') ?><?php echo $u->id_mrk ?>" class="btn btn-warning btn-circle btn-sm">
+                                                            <i class="fas fa-edit" title="Edit MRK"></i>
+                                                        </a>
+                                                        <a href="<?php echo base_url('CAdmin/AdminMrk/hapus_mrk_nrw/') ?><?php echo $u->id_mrk ?>" class="btn btn-danger btn-circle btn-sm">
+                                                            <i class="fas fa-trash" title="Hapus MRK"></i>
+                                                        </a>
+                                                    <?php
+                                                    } ?>
+                                                </td>
+                                            </tr>
+                                        <?php
+                                        $no++;
+                                    }
+                                        ?>
+                                        </tbody>
                                 </table>
                             </div>
                         </div>

@@ -2,7 +2,7 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Data CKP Saya</h1>
+                    <h1 class="h3 mb-2 text-gray-800">Data CKP Pegawai</h1>
                     <!--                     <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
                         For more information about DataTables, please visit the <a target="_blank"
                             href="https://datatables.net">official DataTables documentation</a>.</p>
@@ -42,6 +42,7 @@
                                     </div>
                                 </div>
                                 <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Download CKP</button>
+                                <button class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Export CKP</button>
                             </form>
                         </div>
                         <div class="card-body">
@@ -52,17 +53,17 @@
                                     <tr>
                                         <td>Satuan Organisasi</td>
                                         <td>&nbsp : &nbsp</td>
-                                        <td>Staf Seksi Statistik Sosial BPS  Kota Malang Jawa Timur</td>
+                                        <td>Staf Seksi Statistik Sosial BPS Kota Malang Jawa Timur</td>
                                     </tr>
                                     <tr>
                                         <td>Nama</td>
                                         <td>&nbsp : &nbsp</td>
-                                        <td><?php echo $this->session->userdata('nama');?></td>
+                                        <td><?php echo $this->session->userdata('nama'); ?></td>
                                     </tr>
                                     <tr>
                                         <td>Jabatan</td>
                                         <td>&nbsp : &nbsp</td>
-                                        <td><?php echo $this->session->userdata('jabatan');?></td>
+                                        <td><?php echo $this->session->userdata('jabatan'); ?></td>
                                     </tr>
                                     <tr>
                                         <td>Periode</td>
@@ -101,8 +102,8 @@
                                         </tr>
                                     </thead>
 
-                                    <?php 
-                                    $no=1;
+                                    <?php
+                                    $no = 1;
                                     ?>
                                     <tbody>
                                         <tr>
