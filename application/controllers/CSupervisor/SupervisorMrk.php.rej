@@ -1,0 +1,10 @@
+diff a/application/controllers/CSupervisor/SupervisorMrk.php b/application/controllers/CSupervisor/SupervisorMrk.php	(rejected hunks)
+@@ -19,7 +19,7 @@
+ 		$data['title'] = "Tabel MRK";
+ 		$data['mrk'] = $this->supervisor_mrk->tabel($bagian);
+ 		$this->load->view('supervisor/header_supervisor', $data);
+-		$this->load->view('supervisor/index_mrk', $data);
++		$this->load->view('supervisor/mrk/index_mrk', $data);
+ 		$this->load->view('supervisor/footer_supervisor', $data);
+ 	}
+ 

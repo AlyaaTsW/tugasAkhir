@@ -10,13 +10,13 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <form>
+                            <form action="<?= base_url('CAdmin/AdminCKP/ckp_pegawai_filtered') ?>" method="POST">
                                 <div class="form-group">
                                     <select id="pegawai" class="form-control">
                                         <option selected>Pilih Pegawai</option>
-                                        <option value="1">Pegawai 1</option>
-                                        <option value="1">Pegawai 2</option>
-                                        <option value="1">Pegawai 3</option>
+                                        <?php foreach ($user as $u) { ?>
+                                        <option value="<?php echo $u->id_user ?>"><?php echo $u->nama ?></option>
+                                        <?php } ?>
                                     </select>
                                 </div>
                                 <div class="form-group row">
@@ -38,14 +38,29 @@
                                         </select>
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control" placeholder="Tahun" aria-label="Tahun" aria-describedby="basic-addon2">
+                                        <input type="number" class="form-control" placeholder="tahun" aria-label="tahun" aria-describedby="basic-addon2">
                                     </div>
                                 </div>
-                                <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Download CKP</button>
-                                <button class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Export CKP</button>
+                                <button type="submit" name="submit" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Filter CKP</button>
                             </form>
+                            <div>
+                                <form action="<?= base_url('CAdmin/AdminCKP/ckp_pegawai_filtered') ?>" method="POST">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="pegawai1" aria-label="pegawai1" aria-describedby="basic-addon2">
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <input type="number" class="form-control" placeholder="bulan1" aria-label="bulan1" aria-describedby="basic-addon2">
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="number" class="form-control" placeholder="tahun1" aria-label="tahun1" aria-describedby="basic-addon2">
+                                        </div>
+                                    </div>
+                            </div>
+                                    <button class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Export CKP</button>
+                                </form>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body" hidden="true">
                             <h5 class="m-0 font-weight-bold" style="text-align: center;">CAPAIAN KINERJA PEGAWAI TAHUN </h5>
                             <br>
                             <div class="table-responsive">
