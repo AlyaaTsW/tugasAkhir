@@ -6,9 +6,20 @@ defined('BASEPATH') or exit('No direct script access allowed');
  */
 class admin_ckp extends CI_Model
 {
-	public function selectCkpPegawaiTahun($tahun)
+	public function selectCkpPegawai()
 	{
-		# code...
+		$tahun = $this->input->post('tahun', true);
+		$pegawai = $this->input->post('pegawai', true);
+		$bulan = $this->input->post('bulan', true);
+		$this->db->select('*');
+		$this->db->from('tugas');
+		$this->db->join('mrk','mrk.id_mrk=tugas.id_mrk');
+		$this->db->join('user','user.id_user=tugas.id_user');
+		$this->db->where('tugas.id_user', $pegawai);
+		$this->db->where('tugas.bulan', $bulan);
+		$this->db->where('mrk.tahun', $tahun);
+		$this->db->order_by("mrk.bag", "asc");
+		return $this->db->get()->result_array();
 	}
 }
 

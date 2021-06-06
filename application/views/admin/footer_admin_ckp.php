@@ -64,15 +64,19 @@
 
 <!-- Page level custom scripts -->
 <script src="<?php echo base_url('assets/js/demo/datatables-demo.js') ?>"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
-      $(document).ready(function() {
-          $('#pegawai').change(function() {
-              var peg = $(this).val();
-              $('#pegawai1').val(peg);
-          });
-      });
-  </script>
-
+        $(document).ready(function(){
+            $('#tahun').change(function(){
+                var tahun = $(this).val();
+                var pegawai = $('#pegawai').val();
+                var bulan = $('#bulan').val();
+                $.post("<?php echo base_url(); ?>CAdmin/AdminCkp/filter_ckp", {pegawai: pegawai,bulan: bulan, tahun: tahun}).done(function(data){
+                    $('#viewTabel').html(data);
+                });
+            })
+        })
+    </script>
 </body>
 
 </html>

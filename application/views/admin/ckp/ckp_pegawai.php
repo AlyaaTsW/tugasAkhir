@@ -38,104 +38,14 @@
                                         </select>
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="number" class="form-control" placeholder="tahun" aria-label="tahun" aria-describedby="basic-addon2">
+                                        <input type="number" class="form-control" placeholder="tahun" aria-label="tahun" aria-describedby="basic-addon2" id="tahun" name="tahun">
                                     </div>
                                 </div>
                                 <button type="submit" name="submit" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Filter CKP</button>
                             </form>
-                            <div>
-                                <form action="<?= base_url('CAdmin/AdminCKP/ckp_pegawai_filtered') ?>" method="POST">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="pegawai1" aria-label="pegawai1" aria-describedby="basic-addon2">
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="col-sm-6 mb-3 mb-sm-0">
-                                            <input type="number" class="form-control" placeholder="bulan1" aria-label="bulan1" aria-describedby="basic-addon2">
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <input type="number" class="form-control" placeholder="tahun1" aria-label="tahun1" aria-describedby="basic-addon2">
-                                        </div>
-                                    </div>
-                            </div>
-                                    <button class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Export CKP</button>
-                                </form>
                         </div>
-                        <div class="card-body" hidden="true">
-                            <h5 class="m-0 font-weight-bold" style="text-align: center;">CAPAIAN KINERJA PEGAWAI TAHUN </h5>
-                            <br>
-                            <div class="table-responsive">
-                                <table cellspacing="0" style="font-family: times new roman;">
-                                    <tr>
-                                        <td>Satuan Organisasi</td>
-                                        <td>&nbsp : &nbsp</td>
-                                        <td>Staf Seksi Statistik Sosial BPS Kota Malang Jawa Timur</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Nama</td>
-                                        <td>&nbsp : &nbsp</td>
-                                        <td><?php echo $this->session->userdata('nama'); ?></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Jabatan</td>
-                                        <td>&nbsp : &nbsp</td>
-                                        <td><?php echo $this->session->userdata('jabatan'); ?></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Periode</td>
-                                        <td>&nbsp : &nbsp</td>
-                                        <td>Satuan Organisasi</td>
-                                    </tr>
-                                </table>
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th rowspan="2">No</th>
-                                            <th rowspan="2">Uraian Kegiatan</th>
-                                            <th rowspan="2">Satuan</th>
-                                            <th colspan="3">Kuantitas</th>
-                                            <th rowspan="2">Tingkat Kualitas <br> (%) </th>
-                                            <th rowspan="2">Kode Butir Kegiatan</th>
-                                            <th rowspan="2">Angka Kredit</th>
-                                            <th rowspan="2">Keterangan</th>
-                                        </tr>
-                                        <tr>
-                                            <th>Target</th>
-                                            <th>Realisasi</th>
-                                            <th>%</th>
-                                        </tr>
-                                        <tr style="text-align: center;">
-                                            <th>(1)</th>
-                                            <th>(2)</th>
-                                            <th>(3)</th>
-                                            <th>(4)</th>
-                                            <th>(5)</th>
-                                            <th>(6)</th>
-                                            <th>(7)</th>
-                                            <th>(8)</th>
-                                            <th>(9)</th>
-                                            <th>(10)</th>
-                                        </tr>
-                                    </thead>
-
-                                    <?php
-                                    $no = 1;
-                                    ?>
-                                    <tbody>
-                                        <tr>
-                                            <td><?= $no; ?></td>
-                                            <td>SHPB</td>
-                                            <td>Responden</td>
-                                            <td>6</td>
-                                            <td>6</td>
-                                            <td>&nbsp</td>
-                                            <td>&nbsp</td>
-                                            <td>&nbsp</td>
-                                            <td>&nbsp</td>
-                                            <td>&nbsp</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                        <div class="card-body" id="viewTabel">
+                            
                         </div>
                     </div>
 

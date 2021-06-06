@@ -30,12 +30,130 @@ class AdminCkp extends CI_Controller
         $this->load->view('admin/footer_admin_ckp', $data);
     }
 
-    public function ckp_pegawai_filtered()
+    public function filter_ckp()
     {
-        $data['title'] = "CKP Pegawai";
-        $data['user'] = $this->admin_pengguna->all();
-        $this->load->view('admin/header_admin', $data);
-        $this->load->view('admin/ckp/ckp_pegawai_filtered', $data);
-        $this->load->view('admin/footer_admin_ckp', $data);
+        $data = $this->admin_ckp->selectCkpPegawai();
+        $no = 1;
+        foreach ($data as $u) {
+            echo '<h5 class="m-0 font-weight-bold" style="text-align: center;" id="judulTabel">CAPAIAN KINERJA PEGAWAI TAHUN '.$u['tahun'].' </h5>
+                            <br>
+                            <div class="table-responsive">
+                                <table cellspacing="0" style="font-family: times new roman;">
+                                    <tr>
+                                        <td>Satuan Organisasi</td>
+                                        <td>&nbsp : &nbsp</td>
+                                        <td>Staf Seksi Statistik Sosial BPS Kota Malang Jawa Timur</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nama</td>
+                                        <td>&nbsp : &nbsp</td>
+                                        <td id="judulNama">'.$u['nama'].'</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jabatan</td>
+                                        <td>&nbsp : &nbsp</td>
+                                        <td id="judulJabatan">'.$u['jabatan'].'</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Periode</td>
+                                        <td>&nbsp : &nbsp</td>
+                                        <td id="judulPeriode">';
+                                            if ($u['bulan'] == '1') {
+                                                echo "1 - 31 Januari ";
+                                            }
+                                            if ($u['bulan'] == '2') {
+                                                if ($u['tahun'] % 4) {
+                                                    echo "1 - 28 Februari ";
+                                                } else {
+                                                    echo "1 - 29 Februari ";
+                                                }
+                                            }
+                                            if ($u['bulan'] == '3') {
+                                                echo "1 - 31 Maret ";
+                                            }
+                                            if ($u['bulan'] == '4') {
+                                                echo "1 - 30 April ";
+                                            }
+                                            if ($u['bulan'] == '5') {
+                                                echo "1 - 31 Mei ";
+                                            }
+                                            if ($u['bulan'] == '6') {
+                                                echo "1 - 30 Juni ";
+                                            }
+                                            if ($u['bulan'] == '7') {
+                                                echo "1 - 31 Juli ";
+                                            }
+                                            if ($u['bulan'] == '8') {
+                                                echo "1 - 31 Agustus ";
+                                            }
+                                            if ($u['bulan'] == '9') {
+                                                echo "1 - 30 September ";
+                                            }
+                                            if ($u['bulan'] == '10') {
+                                                echo "1 - 31 Oktober ";
+                                            }
+                                            if ($u['bulan'] == '11') {
+                                                echo "1 - 30 November ";
+                                            }
+                                            if ($u['bulan'] == '12') {
+                                                echo "1 - 31 Desember ";
+                                            }
+
+                                            echo $u['tahun'];
+                                    echo '</td>
+                                    </tr>
+                                </table>
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th rowspan="2">No</th>
+                                            <th rowspan="2">Uraian Kegiatan</th>
+                                            <th rowspan="2">Satuan</th>
+                                            <th colspan="3">Kuantitas</th>
+                                            <th rowspan="2">Tingkat Kualitas <br> (%) </th>
+                                            <th rowspan="2">Kode Butir Kegiatan</th>
+                                            <th rowspan="2">Angka Kredit</th>
+                                            <th rowspan="2">Keterangan</th>
+                                        </tr>
+                                        <tr>
+                                            <th>Target</th>
+                                            <th>Realisasi</th>
+                                            <th>%</th>
+                                        </tr>
+                                        <tr style="text-align: center;">
+                                            <th>(1)</th>
+                                            <th>(2)</th>
+                                            <th>(3)</th>
+                                            <th>(4)</th>
+                                            <th>(5)</th>
+                                            <th>(6)</th>
+                                            <th>(7)</th>
+                                            <th>(8)</th>
+                                            <th>(9)</th>
+                                            <th>(10)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tabelBody">';
+                                    break;
+        }
+        foreach ($data as $u) {
+            echo '<tr>';
+            echo '<td>'.$no++.'</td>';
+            echo '<td>'.$u['kegiatan'].'</td>';
+            echo '<td>'.$u['satuan'].'</td>';
+            echo '<td>'.$u['volume'].'</td>';
+            echo '<td>'.$u['realisasi'].'</td>';
+            echo '<td>'.$u['persen'].'</td>';
+            echo '<td>&nbsp</td>';
+            echo '<td>&nbsp</td>';
+            echo '<td>&nbsp</td>';
+            echo '<td>&nbsp</td>';
+            echo '</tr>';
+        }
+
+        echo "
+                                    </tbody>
+                                </table>
+                            </div>";
     }
 }
