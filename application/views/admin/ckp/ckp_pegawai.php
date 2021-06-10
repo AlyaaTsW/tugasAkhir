@@ -10,9 +10,9 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <form action="<?= base_url('CAdmin/AdminCKP/exportCKP') ?>" method="POST">
+                            <form action="<?= base_url('CAdmin/AdminExport/export') ?>" method="POST">
                                 <div class="form-group">
-                                    <select id="pegawai" class="form-control">
+                                    <select id="pegawai" name="pegawai" class="form-control">
                                         <option selected>Pilih Pegawai</option>
                                         <?php foreach ($user as $u) { ?>
                                         <option value="<?php echo $u->id_user ?>"><?php echo $u->nama ?></option>
@@ -21,7 +21,7 @@
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <select id="bulan" class="form-control">
+                                        <select id="bulan" name="bulan" class="form-control">
                                             <option selected>Pilih Bulan</option>
                                             <option value="1">Januari</option>
                                             <option value="2">Februari</option>
