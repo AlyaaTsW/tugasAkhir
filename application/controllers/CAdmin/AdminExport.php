@@ -23,6 +23,7 @@ class AdminExport extends CI_Controller
         $hasil['sosial'] = $this->admin_ckp->countCkpPegawai(4);
         $hasil['ipds'] = $this->admin_ckp->countCkpPegawai(5);
         $all = $this->admin_ckp->countAllCkpPegawai();
+        $hasil['kepala'] = $this->admin_pengguna->getKepalaBps();
 
         if ($all == 0) {
             echo "<script>alert('Data CKP Tidak Tersedia');</script>";

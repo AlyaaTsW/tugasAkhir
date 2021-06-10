@@ -113,7 +113,7 @@ class AdminCkp extends CI_Controller
                                     echo '</td>
                                     </tr>
                                 </table>
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered table-responsive" id="dataTable" cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th rowspan="2">No</th>
@@ -143,12 +143,31 @@ class AdminCkp extends CI_Controller
                                             <th>(10)</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="tabelBody">';
+                                    <tbody id="tabelBody">
+                                    <tr>
+                                        <td colspan="2"><b>UTAMA</b></td>
+                                        <td>&nbsp</td>
+                                        <td>&nbsp</td>
+                                        <td>&nbsp</td>
+                                        <td>&nbsp</td>
+                                        <td>&nbsp</td>
+                                        <td>&nbsp</td>
+                                        <td>&nbsp</td>
+                                        <td>&nbsp</td>
+                                    </tr>';
                                     break;
         }
         if ($distribusi > 0) {
             echo '<tr>';
-            echo '<td colspan="10">Distribusi</td>';
+            echo '<td colspan="2"><b>Distribusi</b></td>';
+            echo '<td>&nbsp</td>';
+            echo '<td>&nbsp</td>';
+            echo '<td>&nbsp</td>';
+            echo '<td>&nbsp</td>';
+            echo '<td>&nbsp</td>';
+            echo '<td>&nbsp</td>';
+            echo '<td>&nbsp</td>';
+            echo '<td>&nbsp</td>';
             echo '<tr>';
             foreach ($data as $u) {
                 if ($u['bag']== '1') {
@@ -174,7 +193,15 @@ class AdminCkp extends CI_Controller
         }
         if ($nerwilis > 0) {
             echo '<tr>';
-            echo '<td colspan="10">Nerwilis</td>';
+            echo '<td colspan="2"><b>Nerwilis</b></td>';
+            echo '<td>&nbsp</td>';
+            echo '<td>&nbsp</td>';
+            echo '<td>&nbsp</td>';
+            echo '<td>&nbsp</td>';
+            echo '<td>&nbsp</td>';
+            echo '<td>&nbsp</td>';
+            echo '<td>&nbsp</td>';
+            echo '<td>&nbsp</td>';
             echo '<tr>';
             foreach ($data as $u) {
                 if ($u['bag']== '2') {
@@ -200,7 +227,15 @@ class AdminCkp extends CI_Controller
         }
         if ($produksi > 0) {
             echo '<tr>';
-            echo '<td colspan="10">Produksi</td>';
+            echo '<td colspan="2"><b>Produksi</b></td>';
+            echo '<td>&nbsp</td>';
+            echo '<td>&nbsp</td>';
+            echo '<td>&nbsp</td>';
+            echo '<td>&nbsp</td>';
+            echo '<td>&nbsp</td>';
+            echo '<td>&nbsp</td>';
+            echo '<td>&nbsp</td>';
+            echo '<td>&nbsp</td>';
             echo '<tr>';
             foreach ($data as $u) {
                 if ($u['bag']== '3') {
@@ -226,7 +261,15 @@ class AdminCkp extends CI_Controller
         }
         if ($sosial > 0) {
             echo '<tr>';
-            echo '<td colspan="10">Sosial</td>';
+            echo '<td colspan="2"><b>Sosial</b></td>';
+            echo '<td>&nbsp</td>';
+            echo '<td>&nbsp</td>';
+            echo '<td>&nbsp</td>';
+            echo '<td>&nbsp</td>';
+            echo '<td>&nbsp</td>';
+            echo '<td>&nbsp</td>';
+            echo '<td>&nbsp</td>';
+            echo '<td>&nbsp</td>';
             echo '<tr>';
             foreach ($data as $u) {
                 if ($u['bag']== '4') {
@@ -252,7 +295,15 @@ class AdminCkp extends CI_Controller
         }
         if ($ipds > 0) {
             echo '<tr>';
-            echo '<td colspan="10">IPDS</td>';
+            echo '<td colspan="2"><b>IPDS</b></td>';
+            echo '<td>&nbsp</td>';
+            echo '<td>&nbsp</td>';
+            echo '<td>&nbsp</td>';
+            echo '<td>&nbsp</td>';
+            echo '<td>&nbsp</td>';
+            echo '<td>&nbsp</td>';
+            echo '<td>&nbsp</td>';
+            echo '<td>&nbsp</td>';
             echo '<tr>';
             foreach ($data as $u) {
                 if ($u['bag']== '5') {
@@ -276,10 +327,62 @@ class AdminCkp extends CI_Controller
                 }
             }
         }
-        echo "
-                                    </tbody>
-                                </table>
-                            </div>";
+        echo '
+                    <tr>
+                        <td colspan="2"><b>TAMBAHAN</b></td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                    </tr>
+                    <tr>
+                        <td colspan="8"><b>JUMLAH</b></td>
+                        <td>&nbsp</td>
+                        <td class="table-active">&nbsp</td>
+                    </tr>
+                    <tr>
+                        <td colspan="5"><b>RATA-RATA</b></td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td rowspan="2">&nbsp</td>
+                        <td class="table-active" rowspan="2">&nbsp</td>
+                        <td class="table-active" rowspan="2">&nbsp</td>
+                    </tr>
+                    <tr>
+                        <td colspan="5"><b>CAPAIAN KINERJA PEGAWAI (CKP)</b></td>
+                        <td colspan="2">&nbsp</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>';
     }
 
     public function TambahRealisasi()

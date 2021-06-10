@@ -53,4 +53,12 @@ class admin_pengguna extends CI_Model
     {
         return $this->db->delete('user', array("id_user" => $id));
     }
+
+    public function getKepalaBps()
+    {
+        $this->db->select('*');
+        $this->db->from('user');
+        $this->db->where('jabatan', 'Kepala');
+        return $this->db->get()->result_array();
+    }
 }
