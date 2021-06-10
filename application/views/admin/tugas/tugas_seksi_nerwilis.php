@@ -15,6 +15,7 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
+                                            <th>Nama Pegawai</th>
                                             <th>Komponen</th>
                                             <th>Kegiatan</th>
                                             <th>Bagian</th>
@@ -32,6 +33,7 @@
                                         <tbody>
                                             <tr>
                                                 <td><?= $no; ?></td>
+                                                <td><?php echo $u->id_user ?></td>
                                                 <td><?php echo $u->komponen ?></td>
                                                 <td><?php echo $u->kegiatan ?></td>
                                                 <td>
@@ -107,15 +109,18 @@
                                                 </td>
                                                 <td><?php if ($u->laporan == '0') {
                                                     ?>
-                                                        <a href="<?= base_url('CAdmin/AdminTugas/detailTugas/' . $u->id_tugas) ?>" class="btn btn-primary btn-circle btn-sm" title="Tambahkan Laporan">
-                                                            <i class="fa fa-file"></i>
+                                                        <a href="<?= base_url('CAdmin/AdminTugas/detailTugas/' . $u->id_tugas) ?>" class="btn btn-primary btn-sm" title="Tambahkan Laporan">
+                                                            <i class="fa fa-file fa-sm">Kumpulkan</i>
                                                         </a>
                                                     <?php
                                                     }
                                                     if ($u->laporan == '1') {
                                                     ?>
-                                                        <a href="<?= base_url('CAdmin/AdminTugas/detailTugas/' . $u->id_tugas) ?>" class="btn btn-success btn-circle btn-sm" title="Edit Laporan">
-                                                            <i class="fa fa-file-archive"></i>
+                                                        <a href="<?= base_url('CAdmin/AdminTugas/detailTugas2/' . $u->id_tugas) ?><?= base_url('CAdmin/AdminTugas/detailTugas/' . $u->id_tugas) ?>" class="btn btn-success btn-sm btn-circle" title="Lihat Laporan">
+                                                            <i class="fa fa-eye fa-sm"></i>
+                                                        </a>
+                                                        <a href="<?= base_url('CAdmin/AdminTugas/detailTugas/' . $u->id_tugas) ?>" class="btn btn-success btn-sm" title="Edit Laporan">
+                                                            <i class="fa fa-edit fa-sm">Edit</i>
                                                         </a>
                                                     <?php
                                                     }

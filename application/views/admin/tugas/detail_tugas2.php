@@ -10,7 +10,7 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Edit Laporan Tugas Pegawai</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Detail Data Tugas Pegawai</h6>
                             <!-- <a href="#" class="btn btn-info btn-icon-split">
                                 <span class="icon text-white-50">
                                     <i class="fas fa-folder-plus"></i>
@@ -180,22 +180,6 @@
                                                 } else { ?>
                                                     <a href="<?= base_url('upload/' . $tugas['file']) ?>"><?= $tugas['file']; ?></a>
                                                 <?php } ?>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th>File</th>
-                                            <td>
-                                                <form action="<?= base_url('CAdmin/AdminTugas/actionLaporan/' . $tugas['id_tugas']) ?>" method="POST" enctype="multipart/form-data">
-                                                    <input type="hidden" class="form-control" id="tgl_ubah" name="tgl_ubah" value="<?php echo date("Y-m-d") ?>">
-                                                    <input type="hidden" class="form-control" id="id_tugas" name="id_tugas" value="<?= $tugas['id_tugas']; ?>">
-                                                    <input type="file" name="file" id="file">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th></th>
-                                            <td>
-                                                <input type="submit" name="submit" id="submit" class="btn btn-primary float-left">
-                                                </form>
                                             </td>
                                         </tr>
                                     </table>

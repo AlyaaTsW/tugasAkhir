@@ -13,11 +13,31 @@ class OperatorTugas extends CI_Controller
 		$this->load->view('operator/footer_operator', $data);
 	}
 
-	public function pengaturan()
+	public function pengaturan_akun($id)
 	{
-		$data['title'] = "Akun Anda";
-		$this->load->view('admin/header_admin', $data);
-		$this->load->view('admin/pengguna/pengaturan_akun', $data);
-		$this->load->view('admin/footer_admin', $data);
+		if (isset($_SESSION['id_user'])) {
+
+			$data['title'] = 'Pengaturan Akun';
+			$data['user'] = $this->admin_pengguna->getPenggunaById($id);
+
+			$this->form_validation->set_rules('nama', 'nama', 'required');
+			$this->form_validation->set_rules('nip', 'nip', 'required');
+			$this->form_validation->set_rules('jabatan', 'jabatan', 'required');
+			$this->form_validation->set_rules('email', 'email', 'required');
+			$this->form_validation->set_rules('password', 'password', 'required');
+			$this->form_validation->set_rules('pendidikan', 'pendidikan', 'required');
+
+			if ($this->form_validation->run() == FALSE) {
+				$this->load->view('operator/header_operator', $data);
+				$this->load->view('operator/pengaturan_akun', $data);
+				$this->load->view('operator/footer_operator', $data);
+			} else {
+				$this->admin_pengguna->proses_edit_pengguna();
+				echo "<script>alert('Anda berhasil mengedit akun');</script>";
+				redirect('COperator/OperatorTugas/pengaturan_akun/' . $id, 'refresh');
+			}
+		} else {
+			redirect('CLogin/logout');
+		}
 	}
 }

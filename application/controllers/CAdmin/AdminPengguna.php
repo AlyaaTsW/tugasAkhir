@@ -113,13 +113,7 @@ class AdminPengguna extends CI_Controller
 		}
 	}
 
-	// public function pengaturan_akun()
-	// {
-	// 	$data['title'] = "Pengaturan Akun Anda";
-	// 	$this->load->view('admin/header_admin', $data);
-	// 	$this->load->view('admin/pengguna/pengaturan_akun', $data);
-	// 	$this->load->view('admin/footer_admin', $data);
-	// }
+
 
 	public function pengaturan_akun($id)
 	{

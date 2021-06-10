@@ -54,8 +54,8 @@
                                                 <td>
                                                     <?php if ($u->status == '1') {
                                                     ?>
-                                                        <a href="<?php echo base_url('CAdmin/AdminMrk/edit_penugasan_mrk_nrw/') ?><?php echo $u->id_mrk ?>" class="btn btn-success btn-circle btn-sm">
-                                                            <i class="fas fa-user-check" title="Edit Penugasan"></i>
+                                                        <a href="<?php echo base_url('CAdmin/AdminMrk/edit_penugasan_mrk_nrw/') ?><?php echo $u->id_mrk ?>" class="btn btn-success btn-sm">
+                                                            <i class="fas fa-user-check fa-sm" title="Edit Penugasan"> Edit penugasan</i>
                                                         </a>
                                                     <?php
                                                     } else {
@@ -66,7 +66,7 @@
                                                         <a href="<?php echo base_url('CAdmin/AdminMrk/edit_mrk_nrw/') ?><?php echo $u->id_mrk ?>" class="btn btn-warning btn-circle btn-sm">
                                                             <i class="fas fa-edit" title="Edit MRK"></i>
                                                         </a>
-                                                        <a href="<?php echo base_url('CAdmin/AdminMrk/hapus_mrk_nrw/') ?><?php echo $u->id_mrk ?>" class="btn btn-danger btn-circle btn-sm">
+                                                        <a href="<?php echo base_url('CAdmin/AdminMrk/hapus_mrk_nrw/') ?><?php echo $u->id_mrk ?>" class="btn btn-danger btn-circle btn-sm" onclick="return confirm('Apakah yakin data MRK tersebut akan dihapus?')">
                                                             <i class="fas fa-trash" title="Hapus MRK"></i>
                                                         </a>
                                                     <?php

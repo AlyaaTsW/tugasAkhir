@@ -98,6 +98,15 @@ class AdminTugas extends CI_Controller
 		$this->load->view('admin/footer_admin', $data);
 	}
 
+	public function detailTugas2($id)
+	{
+		$data['title'] = "Daftar Tugas";
+		$data['tugas'] = $this->admin_tugas->selectTugasById($id);
+		$this->load->view('admin/header_admin', $data);
+		$this->load->view('admin/tugas/detail_tugas2', $data);
+		$this->load->view('admin/footer_admin', $data);
+	}
+
 	public function actionLaporan($id)
 	{
 		$this->admin_tugas->prosesTambahLaporan();

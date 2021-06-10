@@ -82,36 +82,23 @@
                 </div>
             </li>
             <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item <?php if ($title == "Data CKP Saya" || $title == "Data CKP Pegawai" || $title == "Detail CKP") {
+            <li class="nav-item <?php if ($title == "Data CKP Saya" || $title == "CKP Pegawai" || $title == "Detail CKP") {
                                     echo "active";
                                 } ?>">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+
+                <a class="nav-link" href="<?php echo base_url('CAdmin/AdminCkp/ckp_pegawai') ?>">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>CKP</span>
-                </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <!-- <h6 class="collapse-header">Custom Utilities:</h6> -->
-                        <a class="collapse-item" href="<?php echo base_url('CAdmin/AdminCkp/ckp_pegawai') ?>">CKP Pegawai</a>
-                    </div>
-                </div>
+                    <span>CKP Pegawai</span></a>
             </li>
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item <?php if ($title == "Daftar Tugas" || $title == "Daftar Tugas Pegawai" || $title == "Detail Tugas" || $title == "Daftar Tugas Seksi Distribusi" || $title == "Daftar Tugas Seksi IPDS" || $title == "Daftar Tugas Seksi Nerwilis" || $title == "Daftar Tugas Seksi Produksi" || $title == "Daftar Tugas Seksi Sosial") {
                                     echo "active";
                                 } ?>">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTugas" aria-expanded="true" aria-controls="collapseTugas">
-                    <i class="fas fa-fw fa-address-book"></i>
-                    <span>Daftar Tugas</span>
-                </a>
-                <div id="collapseTugas" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <!-- <h6 class="collapse-header">Custom Utilities:</h6> -->
-                        <a class="collapse-item" href="<?php echo base_url('CAdmin/AdminTugas/tugas_pegawai') ?>">Tugas Pegawai</a>
-                        <a class="collapse-item" href="<?php echo base_url('CAdmin/AdminTugas/tugas/' . $this->session->userdata('id_user')) ?>">Tugas Saya</a>
-                    </div>
-                </div>
+
+                <a class="nav-link" href="<?php echo base_url('CAdmin/AdminTugas/tugas_pegawai') ?>">
+                    <i class="fas fa-fw fa-file-alt"></i>
+                    <span>Tugas Pegawai</span></a>
             </li>
 
             <!-- Divider -->
@@ -312,15 +299,10 @@
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown" id="collapseUser">
-                                <a class="dropdown-item" href="<?= base_url(); ?>CAdmin/AdminPengguna/pengaturan_akun/<?= $_SESSION['id_user'] ?>">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Pengaturan Akun
-                                    </href=>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        Keluar
-                                    </a>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Keluar
+                                </a>
                             </div>
                         </li>
 

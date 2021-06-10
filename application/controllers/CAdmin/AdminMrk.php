@@ -430,7 +430,7 @@ class AdminMrk extends CI_Controller
 			} else {
 				$this->admin_mrk->proses_tambah_tugas();
 				$this->admin_mrk->proses_edit_status();
-				echo "<script>alert('Anda berhasil menambah data');</script>";
+				echo "<script>alert('Anda berhasil menugaskan MRK');</script>";
 				redirect('CAdmin/AdminMrk/distribusi', 'refresh');
 			}
 		} else {
@@ -447,6 +447,8 @@ class AdminMrk extends CI_Controller
 			$data['mrk'] = $this->admin_mrk->getMrkById($id);
 
 			$this->form_validation->set_rules('id_user', 'id_user', 'required');
+			// $this->form_validation->set_rules('bulan', 'bulan', 'required');
+			// $this->form_validation->set_rules('pegawai', 'pegawai', 'required');
 
 			if ($this->form_validation->run() == FALSE) {
 				$this->load->view('admin/header_admin', $data);
@@ -455,7 +457,7 @@ class AdminMrk extends CI_Controller
 			} else {
 				$this->admin_mrk->proses_tambah_tugas();
 				$this->admin_mrk->proses_edit_status();
-				echo "<script>alert('Anda berhasil menambah data');</script>";
+				echo "<script>alert('Anda berhasil menugaskan MRK');</script>";
 				redirect('CAdmin/AdminMrk/ipds', 'refresh');
 			}
 		} else {
@@ -480,7 +482,7 @@ class AdminMrk extends CI_Controller
 			} else {
 				$this->admin_mrk->proses_tambah_tugas();
 				$this->admin_mrk->proses_edit_status();
-				echo "<script>alert('Anda berhasil menambah data');</script>";
+				echo "<script>alert('Anda berhasil menugaskan MRK');</script>";
 				redirect('CAdmin/AdminMrk/nerwilis', 'refresh');
 			}
 		} else {
@@ -505,7 +507,7 @@ class AdminMrk extends CI_Controller
 			} else {
 				$this->admin_mrk->proses_tambah_tugas();
 				$this->admin_mrk->proses_edit_status();
-				echo "<script>alert('Anda berhasil menambah data');</script>";
+				echo "<script>alert('Anda berhasil menugaskan MRK');</script>";
 				redirect('CAdmin/AdminMrk/produksi', 'refresh');
 			}
 		} else {
@@ -530,7 +532,7 @@ class AdminMrk extends CI_Controller
 			} else {
 				$this->admin_mrk->proses_tambah_tugas();
 				$this->admin_mrk->proses_edit_status();
-				echo "<script>alert('Anda berhasil menambah data');</script>";
+				echo "<script>alert('Anda berhasil menugaskan MRK');</script>";
 				redirect('CAdmin/AdminMrk/sosial', 'refresh');
 			}
 		} else {
@@ -556,7 +558,7 @@ class AdminMrk extends CI_Controller
 				$this->load->view('admin/footer_admin', $data);
 			} else {
 				$this->admin_mrk->proses_edit_tugas();
-				echo "<script>alert('Anda berhasil mengedit data');</script>";
+				echo "<script>alert('Anda berhasil mengedit penugasan MRK');</script>";
 				redirect('CAdmin/AdminMrk/distribusi', 'refresh');
 			}
 		} else {
@@ -581,7 +583,7 @@ class AdminMrk extends CI_Controller
 				$this->load->view('admin/footer_admin', $data);
 			} else {
 				$this->admin_mrk->proses_edit_tugas();
-				echo "<script>alert('Anda berhasil mengedit data');</script>";
+				echo "<script>alert('Anda berhasil mengedit penugasan MRK');</script>";
 				redirect('CAdmin/AdminMrk/ipds', 'refresh');
 			}
 		} else {
@@ -606,7 +608,7 @@ class AdminMrk extends CI_Controller
 				$this->load->view('admin/footer_admin', $data);
 			} else {
 				$this->admin_mrk->proses_edit_tugas();
-				echo "<script>alert('Anda berhasil mengedit data');</script>";
+				echo "<script>alert('Anda berhasil mengedit penugasan MRK');</script>";
 				redirect('CAdmin/AdminMrk/nerwilis', 'refresh');
 			}
 		} else {
@@ -631,7 +633,7 @@ class AdminMrk extends CI_Controller
 				$this->load->view('admin/footer_admin', $data);
 			} else {
 				$this->admin_mrk->proses_edit_tugas();
-				echo "<script>alert('Anda berhasil mengedit data');</script>";
+				echo "<script>alert('Anda berhasil mengedit penugasan MRK');</script>";
 				redirect('CAdmin/AdminMrk/produksi', 'refresh');
 			}
 		} else {
@@ -656,12 +658,11 @@ class AdminMrk extends CI_Controller
 				$this->load->view('admin/footer_admin', $data);
 			} else {
 				$this->admin_mrk->proses_edit_tugas();
-				echo "<script>alert('Anda berhasil mengedit data');</script>";
+				echo "<script>alert('Anda berhasil mengedit penugasan MRK');</script>";
 				redirect('CAdmin/AdminMrk/sosial', 'refresh');
 			}
 		} else {
 			redirect('Login/logout');
 		}
 	}
-
 }
