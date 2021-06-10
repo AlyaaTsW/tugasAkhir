@@ -38,6 +38,40 @@
     </div>
 </div>
 
+<!-- Modal Ubah -->
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="edit-data" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                <h4 class="modal-title">Ubah Data</h4>
+            </div>
+            <form class="form-horizontal" action="<?php echo base_url('CAdmin/AdminCkp/TambahRealisasi') ?>" method="post" enctype="multipart/form-data" role="form">
+             <div class="modal-body">
+                     <div class="form-group" hidden="true">
+                         <label class="col-lg-2 col-sm-2 control-label">id tugas</label>
+                         <div class="col-lg-10">
+                          <input type="text" id="id_tugas" name="id_tugas">
+                         </div>
+                     </div>
+                     <div class="form-group">
+                         <label class="col-lg-2 col-sm-2 control-label">Realisasi</label>
+                         <div class="col-lg-10">
+                          <input type="number" class="form-control" id="realisasi" name="realisasi" placeholder="Jumlah Realisasi">
+                         </div>
+                     </div>
+                 </div>
+                 <div class="modal-footer">
+                     <button class="btn btn-info" type="submit"> Simpan&nbsp;</button>
+                     <button type="button" class="btn btn-warning" data-dismiss="modal"> Batal</button>
+                 </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END Modal Ubah -->
+
 <!-- Bootstrap core JavaScript-->
 <script src="<?php echo base_url('assets/vendor/jquery/jquery.min.js') ?>"></script>
 <script src="<?php echo base_url('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
@@ -75,8 +109,25 @@
                     $('#viewTabel').html(data);
                 });
             })
+            // $('#edit').click(function(){
+            //   alert("The paragraph was clicked.");
+            // });
         })
     </script>
+<script>
+    $(document).ready(function() {
+        $(document).on('click', '#edit', function() {
+            var id = $(this).data('id');
+            var laporan = $(this).data('laporan');
+            var realisasi = $(this).data('realisasi');
+            var file = $(this).data('file'); 
+            $('#id_tugas').val(id); 
+            $('#realisasi').val(realisasi);
+            // $('#edit-data').modal('hide');
+            // alert(realisasi);
+        })
+    });
+</script>
 </body>
 
 </html>

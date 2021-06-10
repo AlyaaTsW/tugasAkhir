@@ -93,7 +93,6 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <!-- <h6 class="collapse-header">Custom Utilities:</h6> -->
                         <a class="collapse-item" href="<?php echo base_url('CAdmin/AdminCkp/ckp_pegawai') ?>">CKP Pegawai</a>
-                        <a class="collapse-item" href="<?php echo base_url('CAdmin/AdminCkp/index') ?>">CKP Saya</a>
                     </div>
                 </div>
             </li>

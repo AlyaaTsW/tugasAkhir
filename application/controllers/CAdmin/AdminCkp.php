@@ -16,9 +16,10 @@ class AdminCkp extends CI_Controller
     public function index()
     {
         $data['title'] = "CKP Saya";
+        $data['user'] = $this->admin_pengguna->all();
         $this->load->view('admin/header_admin', $data);
         $this->load->view('admin/ckp/ckp_saya', $data);
-        $this->load->view('admin/footer_admin', $data);
+        $this->load->view('admin/footer_admin_ckp', $data);
     }
 
     public function ckp_pegawai()
@@ -33,7 +34,16 @@ class AdminCkp extends CI_Controller
     public function filter_ckp()
     {
         $data = $this->admin_ckp->selectCkpPegawai();
+        $distribusi = $this->admin_ckp->countCkpPegawai(1);
+        $nerwilis = $this->admin_ckp->countCkpPegawai(2);
+        $produksi = $this->admin_ckp->countCkpPegawai(3);
+        $sosial = $this->admin_ckp->countCkpPegawai(4);
+        $ipds = $this->admin_ckp->countCkpPegawai(5);
+        $all = $this->admin_ckp->countAllCkpPegawai();
         $no = 1;
+        if ($all == 0) {
+            echo "<script>alert('Data CKP Tidak Tersedia');</script>";
+        }
         foreach ($data as $u) {
             echo '<h5 class="m-0 font-weight-bold" style="text-align: center;" id="judulTabel">CAPAIAN KINERJA PEGAWAI TAHUN '.$u['tahun'].' </h5>
                             <br>
@@ -136,24 +146,146 @@ class AdminCkp extends CI_Controller
                                     <tbody id="tabelBody">';
                                     break;
         }
-        foreach ($data as $u) {
+        if ($distribusi > 0) {
             echo '<tr>';
-            echo '<td>'.$no++.'</td>';
-            echo '<td>'.$u['kegiatan'].'</td>';
-            echo '<td>'.$u['satuan'].'</td>';
-            echo '<td>'.$u['volume'].'</td>';
-            echo '<td>'.$u['realisasi'].'</td>';
-            echo '<td>'.$u['persen'].'</td>';
-            echo '<td>&nbsp</td>';
-            echo '<td>&nbsp</td>';
-            echo '<td>&nbsp</td>';
-            echo '<td>&nbsp</td>';
-            echo '</tr>';
+            echo '<td colspan="10">Distribusi</td>';
+            echo '<tr>';
+            foreach ($data as $u) {
+                if ($u['bag']== '1') {
+                    echo '<tr>';
+                    echo '<td>'.$no++.'</td>';
+                    echo '<td>'.$u['kegiatan'].'</td>';
+                    echo '<td>'.$u['satuan'].'</td>';
+                    echo '<td>'.$u['volume'].'</td>';
+                    echo '<td>'.$u['realisasi'].'<a id="edit" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-data"
+                                href="javascript:;"
+                                data-id="'.$u['id_tugas'].'"
+                                data-realisasi="'.$u['realisasi'].'"
+                                data-laporan="'.$u['laporan'].'"
+                                data-file="'.$u['file'].'"><i class="fas fa-pen-alt"></i></a></td>';
+                    echo '<td>'.$u['persen'].'</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '</tr>';
+                }
+            }
         }
-
+        if ($nerwilis > 0) {
+            echo '<tr>';
+            echo '<td colspan="10">Nerwilis</td>';
+            echo '<tr>';
+            foreach ($data as $u) {
+                if ($u['bag']== '2') {
+                    echo '<tr>';
+                    echo '<td>'.$no++.'</td>';
+                    echo '<td>'.$u['kegiatan'].'</td>';
+                    echo '<td>'.$u['satuan'].'</td>';
+                    echo '<td>'.$u['volume'].'</td>';
+                    echo '<td>'.$u['realisasi'].'<a id="edit" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-data"
+                                href="javascript:;"
+                                data-id="'.$u['id_tugas'].'"
+                                data-realisasi="'.$u['realisasi'].'"
+                                data-laporan="'.$u['laporan'].'"
+                                data-file="'.$u['file'].'"><i class="fas fa-pen-alt"></i></a></td>';
+                    echo '<td>'.$u['persen'].'</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '</tr>';
+                }
+            }
+        }
+        if ($produksi > 0) {
+            echo '<tr>';
+            echo '<td colspan="10">Produksi</td>';
+            echo '<tr>';
+            foreach ($data as $u) {
+                if ($u['bag']== '3') {
+                    echo '<tr>';
+                    echo '<td>'.$no++.'</td>';
+                    echo '<td>'.$u['kegiatan'].'</td>';
+                    echo '<td>'.$u['satuan'].'</td>';
+                    echo '<td>'.$u['volume'].'</td>';
+                    echo '<td>'.$u['realisasi'].'<a id="edit" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-data"
+                                href="javascript:;"
+                                data-id="'.$u['id_tugas'].'"
+                                data-realisasi="'.$u['realisasi'].'"
+                                data-laporan="'.$u['laporan'].'"
+                                data-file="'.$u['file'].'"><i class="fas fa-pen-alt"></i></a></td>';
+                    echo '<td>'.$u['persen'].'</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '</tr>';
+                }
+            }
+        }
+        if ($sosial > 0) {
+            echo '<tr>';
+            echo '<td colspan="10">Sosial</td>';
+            echo '<tr>';
+            foreach ($data as $u) {
+                if ($u['bag']== '4') {
+                    echo '<tr>';
+                    echo '<td>'.$no++.'</td>';
+                    echo '<td>'.$u['kegiatan'].'</td>';
+                    echo '<td>'.$u['satuan'].'</td>';
+                    echo '<td>'.$u['volume'].'</td>';
+                    echo '<td>'.$u['realisasi'].'<a id="edit" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-data"
+                                href="javascript:;"
+                                data-id="'.$u['id_tugas'].'"
+                                data-realisasi="'.$u['realisasi'].'"
+                                data-laporan="'.$u['laporan'].'"
+                                data-file="'.$u['file'].'"><i class="fas fa-pen-alt"></i></a></td>';
+                    echo '<td>'.$u['persen'].'</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '</tr>';
+                }
+            }
+        }
+        if ($ipds > 0) {
+            echo '<tr>';
+            echo '<td colspan="10">IPDS</td>';
+            echo '<tr>';
+            foreach ($data as $u) {
+                if ($u['bag']== '5') {
+                    echo '<tr>';
+                    echo '<td>'.$no++.'</td>';
+                    echo '<td>'.$u['kegiatan'].'</td>';
+                    echo '<td>'.$u['satuan'].'</td>';
+                    echo '<td>'.$u['volume'].'</td>';
+                    echo '<td>'.$u['realisasi'].'<a id="edit" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-data"
+                                href="javascript:;"
+                                data-id="'.$u['id_tugas'].'"
+                                data-realisasi="'.$u['realisasi'].'"
+                                data-laporan="'.$u['laporan'].'"
+                                data-file="'.$u['file'].'"><i class="fas fa-pen-alt"></i></a></td>';
+                    echo '<td>'.$u['persen'].'</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '</tr>';
+                }
+            }
+        }
         echo "
                                     </tbody>
                                 </table>
                             </div>";
+    }
+
+    public function TambahRealisasi()
+    {
+        $this->admin_ckp->prosesTambahRealisasi();
+        echo "<script>alert('Anda berhasil mengedit data realisasi');</script>";
+        redirect('CAdmin/AdminCkp/ckp_pegawai', 'refresh');
     }
 }
