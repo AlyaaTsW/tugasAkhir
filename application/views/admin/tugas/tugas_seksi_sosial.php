@@ -15,6 +15,7 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
+                                            <th>Nama Pegawai</th>
                                             <th>Komponen</th>
                                             <th>Kegiatan</th>
                                             <th>Bagian</th>
@@ -32,6 +33,7 @@
                                         <tbody>
                                             <tr>
                                                 <td><?= $no; ?></td>
+                                                <td><?php echo $u->nama ?></td>
                                                 <td><?php echo $u->komponen ?></td>
                                                 <td><?php echo $u->kegiatan ?></td>
                                                 <td>

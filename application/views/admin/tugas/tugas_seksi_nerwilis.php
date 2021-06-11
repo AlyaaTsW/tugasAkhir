@@ -33,7 +33,7 @@
                                         <tbody>
                                             <tr>
                                                 <td><?= $no; ?></td>
-                                                <td><?php echo $u->id_user ?></td>
+                                                <td><?php echo $u->nama ?></td>
                                                 <td><?php echo $u->komponen ?></td>
                                                 <td><?php echo $u->kegiatan ?></td>
                                                 <td>
@@ -116,7 +116,7 @@
                                                     }
                                                     if ($u->laporan == '1') {
                                                     ?>
-                                                        <a href="<?= base_url('CAdmin/AdminTugas/detailTugas2/' . $u->id_tugas) ?><?= base_url('CAdmin/AdminTugas/detailTugas/' . $u->id_tugas) ?>" class="btn btn-success btn-sm btn-circle" title="Lihat Laporan">
+                                                        <a href="<?= base_url('CAdmin/AdminTugas/detailTugas2/' . $u->id_tugas) ?>" class="btn btn-success btn-sm btn-circle" title="Lihat Laporan">
                                                             <i class="fa fa-eye fa-sm"></i>
                                                         </a>
                                                         <a href="<?= base_url('CAdmin/AdminTugas/detailTugas/' . $u->id_tugas) ?>" class="btn btn-success btn-sm" title="Edit Laporan">

@@ -24,7 +24,7 @@
                                     <table class="table table-striped table-bordered">
                                         <tr>
                                             <th>Nama Pegawai</th>
-                                            <td><?= $tugas['id_user']; ?></td>
+                                            <td><?= $tugas['nama']; ?></td>
                                         </tr>
                                         <tr>
                                             <th>Komponen</th>
