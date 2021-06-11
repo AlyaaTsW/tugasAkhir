@@ -17,6 +17,7 @@ class admin_ckp extends CI_Model
 		$this->db->join('user','user.id_user=tugas.id_user');
 		$this->db->where('tugas.id_user', $pegawai);
 		$this->db->where('tugas.bulan', $bulan);
+		$this->db->where('tugas.laporan', '1');
 		$this->db->where('mrk.tahun', $tahun);
 		$this->db->order_by("mrk.bag", "asc");
 		return $this->db->get()->result_array();
@@ -33,6 +34,7 @@ class admin_ckp extends CI_Model
 		$this->db->join('user','user.id_user=tugas.id_user');
 		$this->db->where('tugas.id_user', $pegawai);
 		$this->db->where('tugas.bulan', $bulan);
+		$this->db->where('tugas.laporan', '1');
 		$this->db->where('mrk.tahun', $tahun);
 		$this->db->where('mrk.bag', $id);
 		$this->db->order_by("mrk.bag", "asc");
@@ -50,6 +52,7 @@ class admin_ckp extends CI_Model
 		$this->db->join('user','user.id_user=tugas.id_user');
 		$this->db->where('tugas.id_user', $pegawai);
 		$this->db->where('tugas.bulan', $bulan);
+		$this->db->where('tugas.laporan', '1');
 		$this->db->where('mrk.tahun', $tahun);
 		$this->db->order_by("mrk.bag", "asc");
 		return $this->db->get()->num_rows();

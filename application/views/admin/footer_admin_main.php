@@ -38,6 +38,14 @@
     </div>
 </div>
 
+<div hidden="true">
+  <input type="number" name="dis" id="dis" value="<?php echo $dis; ?>">
+  <input type="number" name="ner" id="ner" value="<?php echo $ner; ?>">
+  <input type="number" name="pro" id="pro" value="<?php echo $pro; ?>">
+  <input type="number" name="sos" id="sos" value="<?php echo $sos; ?>">
+  <input type="number" name="ipd" id="ipd" value="<?php echo $ipd; ?>">
+</div>
+
 <!-- Bootstrap core JavaScript-->
 <script src="<?php echo base_url('assets/vendor/jquery/jquery.min.js') ?>"></script>
 <script src="<?php echo base_url('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
@@ -69,6 +77,49 @@
     $(document).ready(function() {
         $('#dataTable').DataTable();
     } );
+</script>
+<script type="text/javascript">
+    // Set new default font family and font color to mimic Bootstrap's default styling
+    Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+    Chart.defaults.global.defaultFontColor = '#858796';
+
+    // Pie Chart Example
+    var ctx = document.getElementById("myPieChart1");
+    var dis = $('#dis').val();
+    var ner = $('#ner').val();
+    var pro = $('#pro').val();
+    var sos = $('#sos').val();
+    var ipd = $('#ipd').val();
+    var myPieChart1 = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+        labels: ["Distribusi", "Nerwilis", "Produksi", "Sosial", "IPDS"],
+        datasets: [{
+          data: [dis, ner, pro, sos, ipd],
+          backgroundColor: ['#2980B9', '#3498DB', '#1ABC9C', '#16A085', '#27AE60'],
+          hoverBackgroundColor: ['#73cedb', '#73cedb', '#73cedb', '#73cedb', '#73cedb'],
+          hoverBorderColor: "rgba(234, 236, 244, 1)",
+        }],
+      },
+      options: {
+        maintainAspectRatio: false,
+        tooltips: {
+          backgroundColor: "rgb(255,255,255)",
+          bodyFontColor: "#858796",
+          borderColor: '#dddfeb',
+          borderWidth: 1,
+          xPadding: 15,
+          yPadding: 15,
+          displayColors: false,
+          caretPadding: 10,
+        },
+        legend: {
+          display: false
+        },
+        cutoutPercentage: 80,
+      },
+    });
+
 </script>
 
 
