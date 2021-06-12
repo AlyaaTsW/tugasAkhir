@@ -19,6 +19,12 @@
                             </a> -->
                         </div>
                         <div class="card-body">
+                            <?php if (validation_errors()) { ?>
+                                <div class="alert alert-danger alert-dismissible">
+                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                    <?php echo validation_errors(); ?>
+                                </div>
+                            <?php } ?>
                             <!-- <div class="row">
                                 <div class="col-lg-7"> -->
                             <div class="p-5">

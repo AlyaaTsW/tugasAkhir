@@ -9,6 +9,7 @@ class AdminMrk extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->helper("url");
+		$this->load->library('form_validation');
 		$this->load->model('admin_mrk');
 		$this->load->model('admin_pengguna');
 	}

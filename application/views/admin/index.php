@@ -37,17 +37,14 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-info text-uppercase mb-1">MRK Ditugaskan
                                             </div>
-                                            <?php
-                                            $mrk2 = round($mrk1/$mrk*100,2);
-                                            ?>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo $mrk2 ?>%</div>
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo round($mrk1/$mrk*100,2); ?>%</div>
                                                 </div>
                                                 <div class="col">
                                                     <div class="progress progress-sm mr-2">
                                                         <div class="progress-bar bg-info" role="progressbar"
-                                                            style="width: <?php echo $mrk2 ?>%" aria-valuenow="<?php echo $mrk1 ?>" aria-valuemin="0"
+                                                            style="width: <?php echo round($mrk1/$mrk*100,2); ?>%" aria-valuenow="<?php echo $mrk1 ?>" aria-valuemin="0"
                                                             aria-valuemax="<?php echo $mrk ?>"></div>
                                                     </div>
                                                 </div>
@@ -87,17 +84,14 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Laporan Terkumpul
                                             </div>
-                                            <?php
-                                                $tug2 = round($tug1/$tug*100,2);
-                                            ?>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo $tug2 ?>%</div>
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo round($tug1/$tug*100,2); ?>%</div>
                                                 </div>
                                                 <div class="col">
                                                     <div class="progress progress-sm mr-2">
                                                         <div class="progress-bar bg-info" role="progressbar"
-                                                            style="width: <?php echo $tug2 ?>%" aria-valuenow="<?php echo $tug1 ?>" aria-valuemin="0"
+                                                            style="width: <?php echo round($tug1/$tug*100,2); ?>%" aria-valuenow="<?php echo $tug1 ?>" aria-valuemin="0"
                                                             aria-valuemax="<?php echo $tug ?>"></div>
                                                     </div>
                                                 </div>
