@@ -105,4 +105,36 @@ class admin_mrk extends CI_Model
         $this->db->update('tugas', $data, array('id_tugas' => $post['id_tugas']));
     }
 
+    public function countMrk()
+    {
+        $thn=date('Y');
+        $this->db->select('*');
+        $this->db->from('mrk');
+        $this->db->where('tahun', $thn);
+        $query=$this->db->get();
+        return $query->num_rows();
+    }
+
+    public function countMrkBag($bag)
+    {
+        $thn=date('Y');
+        $this->db->select('*');
+        $this->db->from('mrk');
+        $this->db->where('tahun', $thn);
+        $this->db->where('bag', $bag);
+        $query=$this->db->get();
+        return $query->num_rows();
+    }
+
+    public function countMrkDitugaskan()
+    {
+        $thn=date('Y');
+        $this->db->select('*');
+        $this->db->from('mrk');
+        $this->db->where('tahun', $thn);
+        $this->db->where('status', '1');
+        $query=$this->db->get();
+        return $query->num_rows();
+    }
+
 }

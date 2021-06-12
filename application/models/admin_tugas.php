@@ -80,6 +80,20 @@ class admin_tugas extends CI_Model
 		return $query->num_rows();
 	}
 
+	public function countTugasDone($bag)
+	{
+		$thn=date('Y');
+		$this->db->select('*');
+		$this->db->from('tugas');
+		$this->db->join('mrk','mrk.id_mrk=tugas.id_mrk');
+		$this->db->join('user','user.id_user=tugas.id_user');
+		$this->db->where('mrk.bag', $bag);
+		$this->db->where('mrk.tahun', $thn);
+		$this->db->where('tugas.laporan', 1);
+		$query=$this->db->get();
+		return $query->num_rows();
+	}
+
 	public function countTugasBulanIni($bag)
 	{
 		$bln=date('m');
@@ -91,6 +105,35 @@ class admin_tugas extends CI_Model
 		$this->db->where('tugas.bulan', $bln);
 		$this->db->where('mrk.tahun', $thn);
 		$this->db->where('mrk.bag', $bag);
+		$query=$this->db->get();
+		return $query->num_rows();
+	}
+
+	public function countTugasBulanMain()
+	{
+		$bln=date('m');
+		$thn=date('Y');
+		$this->db->select('*');
+		$this->db->from('tugas');
+		$this->db->join('mrk','mrk.id_mrk=tugas.id_mrk');
+		$this->db->join('user','user.id_user=tugas.id_user');
+		$this->db->where('tugas.bulan', $bln);
+		$this->db->where('mrk.tahun', $thn);
+		$query=$this->db->get();
+		return $query->num_rows();
+	}
+
+	public function countLaporanTugasBulan()
+	{
+		$bln=date('m');
+		$thn=date('Y');
+		$this->db->select('*');
+		$this->db->from('tugas');
+		$this->db->join('mrk','mrk.id_mrk=tugas.id_mrk');
+		$this->db->join('user','user.id_user=tugas.id_user');
+		$this->db->where('tugas.bulan', $bln);
+		$this->db->where('mrk.tahun', $thn);
+		$this->db->where('tugas.laporan', '1');
 		$query=$this->db->get();
 		return $query->num_rows();
 	}
