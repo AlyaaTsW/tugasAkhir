@@ -217,7 +217,7 @@
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown" id="collapseUser">
-                                <a class="dropdown-item" href="<?php echo base_url('CAdmin/AdminPengguna/pengaturan_akun') ?>">
+                                <a class="dropdown-item" href="<?php echo base_url('CSupervisor/Supervisor/pengaturan_akun') ?>">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Pengaturan Akun
                                 </a>

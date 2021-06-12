@@ -65,7 +65,7 @@
             <li class="nav-item <?php if ($title == "Daftar Tugas") {
                                     echo "active";
                                 } ?>">
-                <a class="nav-link" href="<?php echo base_url('COperator/OperatorTugas/tugas') ?>">
+                <a class="nav-link" href="<?php echo base_url('COperator/OperatorTugas/tugas/' . $this->session->userdata('id_user')) ?>">
                     <i class="fas fa-fw fa-address-book"></i>
                     <span>Tugas Saya</span>
                 </a>

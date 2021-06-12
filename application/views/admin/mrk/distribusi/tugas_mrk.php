@@ -61,7 +61,7 @@
                                         <div class="col-sm-6 mb-3 mb-sm-0">
                                             <label for="bulan">Bulan</label>
                                             <select class="form-control" id="bulan" name="bulan" required>
-                                                <option>--- Pilih Bulan ---</option>
+                                                <option value="0">--- Pilih Bulan ---</option>
                                                 <option value="1">Januari</option>
                                                 <option value="2">Februari</option>
                                                 <option value="3">Maret</option>
@@ -85,7 +85,7 @@
                                         <div class="col-sm-6 mb-3 mb-sm-0">
                                             <label for="pegawai">Pegawai</label>
                                             <select class="form-control" id="id_user" name="id_user" required>
-                                                <option selected>--- Pilih Pegawai ---</option>
+                                                <option value="0">--- Pilih Pegawai ---</option>
                                                 <?php foreach ($user as $u) {
                                                 ?>
                                                     <option value="<?php echo $u->id_user ?>"><?php echo $u->nama ?></option>
@@ -104,6 +104,20 @@
                             </div> -->
                         </div>
                     </div>
+
+                    <script>
+                        function CekData() {
+
+                            var location = document.getElementById('bulan');
+                            var invalid = location.value == "0";
+
+                            if (invalid) {
+                                alert('Error');
+                            }
+
+                            return !invalid;
+                        }
+                    </script>
 
                 </div>
                 <!-- /.container-fluid -->

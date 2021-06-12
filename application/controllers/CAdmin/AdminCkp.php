@@ -45,7 +45,7 @@ class AdminCkp extends CI_Controller
             echo "<script>alert('Data CKP Tidak Tersedia');</script>";
         }
         foreach ($data as $u) {
-            echo '<h5 class="m-0 font-weight-bold" style="text-align: center;" id="judulTabel">CAPAIAN KINERJA PEGAWAI TAHUN '.$u['tahun'].' </h5>
+            echo '<h5 class="m-0 font-weight-bold" style="text-align: center;" id="judulTabel">CAPAIAN KINERJA PEGAWAI TAHUN ' . $u['tahun'] . ' </h5>
                             <br>
                             <div class="table-responsive">
                                 <table cellspacing="0" style="font-family: times new roman;">
@@ -57,60 +57,60 @@ class AdminCkp extends CI_Controller
                                     <tr>
                                         <td>Nama</td>
                                         <td>&nbsp : &nbsp</td>
-                                        <td id="judulNama">'.$u['nama'].'</td>
+                                        <td id="judulNama">' . $u['nama'] . '</td>
                                     </tr>
                                     <tr>
                                         <td>Jabatan</td>
                                         <td>&nbsp : &nbsp</td>
-                                        <td id="judulJabatan">'.$u['jabatan'].'</td>
+                                        <td id="judulJabatan">' . $u['jabatan'] . '</td>
                                     </tr>
                                     <tr>
                                         <td>Periode</td>
                                         <td>&nbsp : &nbsp</td>
                                         <td id="judulPeriode">';
-                                            if ($u['bulan'] == '1') {
-                                                echo "1 - 31 Januari ";
-                                            }
-                                            if ($u['bulan'] == '2') {
-                                                if ($u['tahun'] % 4) {
-                                                    echo "1 - 28 Februari ";
-                                                } else {
-                                                    echo "1 - 29 Februari ";
-                                                }
-                                            }
-                                            if ($u['bulan'] == '3') {
-                                                echo "1 - 31 Maret ";
-                                            }
-                                            if ($u['bulan'] == '4') {
-                                                echo "1 - 30 April ";
-                                            }
-                                            if ($u['bulan'] == '5') {
-                                                echo "1 - 31 Mei ";
-                                            }
-                                            if ($u['bulan'] == '6') {
-                                                echo "1 - 30 Juni ";
-                                            }
-                                            if ($u['bulan'] == '7') {
-                                                echo "1 - 31 Juli ";
-                                            }
-                                            if ($u['bulan'] == '8') {
-                                                echo "1 - 31 Agustus ";
-                                            }
-                                            if ($u['bulan'] == '9') {
-                                                echo "1 - 30 September ";
-                                            }
-                                            if ($u['bulan'] == '10') {
-                                                echo "1 - 31 Oktober ";
-                                            }
-                                            if ($u['bulan'] == '11') {
-                                                echo "1 - 30 November ";
-                                            }
-                                            if ($u['bulan'] == '12') {
-                                                echo "1 - 31 Desember ";
-                                            }
+            if ($u['bulan'] == '1') {
+                echo "1 - 31 Januari ";
+            }
+            if ($u['bulan'] == '2') {
+                if ($u['tahun'] % 4) {
+                    echo "1 - 28 Februari ";
+                } else {
+                    echo "1 - 29 Februari ";
+                }
+            }
+            if ($u['bulan'] == '3') {
+                echo "1 - 31 Maret ";
+            }
+            if ($u['bulan'] == '4') {
+                echo "1 - 30 April ";
+            }
+            if ($u['bulan'] == '5') {
+                echo "1 - 31 Mei ";
+            }
+            if ($u['bulan'] == '6') {
+                echo "1 - 30 Juni ";
+            }
+            if ($u['bulan'] == '7') {
+                echo "1 - 31 Juli ";
+            }
+            if ($u['bulan'] == '8') {
+                echo "1 - 31 Agustus ";
+            }
+            if ($u['bulan'] == '9') {
+                echo "1 - 30 September ";
+            }
+            if ($u['bulan'] == '10') {
+                echo "1 - 31 Oktober ";
+            }
+            if ($u['bulan'] == '11') {
+                echo "1 - 30 November ";
+            }
+            if ($u['bulan'] == '12') {
+                echo "1 - 31 Desember ";
+            }
 
-                                            echo $u['tahun'];
-                                    echo '</td>
+            echo $u['tahun'];
+            echo '</td>
                                     </tr>
                                 </table>
                                 <table class="table table-bordered table-responsive" id="dataTable" cellspacing="0">
@@ -155,7 +155,7 @@ class AdminCkp extends CI_Controller
                                         <td>&nbsp</td>
                                         <td>&nbsp</td>
                                     </tr>';
-                                    break;
+            break;
         }
         if ($distribusi > 0) {
             echo '<tr>';
@@ -170,19 +170,19 @@ class AdminCkp extends CI_Controller
             echo '<td>&nbsp</td>';
             echo '<tr>';
             foreach ($data as $u) {
-                if ($u['bag']== '1') {
+                if ($u['bag'] == '1') {
                     echo '<tr>';
-                    echo '<td>'.$no++.'</td>';
-                    echo '<td>'.$u['kegiatan'].'</td>';
-                    echo '<td>'.$u['satuan'].'</td>';
-                    echo '<td>'.$u['volume'].'</td>';
-                    echo '<td>'.$u['realisasi'].'<a id="edit" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-data"
+                    echo '<td>' . $no++ . '</td>';
+                    echo '<td>' . $u['kegiatan'] . '</td>';
+                    echo '<td>' . $u['satuan'] . '</td>';
+                    echo '<td>' . $u['volume'] . '</td>';
+                    echo '<td>' . $u['realisasi'] . '<a id="edit" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-data"
                                 href="javascript:;"
-                                data-id="'.$u['id_tugas'].'"
-                                data-realisasi="'.$u['realisasi'].'"
-                                data-laporan="'.$u['laporan'].'"
-                                data-file="'.$u['file'].'"><i class="fas fa-pen-alt"></i></a></td>';
-                    echo '<td>'.$u['persen'].'</td>';
+                                data-id="' . $u['id_tugas'] . '"
+                                data-realisasi="' . $u['realisasi'] . '"
+                                data-laporan="' . $u['laporan'] . '"
+                                data-file="' . $u['file'] . '"><i class="fas fa-pen-alt"></i></a></td>';
+                    echo '<td>' . $u['persen'] . '</td>';
                     echo '<td>&nbsp</td>';
                     echo '<td>&nbsp</td>';
                     echo '<td>&nbsp</td>';
@@ -204,19 +204,19 @@ class AdminCkp extends CI_Controller
             echo '<td>&nbsp</td>';
             echo '<tr>';
             foreach ($data as $u) {
-                if ($u['bag']== '2') {
+                if ($u['bag'] == '2') {
                     echo '<tr>';
-                    echo '<td>'.$no++.'</td>';
-                    echo '<td>'.$u['kegiatan'].'</td>';
-                    echo '<td>'.$u['satuan'].'</td>';
-                    echo '<td>'.$u['volume'].'</td>';
-                    echo '<td>'.$u['realisasi'].'<a id="edit" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-data"
+                    echo '<td>' . $no++ . '</td>';
+                    echo '<td>' . $u['kegiatan'] . '</td>';
+                    echo '<td>' . $u['satuan'] . '</td>';
+                    echo '<td>' . $u['volume'] . '</td>';
+                    echo '<td>' . $u['realisasi'] . '<a id="edit" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-data"
                                 href="javascript:;"
-                                data-id="'.$u['id_tugas'].'"
-                                data-realisasi="'.$u['realisasi'].'"
-                                data-laporan="'.$u['laporan'].'"
-                                data-file="'.$u['file'].'"><i class="fas fa-pen-alt"></i></a></td>';
-                    echo '<td>'.$u['persen'].'</td>';
+                                data-id="' . $u['id_tugas'] . '"
+                                data-realisasi="' . $u['realisasi'] . '"
+                                data-laporan="' . $u['laporan'] . '"
+                                data-file="' . $u['file'] . '"><i class="fas fa-pen-alt"></i></a></td>';
+                    echo '<td>' . $u['persen'] . '</td>';
                     echo '<td>&nbsp</td>';
                     echo '<td>&nbsp</td>';
                     echo '<td>&nbsp</td>';
@@ -238,19 +238,19 @@ class AdminCkp extends CI_Controller
             echo '<td>&nbsp</td>';
             echo '<tr>';
             foreach ($data as $u) {
-                if ($u['bag']== '3') {
+                if ($u['bag'] == '3') {
                     echo '<tr>';
-                    echo '<td>'.$no++.'</td>';
-                    echo '<td>'.$u['kegiatan'].'</td>';
-                    echo '<td>'.$u['satuan'].'</td>';
-                    echo '<td>'.$u['volume'].'</td>';
-                    echo '<td>'.$u['realisasi'].'<a id="edit" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-data"
+                    echo '<td>' . $no++ . '</td>';
+                    echo '<td>' . $u['kegiatan'] . '</td>';
+                    echo '<td>' . $u['satuan'] . '</td>';
+                    echo '<td>' . $u['volume'] . '</td>';
+                    echo '<td>' . $u['realisasi'] . '<a id="edit" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-data"
                                 href="javascript:;"
-                                data-id="'.$u['id_tugas'].'"
-                                data-realisasi="'.$u['realisasi'].'"
-                                data-laporan="'.$u['laporan'].'"
-                                data-file="'.$u['file'].'"><i class="fas fa-pen-alt"></i></a></td>';
-                    echo '<td>'.$u['persen'].'</td>';
+                                data-id="' . $u['id_tugas'] . '"
+                                data-realisasi="' . $u['realisasi'] . '"
+                                data-laporan="' . $u['laporan'] . '"
+                                data-file="' . $u['file'] . '"><i class="fas fa-pen-alt"></i></a></td>';
+                    echo '<td>' . $u['persen'] . '</td>';
                     echo '<td>&nbsp</td>';
                     echo '<td>&nbsp</td>';
                     echo '<td>&nbsp</td>';
@@ -272,19 +272,19 @@ class AdminCkp extends CI_Controller
             echo '<td>&nbsp</td>';
             echo '<tr>';
             foreach ($data as $u) {
-                if ($u['bag']== '4') {
+                if ($u['bag'] == '4') {
                     echo '<tr>';
-                    echo '<td>'.$no++.'</td>';
-                    echo '<td>'.$u['kegiatan'].'</td>';
-                    echo '<td>'.$u['satuan'].'</td>';
-                    echo '<td>'.$u['volume'].'</td>';
-                    echo '<td>'.$u['realisasi'].'<a id="edit" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-data"
+                    echo '<td>' . $no++ . '</td>';
+                    echo '<td>' . $u['kegiatan'] . '</td>';
+                    echo '<td>' . $u['satuan'] . '</td>';
+                    echo '<td>' . $u['volume'] . '</td>';
+                    echo '<td>' . $u['realisasi'] . '<a id="edit" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-data"
                                 href="javascript:;"
-                                data-id="'.$u['id_tugas'].'"
-                                data-realisasi="'.$u['realisasi'].'"
-                                data-laporan="'.$u['laporan'].'"
-                                data-file="'.$u['file'].'"><i class="fas fa-pen-alt"></i></a></td>';
-                    echo '<td>'.$u['persen'].'</td>';
+                                data-id="' . $u['id_tugas'] . '"
+                                data-realisasi="' . $u['realisasi'] . '"
+                                data-laporan="' . $u['laporan'] . '"
+                                data-file="' . $u['file'] . '"><i class="fas fa-pen-alt"></i></a></td>';
+                    echo '<td>' . $u['persen'] . '</td>';
                     echo '<td>&nbsp</td>';
                     echo '<td>&nbsp</td>';
                     echo '<td>&nbsp</td>';
@@ -306,19 +306,19 @@ class AdminCkp extends CI_Controller
             echo '<td>&nbsp</td>';
             echo '<tr>';
             foreach ($data as $u) {
-                if ($u['bag']== '5') {
+                if ($u['bag'] == '5') {
                     echo '<tr>';
-                    echo '<td>'.$no++.'</td>';
-                    echo '<td>'.$u['kegiatan'].'</td>';
-                    echo '<td>'.$u['satuan'].'</td>';
-                    echo '<td>'.$u['volume'].'</td>';
-                    echo '<td>'.$u['realisasi'].'<a id="edit" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-data"
+                    echo '<td>' . $no++ . '</td>';
+                    echo '<td>' . $u['kegiatan'] . '</td>';
+                    echo '<td>' . $u['satuan'] . '</td>';
+                    echo '<td>' . $u['volume'] . '</td>';
+                    echo '<td>' . $u['realisasi'] . '<a id="edit" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-data"
                                 href="javascript:;"
-                                data-id="'.$u['id_tugas'].'"
-                                data-realisasi="'.$u['realisasi'].'"
-                                data-laporan="'.$u['laporan'].'"
-                                data-file="'.$u['file'].'"><i class="fas fa-pen-alt"></i></a></td>';
-                    echo '<td>'.$u['persen'].'</td>';
+                                data-id="' . $u['id_tugas'] . '"
+                                data-realisasi="' . $u['realisasi'] . '"
+                                data-laporan="' . $u['laporan'] . '"
+                                data-file="' . $u['file'] . '"><i class="fas fa-pen-alt"></i></a></td>';
+                    echo '<td>' . $u['persen'] . '</td>';
                     echo '<td>&nbsp</td>';
                     echo '<td>&nbsp</td>';
                     echo '<td>&nbsp</td>';
