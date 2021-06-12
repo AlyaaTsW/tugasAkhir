@@ -5,12 +5,37 @@ defined('BASEPATH') or exit('No direct script access allowed');
  */
 class OperatorTugas extends CI_Controller
 {
-	public function tugas()
+	public function __construct()
 	{
-		$data['title'] = "Daftar Tugas";
+		parent::__construct();
+		$this->load->helper("url");
+		$this->load->model('operator_tugas');
+		$this->load->model('operator_pengaturanAkun');
+	}
+
+	public function tugas($id)
+	{
+		$data['title'] = "Daftar Tugas Saya";
+		$data['tugas'] = $this->operator_tugas->selectTugasByUser($id);
 		$this->load->view('operator/header_operator', $data);
 		$this->load->view('operator/tugas/daftar_tugas', $data);
 		$this->load->view('operator/footer_operator', $data);
+	}
+
+	public function detailTugas($id)
+	{
+		$data['title'] = "Daftar Tugas";
+		$data['tugas'] = $this->operator_tugas->selectTugasById($id);
+		$this->load->view('operator/header_operator', $data);
+		$this->load->view('operator/tugas/detail_tugas', $data);
+		$this->load->view('operator/footer_operator', $data);
+	}
+
+	public function actionLaporan($id)
+	{
+		$this->operator_tugas->prosesTambahLaporan();
+		echo "<script>alert('Laporan Berhasil Dikumpulkan');</script>";
+		redirect('COperator/OperatorTugas/detailTugas/' . $id, 'refresh');
 	}
 
 	public function pengaturan_akun($id)
@@ -18,7 +43,7 @@ class OperatorTugas extends CI_Controller
 		if (isset($_SESSION['id_user'])) {
 
 			$data['title'] = 'Pengaturan Akun';
-			$data['user'] = $this->admin_pengguna->getPenggunaById($id);
+			$data['user'] = $this->operator_pengaturanAkun->getPenggunaById($id);
 
 			$this->form_validation->set_rules('nama', 'nama', 'required');
 			$this->form_validation->set_rules('nip', 'nip', 'required');
@@ -32,7 +57,7 @@ class OperatorTugas extends CI_Controller
 				$this->load->view('operator/pengaturan_akun', $data);
 				$this->load->view('operator/footer_operator', $data);
 			} else {
-				$this->admin_pengguna->proses_edit_pengguna();
+				$this->operator_pengaturanAkun->proses_edit_pengguna();
 				echo "<script>alert('Anda berhasil mengedit akun');</script>";
 				redirect('COperator/OperatorTugas/pengaturan_akun/' . $id, 'refresh');
 			}

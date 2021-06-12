@@ -2,7 +2,7 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Daftar Tugas Pegawai</h1>
+                    <h1 class="h3 mb-2 text-gray-800">Daftar Tugas Saya</h1>
                     <!--                     <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
                         For more information about DataTables, please visit the <a target="_blank"
                             href="https://datatables.net">official DataTables documentation</a>.</p>
@@ -10,7 +10,7 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Pengumpulan Laporan Tugas Pegawai</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Pengumpulan Tugas</h6>
                             <!-- <a href="#" class="btn btn-info btn-icon-split">
                                 <span class="icon text-white-50">
                                     <i class="fas fa-folder-plus"></i>
@@ -178,14 +178,14 @@
                                             <td><?php if ($tugas['laporan'] == '0') {
                                                     echo "LAPORAN BELUM DIKUMPULKAN";
                                                 } else { ?>
-                                                    <a href="<?php echo base_url().'CAdmin/AdminTugas/downloadFile/'.$tugas['file'] ?>"><?php echo $tugas['file'] ?></a>
+                                                    <a href="<?= base_url('upload/' . $tugas['file']) ?>"><?= $tugas['file']; ?></a>
                                                 <?php } ?>
                                             </td>
                                         </tr>
                                         <tr>
                                             <th>File</th>
                                             <td>
-                                                <form action="<?= base_url('CAdmin/AdminTugas/actionLaporan/' . $tugas['id_tugas']) ?>" method="POST" enctype="multipart/form-data">
+                                                <form action="<?= base_url('COperator/OperatorTugas/actionLaporan/' . $tugas['id_tugas']) ?>" method="POST" enctype="multipart/form-data">
                                                     <input type="hidden" class="form-control" id="tgl_ubah" name="tgl_ubah" value="<?php echo date("Y-m-d") ?>">
                                                     <input type="hidden" class="form-control" id="id_tugas" name="id_tugas" value="<?= $tugas['id_tugas']; ?>">
                                                     <input type="file" name="file" id="file">
