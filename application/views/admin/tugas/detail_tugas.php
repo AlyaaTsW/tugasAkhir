@@ -178,7 +178,7 @@
                                             <td><?php if ($tugas['laporan'] == '0') {
                                                     echo "LAPORAN BELUM DIKUMPULKAN";
                                                 } else { ?>
-                                                    <a href="<?= base_url('upload/' . $tugas['file']) ?>"><?= $tugas['file']; ?></a>
+                                                    <a href="<?php echo base_url().'CAdmin/AdminTugas/downloadFile/'.$tugas['file'] ?>"><?php echo $tugas['file'] ?></a>
                                                 <?php } ?>
                                             </td>
                                         </tr>

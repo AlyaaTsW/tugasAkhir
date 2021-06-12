@@ -9,6 +9,7 @@ class AdminTugas extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->helper("url");
+		$this->load->helper('download');
 		$this->load->model('admin_tugas');
 		$this->load->model('admin_pengguna');
 	}
@@ -112,5 +113,10 @@ class AdminTugas extends CI_Controller
 		$this->admin_tugas->prosesTambahLaporan();
 		echo "<script>alert('Laporan Berhasil Dikumpulkan');</script>";
 		redirect('CAdmin/AdminTugas/detailTugas/' . $id, 'refresh');
+	}
+
+	public function downloadFile($file)
+	{
+		force_download('upload/'.$file,NULL);
 	}
 }
