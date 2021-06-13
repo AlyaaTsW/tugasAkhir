@@ -32,11 +32,14 @@
                                             <th>Action</th>
                                         </tr>
                                     </thead>
-                                    <?php
-                                    $no = 1;
-                                    foreach ($mrk as $u) {
-                                    ?>
-                                        <tbody>
+                                    <tbody>
+
+                                        <?php
+                                        $no = 1;
+                                        foreach ($mrk as $u) {
+                                        ?>
+
+
                                             <tr>
                                                 <td><?= $no; ?></td>
                                                 <td><?php echo $u->komponen ?></td>
@@ -53,7 +56,7 @@
                                                     <?php if ($u->status == '1') {
                                                     ?>
                                                         <a href="<?php echo base_url('CAdmin/AdminMrk/edit_penugasan_mrk_ipds/') ?><?php echo $u->id_mrk ?>" class="btn btn-success btn-sm">
-                                                            <i class=fas fa-user-check fa-sm" title="Edit Penugasan"> Edit penugasan</i>
+                                                            <i class="fas fa-user-check fa-sm" title="Edit Penugasan"> Edit penugasan</i>
                                                         </a>
                                                     <?php
                                                     } else {
@@ -72,10 +75,10 @@
                                                 </td>
                                             </tr>
                                         <?php
-                                        $no++;
-                                    }
+                                            $no++;
+                                        }
                                         ?>
-                                        </tbody>
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
