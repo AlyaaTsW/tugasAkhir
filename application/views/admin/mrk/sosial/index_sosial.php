@@ -32,13 +32,11 @@
                                             <th>Action</th>
                                         </tr>
                                     </thead>
-
+                                        <tbody>
                                     <?php
                                     $no = 1;
                                     foreach ($mrk as $u) {
                                     ?>
-
-                                        <tbody>
                                             <tr>
                                                 <td><?= $no; ?></td>
                                                 <td><?php echo $u->komponen ?></td>
