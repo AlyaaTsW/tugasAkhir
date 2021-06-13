@@ -9,6 +9,7 @@ class OperatorTugas extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->helper("url");
+		$this->load->helper('download');
 		$this->load->model('operator_tugas');
 		$this->load->model('operator_pengaturanAkun');
 	}
@@ -36,6 +37,11 @@ class OperatorTugas extends CI_Controller
 		$this->operator_tugas->prosesTambahLaporan();
 		echo "<script>alert('Laporan Berhasil Dikumpulkan');</script>";
 		redirect('COperator/OperatorTugas/detailTugas/' . $id, 'refresh');
+	}
+
+	public function downloadFile($file)
+	{
+		force_download('upload/' . $file, NULL);
 	}
 
 	public function pengaturan_akun($id)

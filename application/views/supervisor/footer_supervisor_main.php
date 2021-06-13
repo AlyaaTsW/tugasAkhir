@@ -54,7 +54,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
 
 <!-- Core plugin JavaScript-->
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="<?php echo base_url('assets/vendor/jquery-easing/jquery.easing.min.js') ?>"></script>
 
 <!-- Custom scripts for all pages-->
@@ -70,6 +69,7 @@
 <!-- Page level plugins -->
 <script src="<?php echo base_url('assets/vendor/datatables/jquery.dataTables.min.js') ?>"></script>
 <script src="<?php echo base_url('assets/vendor/datatables/dataTables.bootstrap4.min.js') ?>"></script>
+<script src="js/demo/datatables-demo.js"></script>
 
 <!-- Page level custom scripts -->
 <script src="<?php echo base_url('assets/js/demo/datatables-demo.js') ?>"></script>
@@ -77,55 +77,6 @@
     $(document).ready(function() {
         $('#dataTable').DataTable();
     } );
-</script>
-<script type="text/javascript">
-  $(document).ready(function() {
-    setInterval(() => {
-      $.ajax({
-           type: 'GET',
-           url: '<?php echo base_url(); ?>CAdmin/AdminMain/notif',
-           dataType: 'json',
-           success: function(data) {
-              var html = '<span class="badge badge-danger badge-counter">'+ data +'</span>';
-              $("#notifCount").html(html);
-           }
-       });
-    }, 1000);
-  });
-</script>
-<script type="text/javascript">
-  $(document).ready(function() {
-    setInterval(() => {
-          $.ajax({
-             type: 'GET',
-             url: '<?php echo base_url(); ?>CAdmin/AdminMain/notifContent',
-             dataType: 'json',
-             success: function(data) {
-                $("#notifCount").val(data.notif);
-                  var html = '';
-                  var i;
-                  if (data.length == 0) {
-                              html += '<a class="dropdown-item d-flex align-items-center" href="#">Tidak Ada Notifikasi Terbaru</a>';
-                  }
-                  for (i = 0; i < data.length; i++) {
-                      html += '<a class="dropdown-item d-flex align-items-center" href="<?= base_url() ?>CAdmin/AdminMain/klikNotif/' + data[i].id_tugas + '">';
-                      html += '<div class="mr-3">';
-                      html += '<div class="icon-circle bg-primary">';
-                      html += '<i class="fas fa-file-alt text-white"></i>';
-                      html += '</div>';
-                      html += '</div>';
-                      html += '<div>';
-                      html += '<div class="small text-gray-500">TANGGAL';
-                      html += '</div>';
-                      html += '<span class="font-weight-bold">'+ data[i].nama +' Mengunggah Laporan Tugas</span>';
-                      html += '</div>';
-                      html += '</a>';
-                  }
-                  $('#notifContent').html(html);
-             }
-         });
-    }, 1000);
-  });
 </script>
 <script type="text/javascript">
     // Set new default font family and font color to mimic Bootstrap's default styling
@@ -170,6 +121,7 @@
     });
 
 </script>
+
 
 </body>
 

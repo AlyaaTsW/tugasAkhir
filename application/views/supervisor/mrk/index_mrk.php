@@ -51,13 +51,12 @@
                                             <th>Action</th>
                                         </tr>
                                     </thead>
+                                    <tbody>
 
-                                    <?php
-                                    $no = 1;
-                                    foreach ($mrk as $u) {
-                                    ?>
-
-                                        <tbody>
+                                        <?php
+                                        $no = 1;
+                                        foreach ($mrk as $u) {
+                                        ?>
                                             <tr>
                                                 <td><?= $no; ?></td>
                                                 <td><?php echo $u->komponen ?></td>
@@ -93,10 +92,10 @@
                                                 </td>
                                             </tr>
                                         <?php
-                                        $no++;
-                                    }
+                                            $no++;
+                                        }
                                         ?>
-                                        </tbody>
+                                    </tbody>
                                 </table>
                             </div>
                         </div>

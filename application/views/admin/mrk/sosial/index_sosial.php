@@ -32,13 +32,20 @@
                                             <th>Action</th>
                                         </tr>
                                     </thead>
+<<<<<<< HEAD
+                                    <tbody>
+                                        <?php
+                                        $no = 1;
+                                        foreach ($mrk as $u) {
+                                        ?>
 
+=======
+                                        <tbody>
                                     <?php
                                     $no = 1;
                                     foreach ($mrk as $u) {
                                     ?>
-
-                                        <tbody>
+>>>>>>> dabb492ebc9ec9feabd4eafe78c09fa69015ac31
                                             <tr>
                                                 <td><?= $no; ?></td>
                                                 <td><?php echo $u->komponen ?></td>
@@ -74,10 +81,10 @@
                                                 </td>
                                             </tr>
                                         <?php
-                                        $no++;
-                                    }
+                                            $no++;
+                                        }
                                         ?>
-                                        </tbody>
+                                    </tbody>
                                 </table>
                             </div>
                         </div>

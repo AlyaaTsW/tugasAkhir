@@ -51,4 +51,22 @@ class AdminMain extends CI_Controller
 			redirect('Login/logout');
 		}
 	}
+
+	public function notif()
+	{
+		$data = $this->admin_tugas->countNotif();
+		echo json_encode($data);
+	}
+
+	public function notifContent()
+	{
+		$data = $this->admin_tugas->notifTugasLaporan();
+		echo json_encode($data);
+	}
+
+	public function klikNotif($id)
+    {
+        $this->admin_tugas->bacaNotif($id);
+        redirect('CAdmin/AdminTugas/detailTugas2/' . $id);
+    }
 }

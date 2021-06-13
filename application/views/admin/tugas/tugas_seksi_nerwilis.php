@@ -24,13 +24,11 @@
                                             <th>Action</th>
                                         </tr>
                                     </thead>
-
-                                    <?php
-                                    $no = 1;
-                                    foreach ($tugas as $u) {
-                                    ?>
-
-                                        <tbody>
+                                    <tbody>
+                                        <?php
+                                        $no = 1;
+                                        foreach ($tugas as $u) {
+                                        ?>
                                             <tr>
                                                 <td><?= $no; ?></td>
                                                 <td><?php echo $u->nama ?></td>
@@ -128,10 +126,10 @@
                                                 </td>
                                             </tr>
                                         <?php
-                                        $no++;
-                                    }
+                                            $no++;
+                                        }
                                         ?>
-                                        </tbody>
+                                    </tbody>
                                 </table>
                             </div>
                         </div>

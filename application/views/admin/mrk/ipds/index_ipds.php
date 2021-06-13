@@ -32,12 +32,10 @@
                                             <th>Action</th>
                                         </tr>
                                     </thead>
-
                                     <?php
                                     $no = 1;
                                     foreach ($mrk as $u) {
                                     ?>
-
                                         <tbody>
                                             <tr>
                                                 <td><?= $no; ?></td>

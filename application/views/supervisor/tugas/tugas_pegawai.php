@@ -2,7 +2,26 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Daftar Tugas Saya</h1>
+                    <h1 class="h3 mb-2 text-gray-800">Daftar Tugas Seksi
+                        <?php
+                        $bag = $this->session->userdata('bagian');
+                        if ($bag == '1') {
+                            echo "Distribusi";
+                        }
+                        if ($bag == '2') {
+                            echo "Nerwilis";
+                        }
+                        if ($bag == '3') {
+                            echo "Produksi";
+                        }
+                        if ($bag == '4') {
+                            echo "Sosial";
+                        }
+                        if ($bag == '5') {
+                            echo "IPDS";
+                        }
+                        ?>
+                    </h1>
                     <!--                     <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
                         For more information about DataTables, please visit the <a target="_blank"
                             href="https://datatables.net">official DataTables documentation</a>.</p>
@@ -15,6 +34,7 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
+                                            <th>Nama Pegawai</th>
                                             <th>Komponen</th>
                                             <th>Kegiatan</th>
                                             <th>Bagian</th>
@@ -24,13 +44,13 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-
                                         <?php
                                         $no = 1;
                                         foreach ($tugas as $u) {
                                         ?>
                                             <tr>
                                                 <td><?= $no; ?></td>
+                                                <td><?php echo $u->nama ?></td>
                                                 <td><?php echo $u->komponen ?></td>
                                                 <td><?php echo $u->kegiatan ?></td>
                                                 <td>
@@ -106,14 +126,17 @@
                                                 </td>
                                                 <td><?php if ($u->laporan == '0') {
                                                     ?>
-                                                        <a href="<?= base_url('COperator/OperatorTugas/detailTugas/' . $u->id_tugas) ?>" class="btn btn-primary btn-sm" title="Tambahkan Laporan">
-                                                            <i class="fa fa-plus fa-sm"> Kumpulkan</i>
+                                                        <a href="<?= base_url('CSupervisor/SupervisorTugas/detailTugasPegawai/' . $u->id_tugas) ?>" class="btn btn-primary btn-sm" title="Tambahkan Laporan">
+                                                            <i class="fa fa-file fa-sm">Kumpulkan</i>
                                                         </a>
                                                     <?php
                                                     }
                                                     if ($u->laporan == '1') {
                                                     ?>
-                                                        <a href="<?= base_url('COperator/OperatorTugas/detailTugas/' . $u->id_tugas) ?>" class="btn btn-success btn-sm" title="Edit Laporan">
+                                                        <a href="<?= base_url('CSupervisor/SupervisorTugas/detailTugasPegawai2/' . $u->id_tugas) ?>" class="btn btn-success btn-sm btn-circle" title="Lihat Laporan">
+                                                            <i class="fa fa-eye fa-sm"></i>
+                                                        </a>
+                                                        <a href="<?= base_url('CSupervisor/SupervisorTugas/detailTugasPegawai/' . $u->id_tugas) ?>" class="btn btn-success btn-sm" title="Edit Laporan">
                                                             <i class="fa fa-edit fa-sm">Edit</i>
                                                         </a>
                                                     <?php

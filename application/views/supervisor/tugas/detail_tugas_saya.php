@@ -181,7 +181,7 @@
                                         <tr>
                                             <th>File</th>
                                             <td>
-                                                <form action="<?= base_url('COperator/OperatorTugas/actionLaporan/' . $tugas['id_tugas']) ?>" method="POST" enctype="multipart/form-data">
+                                                <form action="<?= base_url('CSupervisor/SupervisorTugas/actionLaporan/' . $tugas['id_tugas']) ?>" method="POST" enctype="multipart/form-data">
                                                     <input type="hidden" class="form-control" id="tgl_ubah" name="tgl_ubah" value="<?php echo date("Y-m-d") ?>">
                                                     <input type="hidden" class="form-control" id="id_tugas" name="id_tugas" value="<?= $tugas['id_tugas']; ?>">
                                                     <input type="file" name="file" id="file">

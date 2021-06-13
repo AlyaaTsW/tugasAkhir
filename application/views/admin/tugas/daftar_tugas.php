@@ -23,13 +23,12 @@
                                             <th>Action</th>
                                         </tr>
                                     </thead>
+                                    <tbody>
+                                        <?php
+                                        $no = 1;
+                                        foreach ($tugas as $u) {
+                                        ?>
 
-                                    <?php
-                                    $no = 1;
-                                    foreach ($tugas as $u) {
-                                    ?>
-
-                                        <tbody>
                                             <tr>
                                                 <td><?= $no; ?></td>
                                                 <td><?php echo $u->komponen ?></td>
@@ -123,10 +122,10 @@
                                                 </td>
                                             </tr>
                                         <?php
-                                        $no++;
-                                    }
+                                            $no++;
+                                        }
                                         ?>
-                                        </tbody>
+                                    </tbody>
                                 </table>
                             </div>
                         </div>

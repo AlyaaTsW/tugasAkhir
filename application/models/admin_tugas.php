@@ -149,6 +149,34 @@ class admin_tugas extends CI_Model
 		$data= $query->result();
 		return $data;
 	}
+
+	public function countNotif()
+	{
+		$this->db->select('*');
+		$this->db->from('tugas');
+		$this->db->where('notif', '1');
+		$query=$this->db->get();
+		return $query->num_rows();
+	}
+
+	public function notifTugasLaporan()
+	{
+		$this->db->select('*');
+		$this->db->from('tugas');
+		$this->db->join('mrk','mrk.id_mrk=tugas.id_mrk');
+		$this->db->join('user','user.id_user=tugas.id_user');
+		$this->db->where('notif', '1');
+		$this->db->order_by("tugas.tgl_ubah", "asc");
+		$query=$this->db->get();
+		$data= $query->result();
+		return $data;
+	}
+
+	public function bacaNotif($id)
+    {
+        $this->notif = 0;
+        $this->db->update('tugas', $this, array('id_tugas' => $id));
+    }
 }
 
 ?>

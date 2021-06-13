@@ -106,14 +106,14 @@
                                                 </td>
                                                 <td><?php if ($u->laporan == '0') {
                                                     ?>
-                                                        <a href="<?= base_url('COperator/OperatorTugas/detailTugas/' . $u->id_tugas) ?>" class="btn btn-primary btn-sm" title="Tambahkan Laporan">
+                                                        <a href="<?= base_url('CSupervisor/SupervisorTugas/detailTugasSaya/' . $u->id_tugas) ?>" class="btn btn-primary btn-sm" title="Tambahkan Laporan">
                                                             <i class="fa fa-plus fa-sm"> Kumpulkan</i>
                                                         </a>
                                                     <?php
                                                     }
                                                     if ($u->laporan == '1') {
                                                     ?>
-                                                        <a href="<?= base_url('COperator/OperatorTugas/detailTugas/' . $u->id_tugas) ?>" class="btn btn-success btn-sm" title="Edit Laporan">
+                                                        <a href="<?= base_url('CSupervisor/SupervisorTugas/detailTugasSaya/' . $u->id_tugas) ?>" class="btn btn-success btn-sm" title="Edit Laporan">
                                                             <i class="fa fa-edit fa-sm">Edit</i>
                                                         </a>
                                                     <?php
