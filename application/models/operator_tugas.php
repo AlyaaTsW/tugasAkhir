@@ -65,6 +65,7 @@ class operator_tugas extends CI_Model
 		$this->id_tugas = $post["id_tugas"];
 		$this->tgl_ubah = $post["tgl_ubah"];
 		$this->laporan = 1;
+		$this->notif = 1;
 		$this->file = $this->uploadfile();
 		$this->db->update('tugas', $this, array('id_tugas' => $post['id_tugas']));
 	}

@@ -176,7 +176,7 @@ class AdminCkp extends CI_Controller
                     echo '<td>' . $u['kegiatan'] . '</td>';
                     echo '<td>' . $u['satuan'] . '</td>';
                     echo '<td>' . $u['volume'] . '</td>';
-                    echo '<td>' . $u['realisasi'] . '<a id="edit" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-data"
+                    echo '<td>' . $u['realisasi'] . '&nbsp&nbsp<a id="edit" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-data"
                                 href="javascript:;"
                                 data-id="' . $u['id_tugas'] . '"
                                 data-realisasi="' . $u['realisasi'] . '"
@@ -210,7 +210,7 @@ class AdminCkp extends CI_Controller
                     echo '<td>' . $u['kegiatan'] . '</td>';
                     echo '<td>' . $u['satuan'] . '</td>';
                     echo '<td>' . $u['volume'] . '</td>';
-                    echo '<td>' . $u['realisasi'] . '<a id="edit" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-data"
+                    echo '<td>' . $u['realisasi'] . '&nbsp&nbsp<a id="edit" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-data"
                                 href="javascript:;"
                                 data-id="' . $u['id_tugas'] . '"
                                 data-realisasi="' . $u['realisasi'] . '"
@@ -244,7 +244,7 @@ class AdminCkp extends CI_Controller
                     echo '<td>' . $u['kegiatan'] . '</td>';
                     echo '<td>' . $u['satuan'] . '</td>';
                     echo '<td>' . $u['volume'] . '</td>';
-                    echo '<td>' . $u['realisasi'] . '<a id="edit" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-data"
+                    echo '<td>' . $u['realisasi'] . '&nbsp&nbsp<a id="edit" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-data"
                                 href="javascript:;"
                                 data-id="' . $u['id_tugas'] . '"
                                 data-realisasi="' . $u['realisasi'] . '"
@@ -278,7 +278,7 @@ class AdminCkp extends CI_Controller
                     echo '<td>' . $u['kegiatan'] . '</td>';
                     echo '<td>' . $u['satuan'] . '</td>';
                     echo '<td>' . $u['volume'] . '</td>';
-                    echo '<td>' . $u['realisasi'] . '<a id="edit" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-data"
+                    echo '<td>' . $u['realisasi'] . '&nbsp&nbsp<a id="edit" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-data"
                                 href="javascript:;"
                                 data-id="' . $u['id_tugas'] . '"
                                 data-realisasi="' . $u['realisasi'] . '"
@@ -312,7 +312,7 @@ class AdminCkp extends CI_Controller
                     echo '<td>' . $u['kegiatan'] . '</td>';
                     echo '<td>' . $u['satuan'] . '</td>';
                     echo '<td>' . $u['volume'] . '</td>';
-                    echo '<td>' . $u['realisasi'] . '<a id="edit" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-data"
+                    echo '<td>' . $u['realisasi'] . '&nbsp&nbsp<a id="edit" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-data"
                                 href="javascript:;"
                                 data-id="' . $u['id_tugas'] . '"
                                 data-realisasi="' . $u['realisasi'] . '"

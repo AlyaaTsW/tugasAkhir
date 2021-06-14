@@ -104,7 +104,7 @@
     setInterval(() => {
       $.ajax({
            type: 'GET',
-           url: '<?php echo base_url(); ?>CAdmin/AdminMain/notif',
+           url: '<?php echo base_url(); ?>CSupervisor/SupervisorMain/notif',
            dataType: 'json',
            success: function(data) {
               var html = '<span class="badge badge-danger badge-counter">'+ data +'</span>';
@@ -119,7 +119,7 @@
     setInterval(() => {
           $.ajax({
              type: 'GET',
-             url: '<?php echo base_url(); ?>CAdmin/AdminMain/notifContent',
+             url: '<?php echo base_url(); ?>CSupervisor/SupervisorMain/notifContent',
              dataType: 'json',
              success: function(data) {
                 $("#notifCount").val(data.notif);
@@ -129,7 +129,7 @@
                               html += '<a class="dropdown-item d-flex align-items-center" href="#">Tidak Ada Notifikasi Terbaru</a>';
                   }
                   for (i = 0; i < data.length; i++) {
-                      html += '<a class="dropdown-item d-flex align-items-center" href="<?= base_url() ?>CAdmin/AdminMain/klikNotif/' + data[i].id_tugas + '">';
+                      html += '<a class="dropdown-item d-flex align-items-center" href="<?= base_url() ?>CSupervisor/SupervisorMain/klikNotif/' + data[i].id_tugas + '">';
                       html += '<div class="mr-3">';
                       html += '<div class="icon-circle bg-primary">';
                       html += '<i class="fas fa-file-alt text-white"></i>';

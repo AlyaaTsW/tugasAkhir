@@ -116,4 +116,27 @@ class supervisor_mrk extends CI_Model
 
         $this->db->update('tugas', $data, array('id_tugas' => $post['id_tugas']));
     }
+
+    public function countMrk($bagian)
+    {
+        $thn=date('Y');
+        $this->db->select('*');
+        $this->db->from('mrk');
+        $this->db->where('tahun', $thn);
+        $this->db->where('bag', $bagian);
+        $query=$this->db->get();
+        return $query->num_rows();
+    }
+
+    public function countMrkDitugaskan($bag)
+    {
+        $thn=date('Y');
+        $this->db->select('*');
+        $this->db->from('mrk');
+        $this->db->where('tahun', $thn);
+        $this->db->where('bag', $bag);
+        $this->db->where('status', '1');
+        $query=$this->db->get();
+        return $query->num_rows();
+    }
 }

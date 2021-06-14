@@ -422,11 +422,9 @@ class AdminMrk extends CI_Controller
 			$data['user'] = $this->admin_pengguna->all();
 			$data['mrk'] = $this->admin_mrk->getMrkById($id);
 
-			// $this->form_validation->set_rules('id_user', 'id_user', 'required');
-			$this->form_validation->set_rules('bulan', 'bulan', 'required|callback_check_default');
-			$this->form_validation->set_message('check_default', 'You need to select something other than the default');
-			$this->form_validation->set_rules('id_user', 'id_user', 'required|callback_check_default');
-			$this->form_validation->set_message('check_default', 'You need to select something other than the default');
+			$this->form_validation->set_rules('id_user', 'id_user', 'required');
+			// $this->form_validation->set_rules('bulan', 'bulan', 'required');
+			// $this->form_validation->set_rules('pegawai', 'pegawai', 'required');
 
 			if ($this->form_validation->run() == FALSE) {
 				$this->load->view('admin/header_admin', $data);
