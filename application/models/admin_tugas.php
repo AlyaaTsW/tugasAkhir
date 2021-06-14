@@ -52,6 +52,7 @@ class admin_tugas extends CI_Model
         $this->id_tugas = $post["id_tugas"];
         $this->tgl_ubah = $post["tgl_ubah"];
         $this->laporan = 1;
+        $this->notif = 1;
         $this->file = $this->uploadfile();
         $this->db->update('tugas', $this, array('id_tugas' => $post['id_tugas']));
 	}
@@ -166,7 +167,7 @@ class admin_tugas extends CI_Model
 		$this->db->join('mrk','mrk.id_mrk=tugas.id_mrk');
 		$this->db->join('user','user.id_user=tugas.id_user');
 		$this->db->where('notif', '1');
-		$this->db->order_by("tugas.tgl_ubah", "asc");
+		$this->db->order_by("tugas.tgl_ubah", "desc");
 		$query=$this->db->get();
 		$data= $query->result();
 		return $data;
