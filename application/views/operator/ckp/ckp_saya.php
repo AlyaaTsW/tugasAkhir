@@ -10,13 +10,13 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <form action="<?= base_url('CAdmin/AdminCKP/ckp_pegawai_filtered') ?>" method="POST">
+                            <form action="<?= base_url('COperator/OperatorExport/export') ?>" method="POST">
                                 <div class="form-group" hidden="true">
                                     <input type="text" name="pegawai" id="pegawai" value="<?php echo $this->session->userdata('id_user') ?>">
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <select id="bulan" class="form-control">
+                                        <select id="bulan" name="bulan" class="form-control">
                                             <option selected>Pilih Bulan</option>
                                             <option value="1">Januari</option>
                                             <option value="2">Februari</option>

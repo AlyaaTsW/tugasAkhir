@@ -29,6 +29,7 @@ class admin_tugas extends CI_Model
 		$this->db->join('mrk','mrk.id_mrk=tugas.id_mrk');
 		$this->db->join('user','user.id_user=tugas.id_user');
 		$this->db->where('user.id_user', $id);
+		$this->db->order_by("tugas.bulan", "asc");
 		$query=$this->db->get();
 		$data= $query->result();
 		return $data;
@@ -146,6 +147,7 @@ class admin_tugas extends CI_Model
 		$this->db->join('mrk','mrk.id_mrk=tugas.id_mrk');
 		$this->db->join('user','user.id_user=tugas.id_user');
 		$this->db->where('mrk.bag', $bag);
+		$this->db->order_by("tugas.bulan", "asc");
 		$query=$this->db->get();
 		$data= $query->result();
 		return $data;

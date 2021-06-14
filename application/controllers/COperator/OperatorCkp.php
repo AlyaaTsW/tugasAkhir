@@ -10,7 +10,6 @@ class OperatorCkp extends CI_Controller
         parent::__construct();
         $this->load->helper("url");
         $this->load->model('operator_ckp');
-        $this->load->model('operator_pengguna');
     }
 
     public function index()
@@ -23,13 +22,13 @@ class OperatorCkp extends CI_Controller
 
     public function filter_ckp()
     {
-        $data = $this->admin_ckp->selectCkpPegawai();
-        $distribusi = $this->admin_ckp->countCkpPegawai(1);
-        $nerwilis = $this->admin_ckp->countCkpPegawai(2);
-        $produksi = $this->admin_ckp->countCkpPegawai(3);
-        $sosial = $this->admin_ckp->countCkpPegawai(4);
-        $ipds = $this->admin_ckp->countCkpPegawai(5);
-        $all = $this->admin_ckp->countAllCkpPegawai();
+        $data = $this->operator_ckp->selectCkpPegawai();
+        $distribusi = $this->operator_ckp->countCkpPegawai(1);
+        $nerwilis = $this->operator_ckp->countCkpPegawai(2);
+        $produksi = $this->operator_ckp->countCkpPegawai(3);
+        $sosial = $this->operator_ckp->countCkpPegawai(4);
+        $ipds = $this->operator_ckp->countCkpPegawai(5);
+        $all = $this->operator_ckp->countAllCkpPegawai();
         $no = 1;
         if ($all == 0) {
             echo "<script>alert('Data CKP Tidak Tersedia');</script>";
@@ -166,7 +165,7 @@ class OperatorCkp extends CI_Controller
                     echo '<td>' . $u['kegiatan'] . '</td>';
                     echo '<td>' . $u['satuan'] . '</td>';
                     echo '<td>' . $u['volume'] . '</td>';
-                    echo '<td>' . $u['realisasi'] . '<a id="edit" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-data"
+                    echo '<td>' . $u['realisasi'] . '&nbsp&nbsp<a id="edit" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-data"
                                 href="javascript:;"
                                 data-id="' . $u['id_tugas'] . '"
                                 data-realisasi="' . $u['realisasi'] . '"
@@ -200,7 +199,7 @@ class OperatorCkp extends CI_Controller
                     echo '<td>' . $u['kegiatan'] . '</td>';
                     echo '<td>' . $u['satuan'] . '</td>';
                     echo '<td>' . $u['volume'] . '</td>';
-                    echo '<td>' . $u['realisasi'] . '<a id="edit" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-data"
+                    echo '<td>' . $u['realisasi'] . '&nbsp&nbsp<a id="edit" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-data"
                                 href="javascript:;"
                                 data-id="' . $u['id_tugas'] . '"
                                 data-realisasi="' . $u['realisasi'] . '"
@@ -234,7 +233,7 @@ class OperatorCkp extends CI_Controller
                     echo '<td>' . $u['kegiatan'] . '</td>';
                     echo '<td>' . $u['satuan'] . '</td>';
                     echo '<td>' . $u['volume'] . '</td>';
-                    echo '<td>' . $u['realisasi'] . '<a id="edit" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-data"
+                    echo '<td>' . $u['realisasi'] . '&nbsp&nbsp<a id="edit" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-data"
                                 href="javascript:;"
                                 data-id="' . $u['id_tugas'] . '"
                                 data-realisasi="' . $u['realisasi'] . '"
@@ -268,7 +267,7 @@ class OperatorCkp extends CI_Controller
                     echo '<td>' . $u['kegiatan'] . '</td>';
                     echo '<td>' . $u['satuan'] . '</td>';
                     echo '<td>' . $u['volume'] . '</td>';
-                    echo '<td>' . $u['realisasi'] . '<a id="edit" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-data"
+                    echo '<td>' . $u['realisasi'] . '&nbsp&nbsp<a id="edit" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-data"
                                 href="javascript:;"
                                 data-id="' . $u['id_tugas'] . '"
                                 data-realisasi="' . $u['realisasi'] . '"
@@ -302,7 +301,7 @@ class OperatorCkp extends CI_Controller
                     echo '<td>' . $u['kegiatan'] . '</td>';
                     echo '<td>' . $u['satuan'] . '</td>';
                     echo '<td>' . $u['volume'] . '</td>';
-                    echo '<td>' . $u['realisasi'] . '<a id="edit" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-data"
+                    echo '<td>' . $u['realisasi'] . '&nbsp&nbsp<a id="edit" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-data"
                                 href="javascript:;"
                                 data-id="' . $u['id_tugas'] . '"
                                 data-realisasi="' . $u['realisasi'] . '"

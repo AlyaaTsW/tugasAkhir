@@ -24,6 +24,24 @@ class operator_tugas extends CI_Model
 		$this->db->join('mrk', 'mrk.id_mrk=tugas.id_mrk');
 		$this->db->join('user', 'user.id_user=tugas.id_user');
 		$this->db->where('user.id_user', $id);
+		$this->db->order_by("tugas.bulan", "asc");
+		$query = $this->db->get();
+		$data = $query->result();
+		return $data;
+	}
+
+	public function selectTugasUserByBulan($id)
+	{
+		$bln=date('m');
+		$thn=date('Y');
+		$this->db->select('*');
+		$this->db->from('tugas');
+		$this->db->join('mrk', 'mrk.id_mrk=tugas.id_mrk');
+		$this->db->join('user', 'user.id_user=tugas.id_user');
+		$this->db->where('user.id_user', $id);
+		$this->db->where('tugas.bulan', $bln);
+		$this->db->where('mrk.tahun', $thn);
+		$this->db->order_by("tugas.bulan", "asc");
 		$query = $this->db->get();
 		$data = $query->result();
 		return $data;
@@ -85,5 +103,201 @@ class operator_tugas extends CI_Model
 		$query = $this->db->get();
 		$data = $query->result();
 		return $data;
+	}
+
+	public function countTugasBulanMain($id)
+	{
+		$bln=date('m');
+		$thn=date('Y');
+		$this->db->select('*');
+		$this->db->from('tugas');
+		$this->db->join('mrk','mrk.id_mrk=tugas.id_mrk');
+		$this->db->join('user','user.id_user=tugas.id_user');
+		$this->db->where('tugas.bulan', $bln);
+		$this->db->where('mrk.tahun', $thn);
+		$this->db->where('tugas.id_user', $id);
+		$query=$this->db->get();
+		return $query->num_rows();
+	}
+
+	public function countLaporanTugasBulan($id)
+	{
+		$bln=date('m');
+		$thn=date('Y');
+		$this->db->select('*');
+		$this->db->from('tugas');
+		$this->db->join('mrk','mrk.id_mrk=tugas.id_mrk');
+		$this->db->join('user','user.id_user=tugas.id_user');
+		$this->db->where('tugas.bulan', $bln);
+		$this->db->where('mrk.tahun', $thn);
+		$this->db->where('tugas.laporan', '1');
+		$this->db->where('tugas.id_user', $id);
+		$query=$this->db->get();
+		return $query->num_rows();
+	}
+
+	public function countTugasDone1($user)
+	{
+		$thn=date('Y');
+		$bln=date('m');
+		$this->db->select('*');
+		$this->db->from('tugas');
+		$this->db->join('mrk','mrk.id_mrk=tugas.id_mrk');
+		$this->db->join('user','user.id_user=tugas.id_user');
+		$this->db->where('mrk.bag', 1);
+		$this->db->where('mrk.tahun', $thn);
+		$this->db->where('tugas.bulan', $bln);
+		$this->db->where('tugas.laporan', 1);
+		$this->db->where('tugas.id_user', $user);
+		$query=$this->db->get();
+		return $query->num_rows();
+	}
+
+	public function countTugasDone2($user)
+	{
+		$thn=date('Y');
+		$bln=date('m');
+		$this->db->select('*');
+		$this->db->from('tugas');
+		$this->db->join('mrk','mrk.id_mrk=tugas.id_mrk');
+		$this->db->join('user','user.id_user=tugas.id_user');
+		$this->db->where('mrk.bag', 2);
+		$this->db->where('mrk.tahun', $thn);
+		$this->db->where('tugas.bulan', $bln);
+		$this->db->where('tugas.laporan', 1);
+		$this->db->where('tugas.id_user', $user);
+		$query=$this->db->get();
+		return $query->num_rows();
+	}
+
+	public function countTugasDone3($user)
+	{
+		$thn=date('Y');
+		$bln=date('m');
+		$this->db->select('*');
+		$this->db->from('tugas');
+		$this->db->join('mrk','mrk.id_mrk=tugas.id_mrk');
+		$this->db->join('user','user.id_user=tugas.id_user');
+		$this->db->where('mrk.bag', 3);
+		$this->db->where('mrk.tahun', $thn);
+		$this->db->where('tugas.bulan', $bln);
+		$this->db->where('tugas.laporan', 1);
+		$this->db->where('tugas.id_user', $user);
+		$query=$this->db->get();
+		return $query->num_rows();
+	}
+
+	public function countTugasDone4($user)
+	{
+		$thn=date('Y');
+		$bln=date('m');
+		$this->db->select('*');
+		$this->db->from('tugas');
+		$this->db->join('mrk','mrk.id_mrk=tugas.id_mrk');
+		$this->db->join('user','user.id_user=tugas.id_user');
+		$this->db->where('mrk.bag', 4);
+		$this->db->where('mrk.tahun', $thn);
+		$this->db->where('tugas.bulan', $bln);
+		$this->db->where('tugas.laporan', 1);
+		$this->db->where('tugas.id_user', $user);
+		$query=$this->db->get();
+		return $query->num_rows();
+	}
+
+	public function countTugasDone5($user)
+	{
+		$thn=date('Y');
+		$bln=date('m');
+		$this->db->select('*');
+		$this->db->from('tugas');
+		$this->db->join('mrk','mrk.id_mrk=tugas.id_mrk');
+		$this->db->join('user','user.id_user=tugas.id_user');
+		$this->db->where('mrk.bag', 5);
+		$this->db->where('mrk.tahun', $thn);
+		$this->db->where('tugas.bulan', $bln);
+		$this->db->where('tugas.laporan', 1);
+		$this->db->where('tugas.id_user', $user);
+		$query=$this->db->get();
+		return $query->num_rows();
+	}
+
+	public function countTugasBag1($user)
+	{
+		$bln=date('m');
+		$thn=date('Y');
+		$this->db->select('*');
+		$this->db->from('tugas');
+		$this->db->join('mrk','mrk.id_mrk=tugas.id_mrk');
+		$this->db->join('user','user.id_user=tugas.id_user');
+		$this->db->where('tugas.bulan', $bln);
+		$this->db->where('mrk.tahun', $thn);
+		$this->db->where('mrk.bag', 1);
+		$this->db->where('tugas.id_user', $user);
+		$query=$this->db->get();
+		return $query->num_rows();
+	}
+
+	public function countTugasBag2($user)
+	{
+		$bln=date('m');
+		$thn=date('Y');
+		$this->db->select('*');
+		$this->db->from('tugas');
+		$this->db->join('mrk','mrk.id_mrk=tugas.id_mrk');
+		$this->db->join('user','user.id_user=tugas.id_user');
+		$this->db->where('tugas.bulan', $bln);
+		$this->db->where('mrk.tahun', $thn);
+		$this->db->where('mrk.bag', 2);
+		$this->db->where('tugas.id_user', $user);
+		$query=$this->db->get();
+		return $query->num_rows();
+	}
+
+	public function countTugasBag3($user)
+	{
+		$bln=date('m');
+		$thn=date('Y');
+		$this->db->select('*');
+		$this->db->from('tugas');
+		$this->db->join('mrk','mrk.id_mrk=tugas.id_mrk');
+		$this->db->join('user','user.id_user=tugas.id_user');
+		$this->db->where('tugas.bulan', $bln);
+		$this->db->where('mrk.tahun', $thn);
+		$this->db->where('mrk.bag', 3);
+		$this->db->where('tugas.id_user', $user);
+		$query=$this->db->get();
+		return $query->num_rows();
+	}
+
+	public function countTugasBag4($user)
+	{
+		$bln=date('m');
+		$thn=date('Y');
+		$this->db->select('*');
+		$this->db->from('tugas');
+		$this->db->join('mrk','mrk.id_mrk=tugas.id_mrk');
+		$this->db->join('user','user.id_user=tugas.id_user');
+		$this->db->where('tugas.bulan', $bln);
+		$this->db->where('mrk.tahun', $thn);
+		$this->db->where('mrk.bag', 4);
+		$this->db->where('tugas.id_user', $user);
+		$query=$this->db->get();
+		return $query->num_rows();
+	}
+
+	public function countTugasBag5($user)
+	{
+		$bln=date('m');
+		$thn=date('Y');
+		$this->db->select('*');
+		$this->db->from('tugas');
+		$this->db->join('mrk','mrk.id_mrk=tugas.id_mrk');
+		$this->db->join('user','user.id_user=tugas.id_user');
+		$this->db->where('tugas.bulan', $bln);
+		$this->db->where('mrk.tahun', $thn);
+		$this->db->where('mrk.bag', 5);
+		$this->db->where('tugas.id_user', $user);
+		$query=$this->db->get();
+		return $query->num_rows();
 	}
 }
