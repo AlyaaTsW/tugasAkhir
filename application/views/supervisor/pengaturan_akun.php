@@ -47,9 +47,24 @@
                                                 <label for="jabatan">Jabatan</label>
                                                 <input type="text" class="form-control form-control-user" id="jabatan" name="jabatan" value="<?= $user['jabatan']; ?>" readonly>
                                             </div>
-                                            <div class="col-sm-6" id="div_bagian" value="<?= $user['bagian']; ?>" readonly>
+                                            <div class="col-sm-6" readonly>
                                                 <label for="bagian">Bagian</label>
-                                                <input type="text" class="form-control form-control-user" readonly="true">
+                                                <input type="text" id="bagian" name="bagian" class="form-control form-control-user" readonly="true" value="<?php if ($user['bagian'] == '1') {
+                                                        echo "Distribusi";
+                                                    }
+                                                    if ($user['bagian'] == '2') {
+                                                        echo "Nerwilis";
+                                                    }
+                                                    if ($user['bagian'] == '3') {
+                                                        echo "Produksi";
+                                                    }
+                                                    if ($user['bagian'] == '4') {
+                                                        echo "Sosial";
+                                                    }
+                                                    if ($user['bagian'] == '5') {
+                                                        echo "IPDS";
+                                                    }
+                                                    ?>">
                                             </div>
                                         </div>
                                         <div class="form-group row">

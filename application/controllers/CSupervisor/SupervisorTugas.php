@@ -93,14 +93,14 @@ class SupervisorTugas extends CI_Controller
 			$this->form_validation->set_rules('pendidikan', 'pendidikan', 'required');
 
 			if ($this->form_validation->run() == FALSE) {
+				$bag = $this->session->userdata('bagian');
 				$this->load->view('supervisor/header_supervisor', $data);
 				$this->load->view('supervisor/pengaturan_akun', $data);
 				$this->load->view('supervisor/footer_supervisor', $data);
 			} else {
 				$this->supervisor_pengaturanAkun->proses_edit_pengguna();
-				$bag = $this->session->userdata('bagian');
 				echo "<script>alert('Anda berhasil mengedit akun');</script>";
-				redirect('CSupervisor/SupervisorTugas/pengaturan_akun/' . $bag, 'refresh');
+				redirect('CSupervisor/SupervisorTugas/pengaturan_akun/' . $id, 'refresh');
 			}
 		} else {
 			redirect('CLogin/logout');

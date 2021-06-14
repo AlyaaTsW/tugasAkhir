@@ -38,13 +38,39 @@
     </div>
 </div>
 
-<div hidden="true">
-  <input type="number" name="dis" id="dis" value="<?php echo $dis; ?>">
-  <input type="number" name="ner" id="ner" value="<?php echo $ner; ?>">
-  <input type="number" name="pro" id="pro" value="<?php echo $pro; ?>">
-  <input type="number" name="sos" id="sos" value="<?php echo $sos; ?>">
-  <input type="number" name="ipd" id="ipd" value="<?php echo $ipd; ?>">
+<!-- Modal Ubah -->
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="edit-data" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                <h4 class="modal-title">Ubah Data</h4>
+            </div>
+            <form class="form-horizontal" action="<?php if($title=="CKP Pegawai") { echo base_url('CSupervisor/SupervisorCkp/TambahRealisasi'); } else { echo base_url('CSupervisor/SupervisorCkp/TambahRealisasiSaya'); }  ?>" method="post" enctype="multipart/form-data" role="form">
+             <div class="modal-body">
+                     <div class="form-group" hidden="true">
+                         <label class="col-lg-2 col-sm-2 control-label">id tugas</label>
+                         <div class="col-lg-10">
+                          <input type="text" id="id_tugas" name="id_tugas">
+                         </div>
+                     </div>
+                     <div class="form-group">
+                         <label class="col-lg-2 col-sm-2 control-label">Realisasi</label>
+                         <div class="col-lg-10">
+                          <input type="number" class="form-control" id="realisasi" name="realisasi" placeholder="Jumlah Realisasi">
+                         </div>
+                     </div>
+                 </div>
+                 <div class="modal-footer">
+                     <button class="btn btn-info" type="submit"> Simpan&nbsp;</button>
+                     <button type="button" class="btn btn-warning" data-dismiss="modal"> Batal</button>
+                 </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
+<!-- END Modal Ubah -->
 
 <!-- Bootstrap core JavaScript-->
 <script src="<?php echo base_url('assets/vendor/jquery/jquery.min.js') ?>"></script>
@@ -73,17 +99,12 @@
 
 <!-- Page level custom scripts -->
 <script src="<?php echo base_url('assets/js/demo/datatables-demo.js') ?>"></script>
-<script>
-    $(document).ready(function() {
-        $('#dataTable').DataTable();
-    } );
-</script>
 <script type="text/javascript">
   $(document).ready(function() {
     setInterval(() => {
       $.ajax({
            type: 'GET',
-           url: '<?php echo base_url(); ?>CSupervisor/SupervisorMain/notif',
+           url: '<?php echo base_url(); ?>CAdmin/AdminMain/notif',
            dataType: 'json',
            success: function(data) {
               var html = '<span class="badge badge-danger badge-counter">'+ data +'</span>';
@@ -98,7 +119,7 @@
     setInterval(() => {
           $.ajax({
              type: 'GET',
-             url: '<?php echo base_url(); ?>CSupervisor/SupervisorMain/notifContent',
+             url: '<?php echo base_url(); ?>CAdmin/AdminMain/notifContent',
              dataType: 'json',
              success: function(data) {
                 $("#notifCount").val(data.notif);
@@ -108,7 +129,7 @@
                               html += '<a class="dropdown-item d-flex align-items-center" href="#">Tidak Ada Notifikasi Terbaru</a>';
                   }
                   for (i = 0; i < data.length; i++) {
-                      html += '<a class="dropdown-item d-flex align-items-center" href="<?= base_url() ?>CSupervisor/SupervisorMain/klikNotif/' + data[i].id_tugas + '">';
+                      html += '<a class="dropdown-item d-flex align-items-center" href="<?= base_url() ?>CAdmin/AdminMain/klikNotif/' + data[i].id_tugas + '">';
                       html += '<div class="mr-3">';
                       html += '<div class="icon-circle bg-primary">';
                       html += '<i class="fas fa-file-alt text-white"></i>';
@@ -128,49 +149,34 @@
   });
 </script>
 <script type="text/javascript">
-    // Set new default font family and font color to mimic Bootstrap's default styling
-    Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
-    Chart.defaults.global.defaultFontColor = '#858796';
-
-    // Pie Chart Example
-    var ctx = document.getElementById("myPieChart1");
-    var dis = $('#dis').val();
-    var ner = $('#ner').val();
-    var pro = $('#pro').val();
-    var sos = $('#sos').val();
-    var ipd = $('#ipd').val();
-    var myPieChart1 = new Chart(ctx, {
-      type: 'doughnut',
-      data: {
-        labels: ["Distribusi", "Nerwilis", "Produksi", "Sosial", "IPDS"],
-        datasets: [{
-          data: [dis, ner, pro, sos, ipd],
-          backgroundColor: ['#2980B9', '#3498DB', '#1ABC9C', '#16A085', '#27AE60'],
-          hoverBackgroundColor: ['#73cedb', '#73cedb', '#73cedb', '#73cedb', '#73cedb'],
-          hoverBorderColor: "rgba(234, 236, 244, 1)",
-        }],
-      },
-      options: {
-        maintainAspectRatio: false,
-        tooltips: {
-          backgroundColor: "rgb(255,255,255)",
-          bodyFontColor: "#858796",
-          borderColor: '#dddfeb',
-          borderWidth: 1,
-          xPadding: 15,
-          yPadding: 15,
-          displayColors: false,
-          caretPadding: 10,
-        },
-        legend: {
-          display: false
-        },
-        cutoutPercentage: 80,
-      },
+        $(document).ready(function(){
+            $('#tahun').change(function(){
+                var tahun = $(this).val();
+                var pegawai = $('#pegawai').val();
+                var bulan = $('#bulan').val();
+                $.post("<?php echo base_url(); ?>CSupervisor/SupervisorCkp/filter_ckp", {pegawai: pegawai,bulan: bulan, tahun: tahun}).done(function(data){
+                    $('#viewTabel').html(data);
+                });
+            })
+            // $('#edit').click(function(){
+            //   alert("The paragraph was clicked.");
+            // });
+        })
+    </script>
+<script>
+    $(document).ready(function() {
+        $(document).on('click', '#edit', function() {
+            var id = $(this).data('id');
+            var laporan = $(this).data('laporan');
+            var realisasi = $(this).data('realisasi');
+            var file = $(this).data('file'); 
+            $('#id_tugas').val(id); 
+            $('#realisasi').val(realisasi);
+            // $('#edit-data').modal('hide');
+            // alert(realisasi);
+        })
     });
-
 </script>
-
 </body>
 
 </html>
