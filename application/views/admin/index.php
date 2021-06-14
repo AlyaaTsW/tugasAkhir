@@ -132,34 +132,69 @@
                                     <h6 class="m-0 font-weight-bold text-primary">MRK Selesai <span class="float-right"><?php echo date('Y')?></span></h6>
                                 </div>
                                 <div class="card-body">
+                                <?php
+                                    if ($ds==0) {
+                                        $ds2 = 0;
+                                    } else{
+                                        $ds2 = round($ds/$ds1*100,2);
+                                    }
+                                ?>
                                     <h4 class="small font-weight-bold">Distribusi<span
-                                            class="float-right"><?php echo round($ds/$ds1*100,2) ?>%</span></h4>
+                                            class="float-right"><?php echo $ds2 ?>%</span></h4>
                                     <div class="progress mb-4">
-                                        <div class="progress-bar bg-danger" role="progressbar" style="width: <?php echo round($ds/$ds1*100,2) ?>%"
+                                        <div class="progress-bar bg-danger" role="progressbar" style="width: <?php echo $ds2 ?>%"
                                             aria-valuenow="<?php echo $ds ?>" aria-valuemin="0" aria-valuemax="<?php echo $ds ?>"></div>
                                     </div>
+                                <?php
+                                    if ($nw==0) {
+                                        $nw2 = 0;
+                                    } else{
+                                        $nw2 = round($nw/$nw1*100,2);
+                                    }
+                                ?>
                                     <h4 class="small font-weight-bold">Nerwilis<span
-                                            class="float-right"><?php echo round($nw/$nw1*100,2) ?>%</span></h4>
+                                            class="float-right"><?php echo $nw2 ?>%</span></h4>
                                     <div class="progress mb-4">
-                                        <div class="progress-bar bg-warning" role="progressbar" style="width: <?php echo round($nw/$nw1*100,2) ?>%"
+                                        <div class="progress-bar bg-warning" role="progressbar" style="width: <?php echo $nw2 ?>%"
                                             aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
+                                <?php
+                                    if ($pd==0) {
+                                        $pd2 = 0;
+                                    } else{
+                                        $pd2 = round($pd/$pd1*100,2);
+                                    }
+                                ?>
                                     <h4 class="small font-weight-bold">Produksi<span
-                                            class="float-right"><?php echo round($pd/$pd1*100,2) ?>%</span></h4>
+                                            class="float-right"><?php echo $pd2 ?>%</span></h4>
                                     <div class="progress mb-4">
-                                        <div class="progress-bar" role="progressbar" style="width: <?php echo round($pd/$pd1*100,2) ?>%"
+                                        <div class="progress-bar" role="progressbar" style="width: <?php echo $pd2 ?>%"
                                             aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
+                                <?php
+                                    if ($so==0) {
+                                        $so2 = 0;
+                                    } else{
+                                        $so2 = round($so/$so1*100,2);
+                                    }
+                                ?>
                                     <h4 class="small font-weight-bold">Sosial<span
-                                            class="float-right"><?php echo round($so/$so1*100,2) ?>%</span></h4>
+                                            class="float-right"><?php echo $so2 ?>%</span></h4>
                                     <div class="progress mb-4">
-                                        <div class="progress-bar bg-info" role="progressbar" style="width: <?php echo round($so/$so1*100,2) ?>%"
+                                        <div class="progress-bar bg-info" role="progressbar" style="width: <?php echo $so2 ?>%"
                                             aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
+                                <?php
+                                    if ($ip==0) {
+                                        $ip2 = 0;
+                                    } else{
+                                        $ip2 = round($ip/$ip1*100,2);
+                                    }
+                                ?>
                                     <h4 class="small font-weight-bold">IPDS<span
-                                            class="float-right"><?php echo round($ip/$ip1*100,2) ?>%</span></h4>
+                                            class="float-right"><?php echo $ip2 ?>%</span></h4>
                                     <div class="progress">
-                                        <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo round($ip/$ip1*100,2) ?>%"
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo $ip2 ?>%"
                                             aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                 </div>
