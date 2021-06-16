@@ -36,7 +36,22 @@
                                         </tr>
                                         <tr>
                                             <th>Bagian</th>
-                                            <td><?= $user['bagian']; ?></td>
+                                            <td><?php if ($user['bagian'] == '1') {
+                                                    echo "Distribusi";
+                                                }
+                                                if ($user['bagian'] == '2') {
+                                                    echo "Nerwilis";
+                                                }
+                                                if ($user['bagian'] == '3') {
+                                                    echo "Produksi";
+                                                }
+                                                if ($user['bagian'] == '4') {
+                                                    echo "Sosial";
+                                                }
+                                                if ($user['bagian'] == '5') {
+                                                    echo "IPDS";
+                                                }
+                                                ?></td>
                                         </tr>
                                         <tr>
                                             <th>Email</th>

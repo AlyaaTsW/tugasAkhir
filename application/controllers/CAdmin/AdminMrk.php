@@ -422,9 +422,10 @@ class AdminMrk extends CI_Controller
 			$data['user'] = $this->admin_pengguna->all();
 			$data['mrk'] = $this->admin_mrk->getMrkById($id);
 
-			$this->form_validation->set_rules('id_user', 'id_user', 'required');
-			// $this->form_validation->set_rules('bulan', 'bulan', 'required');
-			// $this->form_validation->set_rules('pegawai', 'pegawai', 'required');
+			$this->form_validation->set_rules('bulan', 'bulan', 'required|callback_check_default');
+			$this->form_validation->set_message('check_default', 'You need to select something other than the default');
+			$this->form_validation->set_rules('id_user', 'id_user', 'required|callback_check_default');
+			$this->form_validation->set_message('check_default', 'You need to select something other than the default');
 
 			if ($this->form_validation->run() == FALSE) {
 				$this->load->view('admin/header_admin', $data);
@@ -443,8 +444,14 @@ class AdminMrk extends CI_Controller
 
 	function check_default($post_string)
 	{
-		echo "<script>alert('Mohon diisi');</script>";
-		return $post_string == '0' ? FALSE : TRUE;
+		if ($post_string == '0_user') {
+			echo "<script>alert('Mohon nama user diisi');</script>";
+			return false;
+		} else if ($post_string == '0_bulan') {
+			echo "<script>alert('Mohon bulan diisi');</script>";
+			return false;
+		}
+		return true;
 	}
 
 	public function penugasan_mrk_ipds($id)

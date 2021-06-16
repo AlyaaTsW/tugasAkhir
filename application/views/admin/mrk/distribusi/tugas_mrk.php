@@ -61,7 +61,7 @@
                                         <div class="col-sm-6 mb-3 mb-sm-0">
                                             <label for="bulan">Bulan</label>
                                             <select class="form-control" id="bulan" name="bulan" required>
-                                                <option value="0">--- Pilih Bulan ---</option>
+                                                <option value="0_bulan">--- Pilih Bulan ---</option>
                                                 <option value="1">Januari</option>
                                                 <option value="2">Februari</option>
                                                 <option value="3">Maret</option>
@@ -85,7 +85,7 @@
                                         <div class="col-sm-6 mb-3 mb-sm-0">
                                             <label for="pegawai">Pegawai</label>
                                             <select class="form-control" id="id_user" name="id_user" required>
-                                                <option value="0">--- Pilih Pegawai ---</option>
+                                                <option value="0_user">--- Pilih Pegawai ---</option>
                                                 <?php foreach ($user as $u) {
                                                 ?>
                                                     <option value="<?php echo $u->id_user ?>"><?php echo $u->nama ?></option>
