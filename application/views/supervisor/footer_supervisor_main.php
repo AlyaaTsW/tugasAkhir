@@ -68,56 +68,123 @@
 <script>
     $(document).ready(function() {
         $('#dataTable').DataTable();
-    } );
+    });
 </script>
 <script type="text/javascript">
-  $(document).ready(function() {
-    setInterval(() => {
-      $.ajax({
-           type: 'GET',
-           url: '<?php echo base_url(); ?>CSupervisor/SupervisorMain/notif',
-           dataType: 'json',
-           success: function(data) {
-              var html = '<span class="badge badge-danger badge-counter">'+ data +'</span>';
-              $("#notifCount").html(html);
-           }
-       });
-    }, 1000);
-  });
+    $(document).ready(function() {
+        setInterval(() => {
+            $.ajax({
+                type: 'GET',
+                url: '<?php echo base_url(); ?>CSupervisor/SupervisorMain/notif',
+                dataType: 'json',
+                success: function(data) {
+                    var html = '<span class="badge badge-danger badge-counter">' + data + '</span>';
+                    $("#notifCount").html(html);
+                }
+            });
+        }, 1000);
+    });
 </script>
 <script type="text/javascript">
-  $(document).ready(function() {
-    setInterval(() => {
-          $.ajax({
-             type: 'GET',
-             url: '<?php echo base_url(); ?>CSupervisor/SupervisorMain/notifContent',
-             dataType: 'json',
-             success: function(data) {
-                $("#notifCount").val(data.notif);
-                  var html = '';
-                  var i;
-                  if (data.length == 0) {
-                              html += '<a class="dropdown-item d-flex align-items-center" href="#">Tidak Ada Notifikasi Terbaru</a>';
-                  }
-                  for (i = 0; i < data.length; i++) {
-                      html += '<a class="dropdown-item d-flex align-items-center" href="<?= base_url() ?>CSupervisor/SupervisorMain/klikNotif/' + data[i].id_tugas + '">';
-                      html += '<div class="mr-3">';
-                      html += '<div class="icon-circle bg-primary">';
-                      html += '<i class="fas fa-file-alt text-white"></i>';
-                      html += '</div>';
-                      html += '</div>';
-                      html += '<div>';
-                      html += '<div class="small text-gray-500">TANGGAL';
-                      html += '</div>';
-                      html += '<span class="font-weight-bold">'+ data[i].nama +' Mengunggah Laporan Tugas</span>';
-                      html += '</div>';
-                      html += '</a>';
-                  }
-                  $('#notifContent').html(html);
-             }
-         });
-    }, 1000);
-  });
+    $(document).ready(function() {
+        setInterval(() => {
+            $.ajax({
+                type: 'GET',
+                url: '<?php echo base_url(); ?>CSupervisor/SupervisorMain/notifContent',
+                dataType: 'json',
+                success: function(data) {
+                    $("#notifCount").val(data.notif);
+                    var html = '';
+                    var i;
+                    if (data.length == 0) {
+                        html += '<a class="dropdown-item d-flex align-items-center" href="#">Tidak Ada Notifikasi Terbaru</a>';
+                    }
+                    for (i = 0; i < data.length; i++) {
+                        var date = new Date(data[i].tgl_ubah);
+                        var hari = date.getDay();
+                        var tanggal = date.getDate();
+                        var bulan = date.getMonth() + 1;
+                        var tahun = date.getFullYear();
+
+                        var namaHari = "";
+                        var namaBulan = "";
+                        if (hari == 1) {
+                            namaHari = "Senin";
+                        }
+                        if (hari == 2) {
+                            namaHari = "Selasa";
+                        }
+                        if (hari == 3) {
+                            namaHari = "Rabu";
+                        }
+                        if (hari == 4) {
+                            namaHari = "Kamis";
+                        }
+                        if (hari == 5) {
+                            namaHari = "Jumat";
+                        }
+                        if (hari == 6) {
+                            namaHari = "Sabtu";
+                        }
+                        if (hari == 7) {
+                            namaHari = "Minggu";
+                        }
+
+                        if (bulan == 1) {
+                            namaBulan = "Januari";
+                        }
+                        if (bulan == 2) {
+                            namaBulan = "Februari";
+                        }
+                        if (bulan == 3) {
+                            namaBulan = "Maret";
+                        }
+                        if (bulan == 4) {
+                            namaBulan = "April";
+                        }
+                        if (bulan == 5) {
+                            namaBulan = "Mei";
+                        }
+                        if (bulan == 6) {
+                            namaBulan = "Juni";
+                        }
+                        if (bulan == 7) {
+                            namaBulan = "Juli";
+                        }
+                        if (bulan == 8) {
+                            namaBulan = "Agustus";
+                        }
+                        if (bulan == 9) {
+                            namaBulan = "September";
+                        }
+                        if (bulan == 10) {
+                            namaBulan = "Oktober";
+                        }
+                        if (bulan == 11) {
+                            namaBulan = "November";
+                        }
+                        if (bulan == 12) {
+                            namaBulan = "Desember";
+                        }
+
+                        html += '<a class="dropdown-item d-flex align-items-center" href="<?= base_url() ?>CSupervisor/SupervisorMain/klikNotif/' + data[i].id_tugas + '">';
+                        html += '<div class="mr-3">';
+                        html += '<div class="icon-circle bg-primary">';
+                        html += '<i class="fas fa-file-alt text-white"></i>';
+                        html += '</div>';
+                        html += '</div>';
+                        html += '<div>';
+                        html += '<div class="small text-gray-500">' + namaHari + ', ' + tanggal + " " + namaBulan + " " + tahun;
+                        html += '</div>';
+                        html += '<span class="font-weight-bold">' + data[i].nama + ' Mengunggah Laporan Tugas</span>';
+                        html += '</div>';
+                        html += '</a>';
+                    }
+                    $('#notifContent').html(html);
+                }
+            });
+        }, 1000);
+    });
 </script>
 
 </body>

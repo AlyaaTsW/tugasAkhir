@@ -120,7 +120,7 @@
                                                             <i class="fa fa-eye fa-sm"></i>
                                                         </a>
                                                         <a href="<?= base_url('CAdmin/AdminTugas/detailTugas/' . $u->id_tugas) ?>" class="btn btn-success btn-sm" title="Edit Laporan">
-                                                            <i class="fa fa-edit>Edit</i>
+                                                            <i class="fa fa-edit fa-sm">Edit</i>
                                                         </a>
                                                     <?php
                                                     }
@@ -131,7 +131,7 @@
                                             $no++;
                                         }
                                         ?>
-                                        </tbody>
+                                    </tbody>
                                 </table>
                             </div>
                         </div>

@@ -9,6 +9,8 @@ class AdminPengguna extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->helper("url");
+		$this->load->helper('security');
+		// $this->load->helper('file');
 		$this->load->model('admin_pengguna');
 	}
 
@@ -33,12 +35,15 @@ class AdminPengguna extends CI_Controller
 			$data['title'] = 'Tambah Pegawai';
 
 			$this->form_validation->set_rules('nama', 'nama', 'required');
+			$this->form_validation->set_message('nama', 'Kolom nama harap diisi');
 			$this->form_validation->set_rules('nip', 'nip', 'required');
-			$this->form_validation->set_rules('jabatan', 'jabatan', 'required');
+			$this->form_validation->set_message('nip', 'Kolom NIP harap diisi');
 			$this->form_validation->set_rules('email', 'email', 'required');
+			$this->form_validation->set_message('email', 'Kolom email harap diisi');
 			$this->form_validation->set_rules('password', 'password', 'required');
-			$this->form_validation->set_rules('pendidikan', 'pendidikan', 'required');
-			$this->form_validation->set_rules('level', 'level', 'required');
+			$this->form_validation->set_message('password', 'Kolom Password harap diisi');
+			$this->form_validation->set_rules('pendidikan', 'pendidikan', 'required|callback_check_default');
+			$this->form_validation->set_rules('jabatan', 'jabatan', 'required|callback_check_default');
 
 			if ($this->form_validation->run() == FALSE) {
 				$this->load->view('admin/header_admin', $data);
@@ -77,11 +82,15 @@ class AdminPengguna extends CI_Controller
 			$data['user'] = $this->admin_pengguna->getPenggunaById($id);
 
 			$this->form_validation->set_rules('nama', 'nama', 'required');
+			$this->form_validation->set_message('nama', 'Kolom nama harap diisi');
 			$this->form_validation->set_rules('nip', 'nip', 'required');
-			$this->form_validation->set_rules('jabatan', 'jabatan', 'required');
+			$this->form_validation->set_message('nip', 'Kolom NIP harap diisi');
 			$this->form_validation->set_rules('email', 'email', 'required');
+			$this->form_validation->set_message('email', 'Kolom email harap diisi');
 			$this->form_validation->set_rules('password', 'password', 'required');
-			$this->form_validation->set_rules('pendidikan', 'pendidikan', 'required');
+			$this->form_validation->set_message('password', 'Kolom Password harap diisi');
+			$this->form_validation->set_rules('pendidikan', 'pendidikan', 'required|callback_check_default');
+			$this->form_validation->set_rules('jabatan', 'jabatan', 'required|callback_check_default');
 
 			if ($this->form_validation->run() == FALSE) {
 				$this->load->view('admin/header_admin', $data);
@@ -95,6 +104,18 @@ class AdminPengguna extends CI_Controller
 		} else {
 			redirect('Login/logout');
 		}
+	}
+
+	function check_default($post_string)
+	{
+		if ($post_string == '0_jabatan') {
+			$this->form_validation->set_message('check_default', 'Mohon untuk memilih jabatan yang telah disediakan');
+			return false;
+		} else if ($post_string == '0_pendidikan') {
+			$this->form_validation->set_message('check_default', 'Mohon untuk memilih pendidikan yang telah disediakan');
+			return false;
+		}
+		return true;
 	}
 
 	public function hapus_pegawai($id)

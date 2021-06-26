@@ -16,13 +16,24 @@ class AdminExport extends CI_Controller
 
     public function export()
     {
-        $hasil['data'] = $this->admin_ckp->selectCkpPegawai();
-        $hasil['distribusi'] = $this->admin_ckp->countCkpPegawai(1);
-        $hasil['nerwilis'] = $this->admin_ckp->countCkpPegawai(2);
-        $hasil['produksi'] = $this->admin_ckp->countCkpPegawai(3);
-        $hasil['sosial'] = $this->admin_ckp->countCkpPegawai(4);
-        $hasil['ipds'] = $this->admin_ckp->countCkpPegawai(5);
+        $hasil['data'] = $this->admin_ckp->selectCkpPegawaiUtama();
+        $hasil['data1'] = $this->admin_ckp->selectCkpPegawaiTambahan();
+
+        $hasil['distribusi'] = $this->admin_ckp->countCkpPegawaiUtama(1);
+        $hasil['nerwilis'] = $this->admin_ckp->countCkpPegawaiUtama(2);
+        $hasil['produksi'] = $this->admin_ckp->countCkpPegawaiUtama(3);
+        $hasil['sosial'] = $this->admin_ckp->countCkpPegawaiUtama(4);
+        $hasil['ipds'] = $this->admin_ckp->countCkpPegawaiUtama(5);
+
+        $hasil['distribusi1'] = $this->admin_ckp->countCkpPegawaiTambahan(1);
+        $hasil['nerwilis1'] = $this->admin_ckp->countCkpPegawaiTambahan(2);
+        $hasil['produksi1'] = $this->admin_ckp->countCkpPegawaiTambahan(3);
+        $hasil['sosial1'] = $this->admin_ckp->countCkpPegawaiTambahan(4);
+        $hasil['ipds1'] = $this->admin_ckp->countCkpPegawaiTambahan(5);
+
         $all = $this->admin_ckp->countAllCkpPegawai();
+        $hasil['allTambahan'] = $this->admin_ckp->countAllCkpPegawaiTambahan();
+
         $hasil['kepala'] = $this->admin_pengguna->getKepalaBps();
 
         if ($all == 0) {

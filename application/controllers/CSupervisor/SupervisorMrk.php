@@ -106,7 +106,10 @@ class SupervisorMrk extends CI_Controller
 			$data['user'] = $this->supervisor_mrk->all();
 			$data['mrk'] = $this->supervisor_mrk->getMrkById($id);
 
-			$this->form_validation->set_rules('id_user', 'id_user', 'required');
+			$this->form_validation->set_rules('bulan', 'bulan', 'required|callback_check_default');
+			$this->form_validation->set_message('check_default', 'You need to select something other than the default');
+			$this->form_validation->set_rules('id_user', 'id_user', 'required|callback_check_default');
+			$this->form_validation->set_message('check_default', 'You need to select something other than the default');
 
 			if ($this->form_validation->run() == FALSE) {
 				$this->load->view('supervisor/header_supervisor', $data);
@@ -122,6 +125,18 @@ class SupervisorMrk extends CI_Controller
 		} else {
 			redirect('Login/logout');
 		}
+	}
+
+	function check_default($post_string)
+	{
+		if ($post_string == '0_user') {
+			echo "<script>alert('Mohon nama user diisi');</script>";
+			return false;
+		} else if ($post_string == '0_bulan') {
+			echo "<script>alert('Mohon bulan diisi');</script>";
+			return false;
+		}
+		return true;
 	}
 
 	//EDIT PENUGASAN

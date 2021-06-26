@@ -3,7 +3,7 @@
 
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Data MRK Seksi Nerwilis</h1>
-<!--                     <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
+                    <!--                     <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
                         For more information about DataTables, please visit the <a target="_blank"
                             href="https://datatables.net">official DataTables documentation</a>.</p>
  -->
@@ -27,12 +27,12 @@
                             <?php } ?>
                             <!-- <div class="row">
                                 <div class="col-lg-7"> -->
-                                    <div class="p-5">
-                                        <!-- <div class="text-center">
+                            <div class="p-5">
+                                <!-- <div class="text-center">
                                             <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                                         </div> -->
-                                        <form class="user" action="<?= base_url('CAdmin/AdminMrk/edit_mrk_nrw/'. $mrk['id_mrk']) ?>" method="post">
-                                            <!-- <div class="form-group row">
+                                <form class="user" action="<?= base_url('CAdmin/AdminMrk/edit_mrk_nrw/' . $mrk['id_mrk']) ?>" method="post">
+                                    <!-- <div class="form-group row">
                                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                                     <label for="output">Komponen</label>
                                                     <input type="text" class="form-control form-control-user" id="exampleFirstName"
@@ -44,39 +44,46 @@
                                                         placeholder="Last Name">
                                                 </div>
                                             </div> -->
-                                            <input type="hidden" name="id_mrk" value="<?= $mrk['id_mrk']; ?>">
-                                            <div class="form-group">
-                                                <label for="komponen">Komponen</label>
-                                                <input type="text" class="form-control form-control-user" id="komponen" placeholder="Komponen" name="komponen" style="text-transform: uppercase;" value="<?= $mrk['komponen']; ?>">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="kegiatan">Kegiatan</label>
-                                                <input type="text" class="form-control form-control-user" id="kegiatan" name="kegiatan" placeholder="Kegiatan" value="<?= $mrk['kegiatan']; ?>">
-                                            </div>
-                                            <div class="form-group row">
-                                                <div class="col-sm-6 mb-3 mb-sm-0">
-                                                    <label for="volume">Volume</label>
-                                                    <input type="number" class="form-control form-control-user" id="volume" name="volume" placeholder="Volume" value="<?= $mrk['volume']; ?>">
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <label for="satuan">Satuan</label>
-                                                    <input type="text" class="form-control form-control-user" id="satuan" name="satuan" placeholder="Satuan" value="<?= $mrk['satuan']; ?>">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row" hidden>
-                                                <div class="col-sm-6 mb-3 mb-sm-0">
-                                                    <label for="volume">Bagian</label>
-                                                    <input type="number" class="form-control form-control-user" id="bagian" name="bagian" value="2">
-                                                </div>
-                                                <div class="col-sm-6 mb-3 mb-sm-0">
-                                                    <label for="tahun">Tahun</label>
-                                                    <input type="number" class="form-control form-control-user" id="tahun" name="tahun" value="<?= $mrk['tahun']; ?>">
-                                                </div>
-                                            </div>
-                                            <button type="submit" name="submit" class="btn btn-primary btn-user btn-block">Simpan</button>
-                                        </form>
+                                    <input type="hidden" name="id_mrk" value="<?= $mrk['id_mrk']; ?>">
+                                    <div class="form-group">
+                                        <label for="komponen">Komponen</label>
+                                        <input type="text" class="form-control form-control-user" id="komponen" placeholder="Komponen" name="komponen" style="text-transform: uppercase;" value="<?= $mrk['komponen']; ?>">
                                     </div>
-                                <!-- </div>
+                                    <div class="form-group">
+                                        <label for="kegiatan">Kegiatan</label>
+                                        <input type="text" class="form-control form-control-user" id="kegiatan" name="kegiatan" placeholder="Kegiatan" value="<?= $mrk['kegiatan']; ?>">
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-4 mb-3 mb-sm-0">
+                                            <label for="volume">Volume</label>
+                                            <input type="number" class="form-control form-control-user" id="volume" name="volume" placeholder="Volume" value="<?= $mrk['volume']; ?>">
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label for="satuan">Satuan</label>
+                                            <input type="text" class="form-control form-control-user" id="satuan" name="satuan" placeholder="Satuan" value="<?= $mrk['satuan']; ?>">
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label for="jenisMrk">Jenis MRK</label>
+                                            <select class="form-control" id="ckp_level" name="ckp_level">
+                                                <option value="1" <?php if ($mrk['ckp_level'] == 1) echo "selected" ?>>Utama</option>
+                                                <option value="2" <?php if ($mrk['ckp_level'] == 2) echo "selected" ?>>Tambahan</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row" hidden>
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <label for="volume">Bagian</label>
+                                            <input type="number" class="form-control form-control-user" id="bagian" name="bagian" value="2">
+                                        </div>
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <label for="tahun">Tahun</label>
+                                            <input type="number" class="form-control form-control-user" id="tahun" name="tahun" value="<?= $mrk['tahun']; ?>">
+                                        </div>
+                                    </div>
+                                    <button type="submit" name="submit" class="btn btn-primary btn-user btn-block">Simpan</button>
+                                </form>
+                            </div>
+                            <!-- </div>
                             </div> -->
                         </div>
                     </div>
@@ -84,5 +91,5 @@
                 </div>
                 <!-- /.container-fluid -->
 
-            </div>
-            <!-- End of Main Content -->
+                </div>
+                <!-- End of Main Content -->

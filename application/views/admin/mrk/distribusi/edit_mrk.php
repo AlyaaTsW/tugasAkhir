@@ -54,13 +54,20 @@
                                         <input type="text" class="form-control form-control-user" id="kegiatan" name="kegiatan" placeholder="Kegiatan" value="<?= $mrk['kegiatan']; ?>">
                                     </div>
                                     <div class="form-group row">
-                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <div class="col-sm-4 mb-3 mb-sm-0">
                                             <label for="volume">Volume</label>
                                             <input type="number" class="form-control form-control-user" id="volume" name="volume" placeholder="Volume" value="<?= $mrk['volume']; ?>">
                                         </div>
-                                        <div class="col-sm-6">
+                                        <div class="col-sm-4">
                                             <label for="satuan">Satuan</label>
                                             <input type="text" class="form-control form-control-user" id="satuan" name="satuan" placeholder="Satuan" value="<?= $mrk['satuan']; ?>">
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label for="jenisMrk">Jenis MRK</label>
+                                            <select class="form-control" id="ckp_level" name="ckp_level">
+                                                <option value="1" <?php if ($mrk['ckp_level'] == 1) echo "selected" ?>>Utama</option>
+                                                <option value="2" <?php if ($mrk['ckp_level'] == 2) echo "selected" ?>>Tambahan</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="form-group row" hidden>

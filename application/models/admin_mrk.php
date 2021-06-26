@@ -6,15 +6,19 @@ defined('BASEPATH') or exit('No direct script access allowed');
  */
 class admin_mrk extends CI_Model
 {
-	
-	//TABEL MRK
-	public function tabel($bagian)
-	{
-		$query = $this->db->get_where('mrk', array('bag' => $bagian));
-        return $query->result();
-	}
 
-	function proses_tambah_mrk()
+    //TABEL MRK
+    public function tabel($bagian)
+    {
+        $this->db->select('*');
+        $this->db->from('mrk');
+        $this->db->where('bag', $bagian);
+        $this->db->order_by('id_mrk', 'desc');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    function proses_tambah_mrk()
     {
         $this->id_mrk = uniqid();
         $komponen = strtoupper($this->input->post('komponen', true));
@@ -25,6 +29,7 @@ class admin_mrk extends CI_Model
             "satuan" => $this->input->post('satuan', true),
             "bag" => $this->input->post('bagian', true),
             "tahun" => $this->input->post('tahun', true),
+            "ckp_level" => $this->input->post('ckp_level', true),
         ];
         $this->db->insert('mrk', $data);
     }
@@ -47,6 +52,7 @@ class admin_mrk extends CI_Model
             "satuan" => $this->input->post('satuan', true),
             "bag" => $this->input->post('bagian', true),
             "tahun" => $this->input->post('tahun', true),
+            "ckp_level" => $this->input->post('ckp_level', true),
         ];
 
         $this->db->update('mrk', $data, array('id_mrk' => $post['id_mrk']));
@@ -107,34 +113,33 @@ class admin_mrk extends CI_Model
 
     public function countMrk()
     {
-        $thn=date('Y');
+        $thn = date('Y');
         $this->db->select('*');
         $this->db->from('mrk');
         $this->db->where('tahun', $thn);
-        $query=$this->db->get();
+        $query = $this->db->get();
         return $query->num_rows();
     }
 
     public function countMrkBag($bag)
     {
-        $thn=date('Y');
+        $thn = date('Y');
         $this->db->select('*');
         $this->db->from('mrk');
         $this->db->where('tahun', $thn);
         $this->db->where('bag', $bag);
-        $query=$this->db->get();
+        $query = $this->db->get();
         return $query->num_rows();
     }
 
     public function countMrkDitugaskan()
     {
-        $thn=date('Y');
+        $thn = date('Y');
         $this->db->select('*');
         $this->db->from('mrk');
         $this->db->where('tahun', $thn);
         $this->db->where('status', '1');
-        $query=$this->db->get();
+        $query = $this->db->get();
         return $query->num_rows();
     }
-
 }

@@ -33,13 +33,30 @@ class AdminCkp extends CI_Controller
 
     public function filter_ckp()
     {
-        $data = $this->admin_ckp->selectCkpPegawai();
-        $distribusi = $this->admin_ckp->countCkpPegawai(1);
-        $nerwilis = $this->admin_ckp->countCkpPegawai(2);
-        $produksi = $this->admin_ckp->countCkpPegawai(3);
-        $sosial = $this->admin_ckp->countCkpPegawai(4);
-        $ipds = $this->admin_ckp->countCkpPegawai(5);
+        $data = $this->admin_ckp->selectCkpPegawaiUtama();
+        $data1 = $this->admin_ckp->selectCkpPegawaiTambahan();
+
+        $distribusi = $this->admin_ckp->countCkpPegawaiUtama(1);
+        $nerwilis = $this->admin_ckp->countCkpPegawaiUtama(2);
+        $produksi = $this->admin_ckp->countCkpPegawaiUtama(3);
+        $sosial = $this->admin_ckp->countCkpPegawaiUtama(4);
+        $ipds = $this->admin_ckp->countCkpPegawaiUtama(5);
+
+        $distribusi1 = $this->admin_ckp->countCkpPegawaiTambahan(1);
+        $nerwilis1 = $this->admin_ckp->countCkpPegawaiTambahan(2);
+        $produksi1 = $this->admin_ckp->countCkpPegawaiTambahan(3);
+        $sosial1 = $this->admin_ckp->countCkpPegawaiTambahan(4);
+        $ipds1 = $this->admin_ckp->countCkpPegawaiTambahan(5);
+
         $all = $this->admin_ckp->countAllCkpPegawai();
+        $allTambahan = $this->admin_ckp->countAllCkpPegawaiTambahan();
+
+        $jmlhData = 0;
+        $jmlhAngka = 0;
+        $jmlhKualitas = 0;
+        $jmlhPersen = 0;
+        $jmlhRealisasi = 0;
+
         $no = 1;
         if ($all == 0) {
             echo "<script>alert('Data CKP Tidak Tersedia');</script>";
@@ -179,15 +196,67 @@ class AdminCkp extends CI_Controller
                     echo '<td>' . $u['realisasi'] . '&nbsp&nbsp<a id="edit" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-data"
                                 href="javascript:;"
                                 data-id="' . $u['id_tugas'] . '"
-                                data-realisasi="' . $u['realisasi'] . '"
-                                data-laporan="' . $u['laporan'] . '"
-                                data-file="' . $u['file'] . '"><i class="fas fa-pen-alt"></i></a></td>';
-                    echo '<td>' . $u['persen'] . '</td>';
-                    echo '<td>&nbsp</td>';
-                    echo '<td>&nbsp</td>';
-                    echo '<td>&nbsp</td>';
-                    echo '<td>&nbsp</td>';
+                                data-volume="' . $u['volume'] . '"
+                                data-realisasi="' . $u['realisasi'] . '">
+                                <i class="fas fa-pen-alt"></i></a></td>';
+                    echo '<td>';
+                    if ($u['realisasi'] == 0) {
+                        echo '0';
+                    } else {
+                        $persen = round($u['realisasi'] / $u['volume'] * 100, 2);
+                        echo $persen . '%';
+                        $jmlhPersen += $persen;
+                    }
+                    echo '</td>';
+                    echo '<td>';
+                    if ($u['kualitas'] == 0) {
+                        echo '&nbsp';
+                    } else {
+                        echo $u['kualitas'] . '% &nbsp&nbsp';
+                    }
+                    echo '<a id="editKualitas" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-kualitas"
+                                href="javascript:;"
+                                data-id="' . $u['id_tugas'] . '"
+                                data-kualitas="' . $u['kualitas'] . '">
+                                <i class="fas fa-pen-alt"></i></a></td>';
+                    echo '<td>';
+                    if ($u['kd_butir'] == 0) {
+                        echo '&nbsp';
+                    } else {
+                        echo $u['kd_butir'] . '&nbsp&nbsp';
+                    }
+                    echo '<a id="editKode" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-kode"
+                                href="javascript:;"
+                                data-id="' . $u['id_tugas'] . '"
+                                data-kd_butir="' . $u['kd_butir'] . '">
+                                <i class="fas fa-pen-alt"></i></a></td>';
+                    echo '<td>';
+                    if ($u['angka_kredit'] == 0) {
+                        echo '&nbsp';
+                    } else {
+                        echo $u['angka_kredit'] . '&nbsp&nbsp';
+                    }
+                    echo '<a id="editAngka" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-angka"
+                                href="javascript:;"
+                                data-id="' . $u['id_tugas'] . '"
+                                data-angkakredit="' . $u['angka_kredit'] . '">
+                                <i class="fas fa-pen-alt"></i></a></td>';
+                    echo '<td>';
+                    if ($u['keterangan'] == NULL) {
+                        echo '&nbsp';
+                    } else {
+                        echo $u['keterangan'] . '&nbsp&nbsp';
+                    }
+                    echo '<a id="editKeterangan" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-keterangan"
+                                href="javascript:;"
+                                data-id="' . $u['id_tugas'] . '"
+                                data-keterangan="' . $u['keterangan'] . '">
+                                <i class="fas fa-pen-alt"></i></a></td>';
                     echo '</tr>';
+                    $jmlhData++;
+                    $jmlhAngka += $u['angka_kredit'];
+                    $jmlhKualitas += $u['kualitas'];
+                    $jmlhRealisasi += $u['realisasi'];
                 }
             }
         }
@@ -213,15 +282,67 @@ class AdminCkp extends CI_Controller
                     echo '<td>' . $u['realisasi'] . '&nbsp&nbsp<a id="edit" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-data"
                                 href="javascript:;"
                                 data-id="' . $u['id_tugas'] . '"
-                                data-realisasi="' . $u['realisasi'] . '"
-                                data-laporan="' . $u['laporan'] . '"
-                                data-file="' . $u['file'] . '"><i class="fas fa-pen-alt"></i></a></td>';
-                    echo '<td>' . $u['persen'] . '</td>';
-                    echo '<td>&nbsp</td>';
-                    echo '<td>&nbsp</td>';
-                    echo '<td>&nbsp</td>';
-                    echo '<td>&nbsp</td>';
+                                data-volume="' . $u['volume'] . '"
+                                data-realisasi="' . $u['realisasi'] . '">
+                                <i class="fas fa-pen-alt"></i></a></td>';
+                    echo '<td>';
+                    if ($u['realisasi'] == 0) {
+                        echo '0';
+                    } else {
+                        $persen = round($u['realisasi'] / $u['volume'] * 100, 2);
+                        echo $persen . '%';
+                        $jmlhPersen += $persen;
+                    }
+                    echo '</td>';
+                    echo '<td>';
+                    if ($u['kualitas'] == 0) {
+                        echo '&nbsp';
+                    } else {
+                        echo $u['kualitas'] . '% &nbsp&nbsp';
+                    }
+                    echo '<a id="editKualitas" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-kualitas"
+                                            href="javascript:;"
+                                            data-id="' . $u['id_tugas'] . '"
+                                            data-kualitas="' . $u['kualitas'] . '">
+                                            <i class="fas fa-pen-alt"></i></a></td>';
+                    echo '<td>';
+                    if ($u['kd_butir'] == 0) {
+                        echo '&nbsp';
+                    } else {
+                        echo $u['kd_butir'] . '&nbsp&nbsp';
+                    }
+                    echo '<a id="editKode" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-kode"
+                                            href="javascript:;"
+                                            data-id="' . $u['id_tugas'] . '"
+                                            data-kd_butir="' . $u['kd_butir'] . '">
+                                            <i class="fas fa-pen-alt"></i></a></td>';
+                    echo '<td>';
+                    if ($u['angka_kredit'] == 0) {
+                        echo '&nbsp';
+                    } else {
+                        echo $u['angka_kredit'] . '&nbsp&nbsp';
+                    }
+                    echo '<a id="editAngka" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-angka"
+                                            href="javascript:;"
+                                            data-id="' . $u['id_tugas'] . '"
+                                            data-angkakredit="' . $u['angka_kredit'] . '">
+                                            <i class="fas fa-pen-alt"></i></a></td>';
+                    echo '<td>';
+                    if ($u['keterangan'] == NULL) {
+                        echo '&nbsp';
+                    } else {
+                        echo $u['keterangan'] . '&nbsp&nbsp';
+                    }
+                    echo '<a id="editKeterangan" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-keterangan"
+                                            href="javascript:;"
+                                            data-id="' . $u['id_tugas'] . '"
+                                            data-keterangan="' . $u['keterangan'] . '">
+                                            <i class="fas fa-pen-alt"></i></a></td>';
                     echo '</tr>';
+                    $jmlhData++;
+                    $jmlhAngka += $u['angka_kredit'];
+                    $jmlhKualitas += $u['kualitas'];
+                    $jmlhRealisasi += $u['realisasi'];
                 }
             }
         }
@@ -247,15 +368,67 @@ class AdminCkp extends CI_Controller
                     echo '<td>' . $u['realisasi'] . '&nbsp&nbsp<a id="edit" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-data"
                                 href="javascript:;"
                                 data-id="' . $u['id_tugas'] . '"
-                                data-realisasi="' . $u['realisasi'] . '"
-                                data-laporan="' . $u['laporan'] . '"
-                                data-file="' . $u['file'] . '"><i class="fas fa-pen-alt"></i></a></td>';
-                    echo '<td>' . $u['persen'] . '</td>';
-                    echo '<td>&nbsp</td>';
-                    echo '<td>&nbsp</td>';
-                    echo '<td>&nbsp</td>';
-                    echo '<td>&nbsp</td>';
+                                data-volume="' . $u['volume'] . '"
+                                data-realisasi="' . $u['realisasi'] . '">
+                                <i class="fas fa-pen-alt"></i></a></td>';
+                    echo '<td>';
+                    if ($u['realisasi'] == 0) {
+                        echo '0';
+                    } else {
+                        $persen = round($u['realisasi'] / $u['volume'] * 100, 2);
+                        echo $persen . '%';
+                        $jmlhPersen += $persen;
+                    }
+                    echo '</td>';
+                    echo '<td>';
+                    if ($u['kualitas'] == 0) {
+                        echo '&nbsp';
+                    } else {
+                        echo $u['kualitas'] . '% &nbsp&nbsp';
+                    }
+                    echo '<a id="editKualitas" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-kualitas"
+                                            href="javascript:;"
+                                            data-id="' . $u['id_tugas'] . '"
+                                            data-kualitas="' . $u['kualitas'] . '">
+                                            <i class="fas fa-pen-alt"></i></a></td>';
+                    echo '<td>';
+                    if ($u['kd_butir'] == 0) {
+                        echo '&nbsp';
+                    } else {
+                        echo $u['kd_butir'] . '&nbsp&nbsp';
+                    }
+                    echo '<a id="editKode" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-kode"
+                                            href="javascript:;"
+                                            data-id="' . $u['id_tugas'] . '"
+                                            data-kd_butir="' . $u['kd_butir'] . '">
+                                            <i class="fas fa-pen-alt"></i></a></td>';
+                    echo '<td>';
+                    if ($u['angka_kredit'] == 0) {
+                        echo '&nbsp';
+                    } else {
+                        echo $u['angka_kredit'] . '&nbsp&nbsp';
+                    }
+                    echo '<a id="editAngka" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-angka"
+                                            href="javascript:;"
+                                            data-id="' . $u['id_tugas'] . '"
+                                            data-angkakredit="' . $u['angka_kredit'] . '">
+                                            <i class="fas fa-pen-alt"></i></a></td>';
+                    echo '<td>';
+                    if ($u['keterangan'] == NULL) {
+                        echo '&nbsp';
+                    } else {
+                        echo $u['keterangan'] . '&nbsp&nbsp';
+                    }
+                    echo '<a id="editKeterangan" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-keterangan"
+                                            href="javascript:;"
+                                            data-id="' . $u['id_tugas'] . '"
+                                            data-keterangan="' . $u['keterangan'] . '">
+                                            <i class="fas fa-pen-alt"></i></a></td>';
                     echo '</tr>';
+                    $jmlhData++;
+                    $jmlhAngka += $u['angka_kredit'];
+                    $jmlhKualitas += $u['kualitas'];
+                    $jmlhRealisasi += $u['realisasi'];
                 }
             }
         }
@@ -281,15 +454,67 @@ class AdminCkp extends CI_Controller
                     echo '<td>' . $u['realisasi'] . '&nbsp&nbsp<a id="edit" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-data"
                                 href="javascript:;"
                                 data-id="' . $u['id_tugas'] . '"
-                                data-realisasi="' . $u['realisasi'] . '"
-                                data-laporan="' . $u['laporan'] . '"
-                                data-file="' . $u['file'] . '"><i class="fas fa-pen-alt"></i></a></td>';
-                    echo '<td>' . $u['persen'] . '</td>';
-                    echo '<td>&nbsp</td>';
-                    echo '<td>&nbsp</td>';
-                    echo '<td>&nbsp</td>';
-                    echo '<td>&nbsp</td>';
+                                data-volume="' . $u['volume'] . '"
+                                data-realisasi="' . $u['realisasi'] . '">
+                                <i class="fas fa-pen-alt"></i></a></td>';
+                    echo '<td>';
+                    if ($u['realisasi'] == 0) {
+                        echo '0';
+                    } else {
+                        $persen = round($u['realisasi'] / $u['volume'] * 100, 2);
+                        echo $persen . '%';
+                        $jmlhPersen += $persen;
+                    }
+                    echo '</td>';
+                    echo '<td>';
+                    if ($u['kualitas'] == 0) {
+                        echo '&nbsp';
+                    } else {
+                        echo $u['kualitas'] . '% &nbsp&nbsp';
+                    }
+                    echo '<a id="editKualitas" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-kualitas"
+                                            href="javascript:;"
+                                            data-id="' . $u['id_tugas'] . '"
+                                            data-kualitas="' . $u['kualitas'] . '">
+                                            <i class="fas fa-pen-alt"></i></a></td>';
+                    echo '<td>';
+                    if ($u['kd_butir'] == 0) {
+                        echo '&nbsp';
+                    } else {
+                        echo $u['kd_butir'] . '&nbsp&nbsp';
+                    }
+                    echo '<a id="editKode" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-kode"
+                                            href="javascript:;"
+                                            data-id="' . $u['id_tugas'] . '"
+                                            data-kd_butir="' . $u['kd_butir'] . '">
+                                            <i class="fas fa-pen-alt"></i></a></td>';
+                    echo '<td>';
+                    if ($u['angka_kredit'] == 0) {
+                        echo '&nbsp';
+                    } else {
+                        echo $u['angka_kredit'] . '&nbsp&nbsp';
+                    }
+                    echo '<a id="editAngka" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-angka"
+                                            href="javascript:;"
+                                            data-id="' . $u['id_tugas'] . '"
+                                            data-angkakredit="' . $u['angka_kredit'] . '">
+                                            <i class="fas fa-pen-alt"></i></a></td>';
+                    echo '<td>';
+                    if ($u['keterangan'] == NULL) {
+                        echo '&nbsp';
+                    } else {
+                        echo $u['keterangan'] . '&nbsp&nbsp';
+                    }
+                    echo '<a id="editKeterangan" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-keterangan"
+                                            href="javascript:;"
+                                            data-id="' . $u['id_tugas'] . '"
+                                            data-keterangan="' . $u['keterangan'] . '">
+                                            <i class="fas fa-pen-alt"></i></a></td>';
                     echo '</tr>';
+                    $jmlhData++;
+                    $jmlhAngka += $u['angka_kredit'];
+                    $jmlhKualitas += $u['kualitas'];
+                    $jmlhRealisasi += $u['realisasi'];
                 }
             }
         }
@@ -315,80 +540,615 @@ class AdminCkp extends CI_Controller
                     echo '<td>' . $u['realisasi'] . '&nbsp&nbsp<a id="edit" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-data"
                                 href="javascript:;"
                                 data-id="' . $u['id_tugas'] . '"
-                                data-realisasi="' . $u['realisasi'] . '"
-                                data-laporan="' . $u['laporan'] . '"
-                                data-file="' . $u['file'] . '"><i class="fas fa-pen-alt"></i></a></td>';
-                    echo '<td>' . $u['persen'] . '</td>';
-                    echo '<td>&nbsp</td>';
-                    echo '<td>&nbsp</td>';
-                    echo '<td>&nbsp</td>';
-                    echo '<td>&nbsp</td>';
+                                data-volume="' . $u['volume'] . '"
+                                data-realisasi="' . $u['realisasi'] . '">
+                                <i class="fas fa-pen-alt"></i></a></td>';
+                    echo '<td>';
+                    if ($u['realisasi'] == 0) {
+                        echo '0';
+                    } else {
+                        $persen = round($u['realisasi'] / $u['volume'] * 100, 2);
+                        echo $persen . '%';
+                        $jmlhPersen += $persen;
+                    }
+                    echo '</td>';
+                    echo '<td>';
+                    if ($u['kualitas'] == 0) {
+                        echo '&nbsp';
+                    } else {
+                        echo $u['kualitas'] . '% &nbsp&nbsp';
+                    }
+                    echo '<a id="editKualitas" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-kualitas"
+                                            href="javascript:;"
+                                            data-id="' . $u['id_tugas'] . '"
+                                            data-kualitas="' . $u['kualitas'] . '">
+                                            <i class="fas fa-pen-alt"></i></a></td>';
+                    echo '<td>';
+                    if ($u['kd_butir'] == 0) {
+                        echo '&nbsp';
+                    } else {
+                        echo $u['kd_butir'] . '&nbsp&nbsp';
+                    }
+                    echo '<a id="editKode" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-kode"
+                                            href="javascript:;"
+                                            data-id="' . $u['id_tugas'] . '"
+                                            data-kd_butir="' . $u['kd_butir'] . '">
+                                            <i class="fas fa-pen-alt"></i></a></td>';
+                    echo '<td>';
+                    if ($u['angka_kredit'] == 0) {
+                        echo '&nbsp';
+                    } else {
+                        echo $u['angka_kredit'] . '&nbsp&nbsp';
+                    }
+                    echo '<a id="editAngka" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-angka"
+                                            href="javascript:;"
+                                            data-id="' . $u['id_tugas'] . '"
+                                            data-angkakredit="' . $u['angka_kredit'] . '">
+                                            <i class="fas fa-pen-alt"></i></a></td>';
+                    echo '<td>';
+                    if ($u['keterangan'] == NULL) {
+                        echo '&nbsp';
+                    } else {
+                        echo $u['keterangan'] . '&nbsp&nbsp';
+                    }
+                    echo '<a id="editKeterangan" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-keterangan"
+                                            href="javascript:;"
+                                            data-id="' . $u['id_tugas'] . '"
+                                            data-keterangan="' . $u['keterangan'] . '">
+                                            <i class="fas fa-pen-alt"></i></a></td>';
                     echo '</tr>';
+                    $jmlhData++;
+                    $jmlhAngka += $u['angka_kredit'];
+                    $jmlhKualitas += $u['kualitas'];
+                    $jmlhRealisasi += $u['realisasi'];
                 }
             }
         }
-        echo '
-                    <tr>
-                        <td colspan="2"><b>TAMBAHAN</b></td>
-                        <td>&nbsp</td>
-                        <td>&nbsp</td>
-                        <td>&nbsp</td>
-                        <td>&nbsp</td>
-                        <td>&nbsp</td>
-                        <td>&nbsp</td>
-                        <td>&nbsp</td>
-                        <td>&nbsp</td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp</td>
-                        <td>&nbsp</td>
-                        <td>&nbsp</td>
-                        <td>&nbsp</td>
-                        <td>&nbsp</td>
-                        <td>&nbsp</td>
-                        <td>&nbsp</td>
-                        <td>&nbsp</td>
-                        <td>&nbsp</td>
-                        <td>&nbsp</td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp</td>
-                        <td>&nbsp</td>
-                        <td>&nbsp</td>
-                        <td>&nbsp</td>
-                        <td>&nbsp</td>
-                        <td>&nbsp</td>
-                        <td>&nbsp</td>
-                        <td>&nbsp</td>
-                        <td>&nbsp</td>
-                        <td>&nbsp</td>
-                    </tr>
-                    <tr>
-                        <td colspan="8"><b>JUMLAH</b></td>
-                        <td>&nbsp</td>
-                        <td class="table-active">&nbsp</td>
-                    </tr>
-                    <tr>
-                        <td colspan="5"><b>RATA-RATA</b></td>
-                        <td>&nbsp</td>
-                        <td>&nbsp</td>
-                        <td rowspan="2">&nbsp</td>
-                        <td class="table-active" rowspan="2">&nbsp</td>
-                        <td class="table-active" rowspan="2">&nbsp</td>
-                    </tr>
-                    <tr>
-                        <td colspan="5"><b>CAPAIAN KINERJA PEGAWAI (CKP)</b></td>
-                        <td colspan="2">&nbsp</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>';
+        if ($all > 0) {
+            if ($allTambahan > 0) {
+                echo '
+                            <tr>
+                                <td colspan="2"><b>TAMBAHAN</b></td>
+                                <td>&nbsp</td>
+                                <td>&nbsp</td>
+                                <td>&nbsp</td>
+                                <td>&nbsp</td>
+                                <td>&nbsp</td>
+                                <td>&nbsp</td>
+                                <td>&nbsp</td>
+                                <td>&nbsp</td>
+                            </tr>';
+                if ($distribusi1 > 0) {
+                    echo '<tr>';
+                    echo '<td colspan="2"><b>Distribusi</b></td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<tr>';
+                    foreach ($data1 as $u) {
+                        if ($u['bag'] == '1') {
+                            echo '<tr>';
+                            echo '<td>' . $no++ . '</td>';
+                            echo '<td>' . $u['kegiatan'] . '</td>';
+                            echo '<td>' . $u['satuan'] . '</td>';
+                            echo '<td>' . $u['volume'] . '</td>';
+                            echo '<td>' . $u['realisasi'] . '&nbsp&nbsp<a id="edit" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-data"
+                                                    href="javascript:;"
+                                                    data-id="' . $u['id_tugas'] . '"
+                                                    data-volume="' . $u['volume'] . '"
+                                                    data-realisasi="' . $u['realisasi'] . '">
+                                                    <i class="fas fa-pen-alt"></i></a></td>';
+                            echo '<td>';
+                            if ($u['realisasi'] == 0) {
+                                echo '0';
+                            } else {
+                                $persen = round($u['realisasi'] / $u['volume'] * 100, 2);
+                                echo $persen . '%';
+                                $jmlhPersen += $persen;
+                            }
+                            echo '</td>';
+                            echo '<td>';
+                            if ($u['kualitas'] == 0) {
+                                echo '&nbsp';
+                            } else {
+                                echo $u['kualitas'] . '% &nbsp&nbsp';
+                            }
+                            echo '<a id="editKualitas" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-kualitas"
+                                                                href="javascript:;"
+                                                                data-id="' . $u['id_tugas'] . '"
+                                                                data-kualitas="' . $u['kualitas'] . '">
+                                                                <i class="fas fa-pen-alt"></i></a></td>';
+                            echo '<td>';
+                            if ($u['kd_butir'] == 0) {
+                                echo '&nbsp';
+                            } else {
+                                echo $u['kd_butir'] . '&nbsp&nbsp';
+                            }
+                            echo '<a id="editKode" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-kode"
+                                                                href="javascript:;"
+                                                                data-id="' . $u['id_tugas'] . '"
+                                                                data-kd_butir="' . $u['kd_butir'] . '">
+                                                                <i class="fas fa-pen-alt"></i></a></td>';
+                            echo '<td>';
+                            if ($u['angka_kredit'] == 0) {
+                                echo '&nbsp';
+                            } else {
+                                echo $u['angka_kredit'] . '&nbsp&nbsp';
+                            }
+                            echo '<a id="editAngka" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-angka"
+                                                                href="javascript:;"
+                                                                data-id="' . $u['id_tugas'] . '"
+                                                                data-angkakredit="' . $u['angka_kredit'] . '">
+                                                                <i class="fas fa-pen-alt"></i></a></td>';
+                            echo '<td>';
+                            if ($u['keterangan'] == NULL) {
+                                echo '&nbsp';
+                            } else {
+                                echo $u['keterangan'] . '&nbsp&nbsp';
+                            }
+                            echo '<a id="editKeterangan" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-keterangan"
+                                                                href="javascript:;"
+                                                                data-id="' . $u['id_tugas'] . '"
+                                                                data-keterangan="' . $u['keterangan'] . '">
+                                                                <i class="fas fa-pen-alt"></i></a></td>';
+                            echo '</tr>';
+                            $jmlhData++;
+                            $jmlhAngka += $u['angka_kredit'];
+                            $jmlhKualitas += $u['kualitas'];
+                            $jmlhRealisasi += $u['realisasi'];
+                        }
+                    }
+                }
+                if ($nerwilis1 > 0) {
+                    echo '<tr>';
+                    echo '<td colspan="2"><b>Nerwilis</b></td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<tr>';
+                    foreach ($data1 as $u) {
+                        if ($u['bag'] == '2') {
+                            echo '<tr>';
+                            echo '<td>' . $no++ . '</td>';
+                            echo '<td>' . $u['kegiatan'] . '</td>';
+                            echo '<td>' . $u['satuan'] . '</td>';
+                            echo '<td>' . $u['volume'] . '</td>';
+                            echo '<td>' . $u['realisasi'] . '&nbsp&nbsp<a id="edit" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-data"
+                                                    href="javascript:;"
+                                                    data-id="' . $u['id_tugas'] . '"
+                                                    data-volume="' . $u['volume'] . '"
+                                                    data-realisasi="' . $u['realisasi'] . '">
+                                                    <i class="fas fa-pen-alt"></i></a></td>';
+                            echo '<td>';
+                            if ($u['realisasi'] == 0) {
+                                echo '0';
+                            } else {
+                                $persen = round($u['realisasi'] / $u['volume'] * 100, 2);
+                                echo $persen . '%';
+                                $jmlhPersen += $persen;
+                            }
+                            echo '</td>';
+                            echo '<td>';
+                            if ($u['kualitas'] == 0) {
+                                echo '&nbsp';
+                            } else {
+                                echo $u['kualitas'] . '% &nbsp&nbsp';
+                            }
+                            echo '<a id="editKualitas" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-kualitas"
+                                                                href="javascript:;"
+                                                                data-id="' . $u['id_tugas'] . '"
+                                                                data-kualitas="' . $u['kualitas'] . '">
+                                                                <i class="fas fa-pen-alt"></i></a></td>';
+                            echo '<td>';
+                            if ($u['kd_butir'] == 0) {
+                                echo '&nbsp';
+                            } else {
+                                echo $u['kd_butir'] . '&nbsp&nbsp';
+                            }
+                            echo '<a id="editKode" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-kode"
+                                                                href="javascript:;"
+                                                                data-id="' . $u['id_tugas'] . '"
+                                                                data-kd_butir="' . $u['kd_butir'] . '">
+                                                                <i class="fas fa-pen-alt"></i></a></td>';
+                            echo '<td>';
+                            if ($u['angka_kredit'] == 0) {
+                                echo '&nbsp';
+                            } else {
+                                echo $u['angka_kredit'] . '&nbsp&nbsp';
+                            }
+                            echo '<a id="editAngka" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-angka"
+                                                                href="javascript:;"
+                                                                data-id="' . $u['id_tugas'] . '"
+                                                                data-angkakredit="' . $u['angka_kredit'] . '">
+                                                                <i class="fas fa-pen-alt"></i></a></td>';
+                            echo '<td>';
+                            if ($u['keterangan'] == NULL) {
+                                echo '&nbsp';
+                            } else {
+                                echo $u['keterangan'] . '&nbsp&nbsp';
+                            }
+                            echo '<a id="editKeterangan" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-keterangan"
+                                                                href="javascript:;"
+                                                                data-id="' . $u['id_tugas'] . '"
+                                                                data-keterangan="' . $u['keterangan'] . '">
+                                                                <i class="fas fa-pen-alt"></i></a></td>';
+                            echo '</tr>';
+                            $jmlhData++;
+                            $jmlhAngka += $u['angka_kredit'];
+                            $jmlhKualitas += $u['kualitas'];
+                            $jmlhRealisasi += $u['realisasi'];
+                        }
+                    }
+                }
+                if ($produksi1 > 0) {
+                    echo '<tr>';
+                    echo '<td colspan="2"><b>Produksi</b></td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<tr>';
+                    foreach ($data1 as $u) {
+                        if ($u['bag'] == '3') {
+                            echo '<tr>';
+                            echo '<td>' . $no++ . '</td>';
+                            echo '<td>' . $u['kegiatan'] . '</td>';
+                            echo '<td>' . $u['satuan'] . '</td>';
+                            echo '<td>' . $u['volume'] . '</td>';
+                            echo '<td>' . $u['realisasi'] . '&nbsp&nbsp<a id="edit" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-data"
+                                                    href="javascript:;"
+                                                    data-id="' . $u['id_tugas'] . '"
+                                                    data-volume="' . $u['volume'] . '"
+                                                    data-realisasi="' . $u['realisasi'] . '">
+                                                    <i class="fas fa-pen-alt"></i></a></td>';
+                            echo '<td>';
+                            if ($u['realisasi'] == 0) {
+                                echo '0';
+                            } else {
+                                $persen = round($u['realisasi'] / $u['volume'] * 100, 2);
+                                echo $persen . '%';
+                                $jmlhPersen += $persen;
+                            }
+                            echo '</td>';
+                            echo '<td>';
+                            if ($u['kualitas'] == 0) {
+                                echo '&nbsp';
+                            } else {
+                                echo $u['kualitas'] . '% &nbsp&nbsp';
+                            }
+                            echo '<a id="editKualitas" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-kualitas"
+                                                                href="javascript:;"
+                                                                data-id="' . $u['id_tugas'] . '"
+                                                                data-kualitas="' . $u['kualitas'] . '">
+                                                                <i class="fas fa-pen-alt"></i></a></td>';
+                            echo '<td>';
+                            if ($u['kd_butir'] == 0) {
+                                echo '&nbsp';
+                            } else {
+                                echo $u['kd_butir'] . '&nbsp&nbsp';
+                            }
+                            echo '<a id="editKode" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-kode"
+                                                                href="javascript:;"
+                                                                data-id="' . $u['id_tugas'] . '"
+                                                                data-kd_butir="' . $u['kd_butir'] . '">
+                                                                <i class="fas fa-pen-alt"></i></a></td>';
+                            echo '<td>';
+                            if ($u['angka_kredit'] == 0) {
+                                echo '&nbsp';
+                            } else {
+                                echo $u['angka_kredit'] . '&nbsp&nbsp';
+                            }
+                            echo '<a id="editAngka" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-angka"
+                                                                href="javascript:;"
+                                                                data-id="' . $u['id_tugas'] . '"
+                                                                data-angkakredit="' . $u['angka_kredit'] . '">
+                                                                <i class="fas fa-pen-alt"></i></a></td>';
+                            echo '<td>';
+                            if ($u['keterangan'] == NULL) {
+                                echo '&nbsp';
+                            } else {
+                                echo $u['keterangan'] . '&nbsp&nbsp';
+                            }
+                            echo '<a id="editKeterangan" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-keterangan"
+                                                                href="javascript:;"
+                                                                data-id="' . $u['id_tugas'] . '"
+                                                                data-keterangan="' . $u['keterangan'] . '">
+                                                                <i class="fas fa-pen-alt"></i></a></td>';
+                            echo '</tr>';
+                            $jmlhData++;
+                            $jmlhAngka += $u['angka_kredit'];
+                            $jmlhKualitas += $u['kualitas'];
+                            $jmlhRealisasi += $u['realisasi'];
+                        }
+                    }
+                }
+                if ($sosial1 > 0) {
+                    echo '<tr>';
+                    echo '<td colspan="2"><b>Sosial</b></td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<tr>';
+                    foreach ($data1 as $u) {
+                        if ($u['bag'] == '4') {
+                            echo '<tr>';
+                            echo '<td>' . $no++ . '</td>';
+                            echo '<td>' . $u['kegiatan'] . '</td>';
+                            echo '<td>' . $u['satuan'] . '</td>';
+                            echo '<td>' . $u['volume'] . '</td>';
+                            echo '<td>' . $u['realisasi'] . '&nbsp&nbsp<a id="edit" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-data"
+                                                    href="javascript:;"
+                                                    data-id="' . $u['id_tugas'] . '"
+                                                    data-volume="' . $u['volume'] . '"
+                                                    data-realisasi="' . $u['realisasi'] . '">
+                                                    <i class="fas fa-pen-alt"></i></a></td>';
+                            echo '<td>';
+                            if ($u['realisasi'] == 0) {
+                                echo '0';
+                            } else {
+                                $persen = round($u['realisasi'] / $u['volume'] * 100, 2);
+                                echo $persen . '%';
+                                $jmlhPersen += $persen;
+                            }
+                            echo '</td>';
+                            echo '<td>';
+                            if ($u['kualitas'] == 0) {
+                                echo '&nbsp';
+                            } else {
+                                echo $u['kualitas'] . '% &nbsp&nbsp';
+                            }
+                            echo '<a id="editKualitas" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-kualitas"
+                                                                href="javascript:;"
+                                                                data-id="' . $u['id_tugas'] . '"
+                                                                data-kualitas="' . $u['kualitas'] . '">
+                                                                <i class="fas fa-pen-alt"></i></a></td>';
+                            echo '<td>';
+                            if ($u['kd_butir'] == 0) {
+                                echo '&nbsp';
+                            } else {
+                                echo $u['kd_butir'] . '&nbsp&nbsp';
+                            }
+                            echo '<a id="editKode" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-kode"
+                                                                href="javascript:;"
+                                                                data-id="' . $u['id_tugas'] . '"
+                                                                data-kd_butir="' . $u['kd_butir'] . '">
+                                                                <i class="fas fa-pen-alt"></i></a></td>';
+                            echo '<td>';
+                            if ($u['angka_kredit'] == 0) {
+                                echo '&nbsp';
+                            } else {
+                                echo $u['angka_kredit'] . '&nbsp&nbsp';
+                            }
+                            echo '<a id="editAngka" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-angka"
+                                                                href="javascript:;"
+                                                                data-id="' . $u['id_tugas'] . '"
+                                                                data-angkakredit="' . $u['angka_kredit'] . '">
+                                                                <i class="fas fa-pen-alt"></i></a></td>';
+                            echo '<td>';
+                            if ($u['keterangan'] == NULL) {
+                                echo '&nbsp';
+                            } else {
+                                echo $u['keterangan'] . '&nbsp&nbsp';
+                            }
+                            echo '<a id="editKeterangan" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-keterangan"
+                                                                href="javascript:;"
+                                                                data-id="' . $u['id_tugas'] . '"
+                                                                data-keterangan="' . $u['keterangan'] . '">
+                                                                <i class="fas fa-pen-alt"></i></a></td>';
+                            echo '</tr>';
+                            $jmlhData++;
+                            $jmlhAngka += $u['angka_kredit'];
+                            $jmlhKualitas += $u['kualitas'];
+                            $jmlhRealisasi += $u['realisasi'];
+                        }
+                    }
+                }
+                if ($ipds1 > 0) {
+                    echo '<tr>';
+                    echo '<td colspan="2"><b>IPDS</b></td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<td>&nbsp</td>';
+                    echo '<tr>';
+                    foreach ($data1 as $u) {
+                        if ($u['bag'] == '5') {
+                            echo '<tr>';
+                            echo '<td>' . $no++ . '</td>';
+                            echo '<td>' . $u['kegiatan'] . '</td>';
+                            echo '<td>' . $u['satuan'] . '</td>';
+                            echo '<td>' . $u['volume'] . '</td>';
+                            echo '<td>' . $u['realisasi'] . '&nbsp&nbsp<a id="edit" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-data"
+                                                    href="javascript:;"
+                                                    data-id="' . $u['id_tugas'] . '"
+                                                    data-volume="' . $u['volume'] . '"
+                                                    data-realisasi="' . $u['realisasi'] . '">
+                                                    <i class="fas fa-pen-alt"></i></a></td>';
+                            echo '<td>';
+                            if ($u['realisasi'] == 0) {
+                                echo '0';
+                            } else {
+                                $persen = round($u['realisasi'] / $u['volume'] * 100, 2);
+                                echo $persen . '%';
+                                $jmlhPersen += $persen;
+                            }
+                            echo '</td>';
+                            echo '<td>';
+                            if ($u['kualitas'] == 0) {
+                                echo '&nbsp';
+                            } else {
+                                echo $u['kualitas'] . '% &nbsp&nbsp';
+                            }
+                            echo '<a id="editKualitas" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-kualitas"
+                                                                href="javascript:;"
+                                                                data-id="' . $u['id_tugas'] . '"
+                                                                data-kualitas="' . $u['kualitas'] . '">
+                                                                <i class="fas fa-pen-alt"></i></a></td>';
+                            echo '<td>';
+                            if ($u['kd_butir'] == 0) {
+                                echo '&nbsp';
+                            } else {
+                                echo $u['kd_butir'] . '&nbsp&nbsp';
+                            }
+                            echo '<a id="editKode" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-kode"
+                                                                href="javascript:;"
+                                                                data-id="' . $u['id_tugas'] . '"
+                                                                data-kd_butir="' . $u['kd_butir'] . '">
+                                                                <i class="fas fa-pen-alt"></i></a></td>';
+                            echo '<td>';
+                            if ($u['angka_kredit'] == 0) {
+                                echo '&nbsp';
+                            } else {
+                                echo $u['angka_kredit'] . '&nbsp&nbsp';
+                            }
+                            echo '<a id="editAngka" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-angka"
+                                                                href="javascript:;"
+                                                                data-id="' . $u['id_tugas'] . '"
+                                                                data-angkakredit="' . $u['angka_kredit'] . '">
+                                                                <i class="fas fa-pen-alt"></i></a></td>';
+                            echo '<td>';
+                            if ($u['keterangan'] == NULL) {
+                                echo '&nbsp';
+                            } else {
+                                echo $u['keterangan'] . '&nbsp&nbsp';
+                            }
+                            echo '<a id="editKeterangan" class="btn btn-primary btn-circle btn-sm" data-toggle="modal" data-target="#edit-keterangan"
+                                                                href="javascript:;"
+                                                                data-id="' . $u['id_tugas'] . '"
+                                                                data-keterangan="' . $u['keterangan'] . '">
+                                                                <i class="fas fa-pen-alt"></i></a></td>';
+                            echo '</tr>';
+                            $jmlhData++;
+                            $jmlhAngka += $u['angka_kredit'];
+                            $jmlhKualitas += $u['kualitas'];
+                            $jmlhRealisasi += $u['realisasi'];
+                        }
+                    }
+                }
+            }
+
+            $rataKualitas = 0;
+            if ($jmlhKualitas != 0) {
+                $rataKualitas = round($jmlhKualitas / $jmlhData, 2);
+            }
+
+            $rataPersen = 0;
+            if ($jmlhPersen != 0) {
+                $rataPersen = round($jmlhPersen / $jmlhData, 2);
+            }
+
+            $jmlhCkp = 0;
+            if ($jmlhRealisasi != 0 && $jmlhKualitas != 0) {
+                $jmlhCkp = round($rataKualitas / $jmlhRealisasi, 2);
+            }
+
+            echo '
+                        <tr>
+                            <td colspan="8"><b>JUMLAH</b></td>
+                            <td>';
+            if ($jmlhAngka == 0) {
+                echo '&nbsp';
+            } else {
+                echo $jmlhAngka;
+            }
+            echo '
+                            </td>
+                            <td class="table-active">&nbsp</td>
+                        </tr>
+                        <tr>
+                            <td colspan="5"><b>RATA-RATA</b></td>
+                            <td>';
+            if ($rataPersen == 0) {
+                echo '&nbsp';
+            } else {
+                echo $rataPersen;
+            }
+            echo
+                '</td>
+                <td>';
+            if ($rataKualitas == 0) {
+                echo '&nbsp';
+            } else {
+                echo $rataKualitas;
+            }
+            echo
+                '</td>
+                            <td rowspan="2">&nbsp</td>
+                            <td class="table-active" rowspan="2">&nbsp</td>
+                            <td class="table-active" rowspan="2">&nbsp</td>
+                        </tr>
+                        <tr>
+                            <td colspan="5"><b>CAPAIAN KINERJA PEGAWAI (CKP)</b></td>
+                            <td colspan="2">';
+            if ($jmlhCkp == 0) {
+                echo '&nbsp';
+            } else {
+                echo $jmlhCkp;
+            }
+            echo
+                '</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>';
+        }
     }
 
     public function TambahRealisasi()
     {
         $this->admin_ckp->prosesTambahRealisasi();
         echo "<script>alert('Anda berhasil mengedit data realisasi');</script>";
+        redirect('CAdmin/AdminCkp/ckp_pegawai', 'refresh');
+    }
+
+    public function TambahKualitas()
+    {
+        $this->admin_ckp->prosesTambahKualitas();
+        echo "<script>alert('Anda berhasil mengedit data tingkat kualitas');</script>";
+        redirect('CAdmin/AdminCkp/ckp_pegawai', 'refresh');
+    }
+
+    public function TambahKode()
+    {
+        $this->admin_ckp->prosesTambahKode();
+        echo "<script>alert('Anda berhasil mengedit data kode butir');</script>";
+        redirect('CAdmin/AdminCkp/ckp_pegawai', 'refresh');
+    }
+
+    public function TambahAngka()
+    {
+        $this->admin_ckp->prosesTambahAngka();
+        echo "<script>alert('Anda berhasil mengedit data angka kredit');</script>";
+        redirect('CAdmin/AdminCkp/ckp_pegawai', 'refresh');
+    }
+
+    public function TambahKeterangan()
+    {
+        $this->admin_ckp->prosesTambahKeterangan();
+        echo "<script>alert('Anda berhasil mengedit data keterangan');</script>";
         redirect('CAdmin/AdminCkp/ckp_pegawai', 'refresh');
     }
 }

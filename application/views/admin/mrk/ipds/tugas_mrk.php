@@ -19,12 +19,18 @@
                             </a> -->
                         </div>
                         <div class="card-body">
+
                             <!-- <div class="row">
                                 <div class="col-lg-7"> -->
                             <div class="p-5">
                                 <!-- <div class="text-center">
                                             <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                                         </div> -->
+                                <?php if (validation_errors()) : ?>
+                                    <div class="alert alert-danger" role="alert">
+                                        <?php echo validation_errors(); ?>
+                                    </div>
+                                <?php endif; ?>
                                 <form class="user" action="<?= base_url('CAdmin/AdminMrk/penugasan_mrk_ipds/' . $mrk['id_mrk']) ?>" method="post">
                                     <!-- <div class="form-group row">
                                                 <div class="col-sm-6 mb-3 mb-sm-0">
@@ -61,7 +67,7 @@
                                         <div class="col-sm-6 mb-3 mb-sm-0">
                                             <label for="bulan">Bulan</label>
                                             <select class="form-control" id="bulan" name="bulan">
-                                                <option selected>--- Pilih Bulan ---</option>
+                                                <option value="0_bulan">--- Pilih Bulan ---</option>
                                                 <option value="1">Januari</option>
                                                 <option value="2">Februari</option>
                                                 <option value="3">Maret</option>
@@ -85,7 +91,7 @@
                                         <div class="col-sm-6 mb-3 mb-sm-0">
                                             <label for="pegawai">Pegawai</label>
                                             <select class="form-control" id="id_user" name="id_user">
-                                                <option selected>--- Pilih Pegawai ---</option>
+                                                <option value="0_user">--- Pilih Pegawai ---</option>
                                                 <?php foreach ($user as $u) {
                                                 ?>
                                                     <option value="<?php echo $u->id_user ?>"><?php echo $u->nama ?></option>

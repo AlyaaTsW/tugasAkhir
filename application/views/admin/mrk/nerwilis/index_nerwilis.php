@@ -32,7 +32,7 @@
                                             <th>Action</th>
                                         </tr>
                                     </thead>
-                                    <<<<<<< HEAD <<<<<<< HEAD <tbody>
+                                    <tbody>
 
                                         <?php
                                         $no = 1;
@@ -77,7 +77,7 @@
                                             $no++;
                                         }
                                         ?>
-                                        </tbody>
+                                    </tbody>
                                 </table>
                             </div>
                         </div>

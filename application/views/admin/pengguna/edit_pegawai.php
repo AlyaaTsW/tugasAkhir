@@ -47,7 +47,7 @@
                                             <div class="col-sm-6">
                                                 <label for="jabatan">Jabatan</label>
                                                 <select class="form-control" id="jabatan" name="jabatan">
-                                                    <option selected>--- Pilih Jabatan ---</option>
+                                                    <option value="0_jabatan">--- Pilih Jabatan ---</option>
                                                     <option value="Kepala" <?php if ($user['jabatan'] == 'Kepala') echo "selected"; ?>>Kepala</option>
                                                     <option value="Kasubbag Umum" <?php if ($user['jabatan'] == 'Kasubbag Umum') echo "selected"; ?>>Kasubbag Umum</option>
                                                     <option value="Koordinator Fungsional" <?php if ($user['jabatan'] == 'Koordinator Fungsional') echo "selected"; ?>>Koordinator Fungsional</option>
@@ -89,7 +89,7 @@
                                             <div class="col-sm-6">
                                                 <label for="pendidikan">Pendidikan</label>
                                                 <select class="form-control" id="pendidikan" name="pendidikan">
-                                                    <option selected>--- Pilih Pendidikan Terakhir ---</option>
+                                                    <option value="0_pendidikan">--- Pilih Pendidikan Terakhir ---</option>
                                                     <option value="SMA" <?php if ($user['pendidikan'] == 'SMA') echo "selected"; ?>>SMA</option>
                                                     <option value="SMK" <?php if ($user['pendidikan'] == 'SMK') echo "selected"; ?>>SMK</option>
                                                     <option value="D3" <?php if ($user['pendidikan'] == 'D3') echo "selected"; ?>>D3</option>

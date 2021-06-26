@@ -53,13 +53,20 @@
                                         <input type="text" class="form-control form-control-user" id="kegiatan" name="kegiatan" placeholder="Kegiatan">
                                     </div>
                                     <div class="form-group row">
-                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <div class="col-sm-4 mb-3 mb-sm-0">
                                             <label for="volume">Volume</label>
                                             <input type="number" class="form-control form-control-user" id="volume" name="volume" placeholder="Volume">
                                         </div>
-                                        <div class="col-sm-6">
+                                        <div class="col-sm-4">
                                             <label for="satuan">Satuan</label>
                                             <input type="text" class="form-control form-control-user" id="satuan" name="satuan" placeholder="Satuan">
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label for="jenisMrk">Jenis MRK</label>
+                                            <select class="form-control" id="ckp_level" name="ckp_level">
+                                                <option value="1">Utama</option>
+                                                <option value="2">Tambahan</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="form-group row" hidden>

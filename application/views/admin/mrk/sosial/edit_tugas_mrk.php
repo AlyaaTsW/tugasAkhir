@@ -25,6 +25,7 @@
                                 <!-- <div class="text-center">
                                             <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                                         </div> -->
+
                                 <form class="user" action="<?= base_url('CAdmin/AdminMrk/edit_penugasan_mrk_sos/' . $mrk['id_mrk']) ?>" method="post">
                                     <!-- <div class="form-group row">
                                                 <div class="col-sm-6 mb-3 mb-sm-0">
@@ -61,9 +62,9 @@
                                         <div class="col-sm-6 mb-3 mb-sm-0">
                                             <label for="bulan">Bulan</label>
                                             <select class="form-control" id="bulan" name="bulan">
-                                                <option <?php if ($tugas['bulan'] == "NULL") {
-                                                            echo "selected";
-                                                        } ?>>--- Pilih Bulan ---</option>
+                                                <option value="0_bulan" <?php if ($tugas['bulan'] == "NULL") {
+                                                                            echo "selected";
+                                                                        } ?>>--- Pilih Bulan ---</option>
                                                 <option value="1" <?php if ($tugas['bulan'] == "1") {
                                                                         echo "selected";
                                                                     } ?>>Januari</option>
@@ -111,7 +112,7 @@
                                         <div class="col-sm-6 mb-3 mb-sm-0">
                                             <label for="pegawai">Pegawai</label>
                                             <select class="form-control" id="id_user" name="id_user">
-                                                <option selected>--- Pilih Pegawai ---</option>
+                                                <option value="0_user">--- Pilih Pegawai ---</option>
                                                 <?php foreach ($user as $u) {
                                                 ?>
                                                     <option value="<?php echo $u->id_user ?>" <?php if ($tugas['id_user'] == $u->id_user) {
@@ -122,7 +123,7 @@
                                         </div>
                                         <div class="col-sm-6 mb-3 mb-sm-0" hidden>
                                             <label for="volume">Bagian</label>
-                                            <input type="number" class="form-control form-control-user" id="bagian" name="bagian" value="<?= $mrk['bagian']; ?>">
+                                            <input type="number" class="form-control form-control-user" id="bagian" name="bagian" value="<?= $mrk['bag']; ?>">
                                             <input type="number" class="form-control form-control-user" id="id_tugas" name="id_tugas" value="<?= $tugas['id_tugas']; ?>">
                                         </div>
                                     </div>

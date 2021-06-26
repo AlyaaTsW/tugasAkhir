@@ -71,6 +71,8 @@ class AdminMrk extends CI_Controller
 			$this->form_validation->set_rules('kegiatan', 'kegiatan', 'required');
 			$this->form_validation->set_rules('volume', 'volume', 'required');
 			$this->form_validation->set_rules('satuan', 'satuan', 'required');
+			$this->form_validation->set_rules('ckp_level', 'ckp_level', 'required|callback_check_default');
+			$this->form_validation->set_message('check_default', 'Mohon untuk memilih Jenis MRK yang telah disediakan');
 
 			if ($this->form_validation->run() == FALSE) {
 				$this->load->view('admin/header_admin', $data);
@@ -96,6 +98,8 @@ class AdminMrk extends CI_Controller
 			$this->form_validation->set_rules('kegiatan', 'kegiatan', 'required');
 			$this->form_validation->set_rules('volume', 'volume', 'required');
 			$this->form_validation->set_rules('satuan', 'satuan', 'required');
+			$this->form_validation->set_rules('ckp_level', 'ckp_level', 'required|callback_check_default6');
+			$this->form_validation->set_message('check_default6', 'Mohon untuk memilih Jenis MRK yang telah disediakan');
 
 			if ($this->form_validation->run() == FALSE) {
 				$this->load->view('admin/header_admin', $data);
@@ -121,6 +125,8 @@ class AdminMrk extends CI_Controller
 			$this->form_validation->set_rules('kegiatan', 'kegiatan', 'required');
 			$this->form_validation->set_rules('volume', 'volume', 'required');
 			$this->form_validation->set_rules('satuan', 'satuan', 'required');
+			$this->form_validation->set_rules('ckp_level', 'ckp_level', 'required|callback_check_default6');
+			$this->form_validation->set_message('check_default6', 'Mohon untuk memilih Jenis MRK yang telah disediakan');
 
 			if ($this->form_validation->run() == FALSE) {
 				$this->load->view('admin/header_admin', $data);
@@ -146,6 +152,8 @@ class AdminMrk extends CI_Controller
 			$this->form_validation->set_rules('kegiatan', 'kegiatan', 'required');
 			$this->form_validation->set_rules('volume', 'volume', 'required');
 			$this->form_validation->set_rules('satuan', 'satuan', 'required');
+			$this->form_validation->set_rules('ckp_level', 'ckp_level', 'required|callback_check_default');
+			$this->form_validation->set_message('check_default', 'Mohon untuk memilih Jenis MRK yang telah disediakan');
 
 			if ($this->form_validation->run() == FALSE) {
 				$this->load->view('admin/header_admin', $data);
@@ -171,6 +179,8 @@ class AdminMrk extends CI_Controller
 			$this->form_validation->set_rules('kegiatan', 'kegiatan', 'required');
 			$this->form_validation->set_rules('volume', 'volume', 'required');
 			$this->form_validation->set_rules('satuan', 'satuan', 'required');
+			$this->form_validation->set_rules('ckp_level', 'ckp_level', 'required|callback_check_default');
+			$this->form_validation->set_message('check_default', 'Mohon untuk memilih Jenis MRK yang telah disediakan');
 
 			if ($this->form_validation->run() == FALSE) {
 				$this->load->view('admin/header_admin', $data);
@@ -201,6 +211,8 @@ class AdminMrk extends CI_Controller
 			$this->form_validation->set_rules('kegiatan', 'kegiatan', 'required');
 			$this->form_validation->set_rules('volume', 'volume', 'required');
 			$this->form_validation->set_rules('satuan', 'satuan', 'required');
+			$this->form_validation->set_rules('ckp_level', 'ckp_level', 'required|callback_check_default');
+			$this->form_validation->set_message('check_default', 'Mohon untuk memilih Jenis MRK yang telah disediakan');
 
 			if ($this->form_validation->run() == FALSE) {
 				$this->load->view('admin/header_admin', $data);
@@ -230,6 +242,8 @@ class AdminMrk extends CI_Controller
 			$this->form_validation->set_rules('kegiatan', 'kegiatan', 'required');
 			$this->form_validation->set_rules('volume', 'volume', 'required');
 			$this->form_validation->set_rules('satuan', 'satuan', 'required');
+			$this->form_validation->set_rules('ckp_level', 'ckp_level', 'required|callback_check_default');
+			$this->form_validation->set_message('check_default', 'Mohon untuk memilih Jenis MRK yang telah disediakan');
 
 			if ($this->form_validation->run() == FALSE) {
 				$this->load->view('admin/header_admin', $data);
@@ -259,6 +273,8 @@ class AdminMrk extends CI_Controller
 			$this->form_validation->set_rules('kegiatan', 'kegiatan', 'required');
 			$this->form_validation->set_rules('volume', 'volume', 'required');
 			$this->form_validation->set_rules('satuan', 'satuan', 'required');
+			$this->form_validation->set_rules('ckp_level', 'ckp_level', 'required|callback_check_default');
+			$this->form_validation->set_message('check_default', 'Mohon untuk memilih Jenis MRK yang telah disediakan');
 
 			if ($this->form_validation->run() == FALSE) {
 				$this->load->view('admin/header_admin', $data);
@@ -288,6 +304,8 @@ class AdminMrk extends CI_Controller
 			$this->form_validation->set_rules('kegiatan', 'kegiatan', 'required');
 			$this->form_validation->set_rules('volume', 'volume', 'required');
 			$this->form_validation->set_rules('satuan', 'satuan', 'required');
+			$this->form_validation->set_rules('ckp_level', 'ckp_level', 'required|callback_check_default');
+			$this->form_validation->set_message('check_default', 'Mohon untuk memilih Jenis MRK yang telah disediakan');
 
 			if ($this->form_validation->run() == FALSE) {
 				$this->load->view('admin/header_admin', $data);
@@ -317,6 +335,8 @@ class AdminMrk extends CI_Controller
 			$this->form_validation->set_rules('kegiatan', 'kegiatan', 'required');
 			$this->form_validation->set_rules('volume', 'volume', 'required');
 			$this->form_validation->set_rules('satuan', 'satuan', 'required');
+			$this->form_validation->set_rules('ckp_level', 'ckp_level', 'required|callback_check_default');
+			$this->form_validation->set_message('check_default', 'Mohon untuk memilih Jenis MRK yang telah disediakan');
 
 			if ($this->form_validation->run() == FALSE) {
 				$this->load->view('admin/header_admin', $data);
@@ -414,6 +434,18 @@ class AdminMrk extends CI_Controller
 	}
 
 	//PENUGASAN MRK
+	function check_default($post_string)
+	{
+		if ($post_string == '0_user') {
+			echo "<script>alert('Mohon nama user diisi');</script>";
+			return false;
+		} else if ($post_string == '0_bulan') {
+			echo "<script>alert('Mohon bulan diisi');</script>";
+			return false;
+		}
+		return true;
+	}
+
 	public function penugasan_mrk_dis($id)
 	{
 		if (isset($_SESSION['id_user'])) {
@@ -423,9 +455,9 @@ class AdminMrk extends CI_Controller
 			$data['mrk'] = $this->admin_mrk->getMrkById($id);
 
 			$this->form_validation->set_rules('bulan', 'bulan', 'required|callback_check_default');
-			$this->form_validation->set_message('check_default', 'You need to select something other than the default');
+			$this->form_validation->set_message('check_default', 'Mohon untuk memilih bulan yang akan ditugaskan');
 			$this->form_validation->set_rules('id_user', 'id_user', 'required|callback_check_default');
-			$this->form_validation->set_message('check_default', 'You need to select something other than the default');
+			$this->form_validation->set_message('check_default', 'Mohon untuk memilih nama pegawai yang akan ditugaskan');
 
 			if ($this->form_validation->run() == FALSE) {
 				$this->load->view('admin/header_admin', $data);
@@ -442,18 +474,6 @@ class AdminMrk extends CI_Controller
 		}
 	}
 
-	function check_default($post_string)
-	{
-		if ($post_string == '0_user') {
-			echo "<script>alert('Mohon nama user diisi');</script>";
-			return false;
-		} else if ($post_string == '0_bulan') {
-			echo "<script>alert('Mohon bulan diisi');</script>";
-			return false;
-		}
-		return true;
-	}
-
 	public function penugasan_mrk_ipds($id)
 	{
 		if (isset($_SESSION['id_user'])) {
@@ -462,9 +482,10 @@ class AdminMrk extends CI_Controller
 			$data['user'] = $this->admin_pengguna->all();
 			$data['mrk'] = $this->admin_mrk->getMrkById($id);
 
-			$this->form_validation->set_rules('id_user', 'id_user', 'required');
-			// $this->form_validation->set_rules('bulan', 'bulan', 'required');
-			// $this->form_validation->set_rules('pegawai', 'pegawai', 'required');
+			$this->form_validation->set_rules('bulan', 'bulan', 'required|callback_check_default');
+			$this->form_validation->set_message('check_default', 'Mohon untuk memilih bulan yang akan ditugaskan');
+			$this->form_validation->set_rules('id_user', 'id_user', 'required|callback_check_default');
+			$this->form_validation->set_message('check_default', 'Mohon untuk memilih nama pegawai yang akan ditugaskan');
 
 			if ($this->form_validation->run() == FALSE) {
 				$this->load->view('admin/header_admin', $data);
@@ -489,7 +510,10 @@ class AdminMrk extends CI_Controller
 			$data['user'] = $this->admin_pengguna->all();
 			$data['mrk'] = $this->admin_mrk->getMrkById($id);
 
-			$this->form_validation->set_rules('id_user', 'id_user', 'required');
+			$this->form_validation->set_rules('bulan', 'bulan', 'required|callback_check_default');
+			$this->form_validation->set_message('check_default', 'Mohon untuk memilih bulan yang akan ditugaskan');
+			$this->form_validation->set_rules('id_user', 'id_user', 'required|callback_check_default');
+			$this->form_validation->set_message('check_default', 'Mohon untuk memilih nama pegawai yang akan ditugaskan');
 
 			if ($this->form_validation->run() == FALSE) {
 				$this->load->view('admin/header_admin', $data);
@@ -514,7 +538,10 @@ class AdminMrk extends CI_Controller
 			$data['user'] = $this->admin_pengguna->all();
 			$data['mrk'] = $this->admin_mrk->getMrkById($id);
 
-			$this->form_validation->set_rules('id_user', 'id_user', 'required');
+			$this->form_validation->set_rules('bulan', 'bulan', 'required|callback_check_default');
+			$this->form_validation->set_message('check_default', 'Mohon untuk memilih bulan yang akan ditugaskan');
+			$this->form_validation->set_rules('id_user', 'id_user', 'required|callback_check_default');
+			$this->form_validation->set_message('check_default', 'Mohon untuk memilih nama pegawai yang akan ditugaskan');
 
 			if ($this->form_validation->run() == FALSE) {
 				$this->load->view('admin/header_admin', $data);
@@ -539,7 +566,10 @@ class AdminMrk extends CI_Controller
 			$data['user'] = $this->admin_pengguna->all();
 			$data['mrk'] = $this->admin_mrk->getMrkById($id);
 
-			$this->form_validation->set_rules('id_user', 'id_user', 'required');
+			$this->form_validation->set_rules('bulan', 'bulan', 'required|callback_check_default');
+			$this->form_validation->set_message('check_default', 'Mohon untuk memilih bulan yang akan ditugaskan');
+			$this->form_validation->set_rules('id_user', 'id_user', 'required|callback_check_default');
+			$this->form_validation->set_message('check_default', 'Mohon untuk memilih nama pegawai yang akan ditugaskan');
 
 			if ($this->form_validation->run() == FALSE) {
 				$this->load->view('admin/header_admin', $data);
@@ -566,7 +596,10 @@ class AdminMrk extends CI_Controller
 			$data['mrk'] = $this->admin_mrk->getMrkById($id);
 			$data['tugas'] = $this->admin_mrk->getTugasByMrk($id);
 
-			$this->form_validation->set_rules('id_user', 'id_user', 'required');
+			$this->form_validation->set_rules('bulan', 'bulan', 'required|callback_check_default');
+			$this->form_validation->set_message('check_default', 'Mohon untuk memilih bulan yang akan ditugaskan');
+			$this->form_validation->set_rules('id_user', 'id_user', 'required|callback_check_default');
+			$this->form_validation->set_message('check_default', 'Mohon untuk memilih nama pegawai yang akan ditugaskan');
 
 			if ($this->form_validation->run() == FALSE) {
 				$this->load->view('admin/header_admin', $data);
@@ -591,7 +624,10 @@ class AdminMrk extends CI_Controller
 			$data['mrk'] = $this->admin_mrk->getMrkById($id);
 			$data['tugas'] = $this->admin_mrk->getTugasByMrk($id);
 
-			$this->form_validation->set_rules('id_user', 'id_user', 'required');
+			$this->form_validation->set_rules('bulan', 'bulan', 'required|callback_check_default');
+			$this->form_validation->set_message('check_default', 'Mohon untuk memilih bulan yang akan ditugaskan');
+			$this->form_validation->set_rules('id_user', 'id_user', 'required|callback_check_default');
+			$this->form_validation->set_message('check_default', 'Mohon untuk memilih nama pegawai yang akan ditugaskan');
 
 			if ($this->form_validation->run() == FALSE) {
 				$this->load->view('admin/header_admin', $data);
@@ -616,7 +652,10 @@ class AdminMrk extends CI_Controller
 			$data['mrk'] = $this->admin_mrk->getMrkById($id);
 			$data['tugas'] = $this->admin_mrk->getTugasByMrk($id);
 
-			$this->form_validation->set_rules('id_user', 'id_user', 'required');
+			$this->form_validation->set_rules('bulan', 'bulan', 'required|callback_check_default');
+			$this->form_validation->set_message('check_default', 'Mohon untuk memilih bulan yang akan ditugaskan');
+			$this->form_validation->set_rules('id_user', 'id_user', 'required|callback_check_default');
+			$this->form_validation->set_message('check_default', 'Mohon untuk memilih nama pegawai yang akan ditugaskan');
 
 			if ($this->form_validation->run() == FALSE) {
 				$this->load->view('admin/header_admin', $data);
@@ -641,7 +680,10 @@ class AdminMrk extends CI_Controller
 			$data['mrk'] = $this->admin_mrk->getMrkById($id);
 			$data['tugas'] = $this->admin_mrk->getTugasByMrk($id);
 
-			$this->form_validation->set_rules('id_user', 'id_user', 'required');
+			$this->form_validation->set_rules('bulan', 'bulan', 'required|callback_check_default');
+			$this->form_validation->set_message('check_default', 'Mohon untuk memilih bulan yang akan ditugaskan');
+			$this->form_validation->set_rules('id_user', 'id_user', 'required|callback_check_default');
+			$this->form_validation->set_message('check_default', 'Mohon untuk memilih nama pegawai yang akan ditugaskan');
 
 			if ($this->form_validation->run() == FALSE) {
 				$this->load->view('admin/header_admin', $data);
@@ -666,7 +708,10 @@ class AdminMrk extends CI_Controller
 			$data['mrk'] = $this->admin_mrk->getMrkById($id);
 			$data['tugas'] = $this->admin_mrk->getTugasByMrk($id);
 
-			$this->form_validation->set_rules('id_user', 'id_user', 'required');
+			$this->form_validation->set_rules('bulan', 'bulan', 'required|callback_check_default');
+			$this->form_validation->set_message('check_default', 'Mohon untuk memilih bulan yang akan ditugaskan');
+			$this->form_validation->set_rules('id_user', 'id_user', 'required|callback_check_default');
+			$this->form_validation->set_message('check_default', 'Mohon untuk memilih nama pegawai yang akan ditugaskan');
 
 			if ($this->form_validation->run() == FALSE) {
 				$this->load->view('admin/header_admin', $data);

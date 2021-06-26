@@ -36,11 +36,11 @@
                                         <input type="number" class="form-control" placeholder="tahun" aria-label="tahun" aria-describedby="basic-addon2" id="tahun" name="tahun">
                                     </div>
                                 </div>
-                                <button type="submit" name="submit" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Filter CKP</button>
+                                <button type="submit" name="submit" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Export CKP</button>
                             </form>
                         </div>
                         <div class="card-body" id="viewTabel">
-                            
+
                         </div>
                     </div>
 

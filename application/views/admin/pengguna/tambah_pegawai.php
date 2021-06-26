@@ -46,7 +46,7 @@
                                             <div class="col-sm-6">
                                                 <label for="jabatan">Jabatan</label>
                                                 <select class="form-control" id="jabatan" name="jabatan">
-                                                    <option selected>--- Pilih Jabatan ---</option>
+                                                    <option value="0_jabatan">--- Pilih Jabatan ---</option>
                                                     <option value="Kepala">Kepala</option>
                                                     <option value="Kasubbag Umum">Kasubbag Umum</option>
                                                     <option value="Koordinator Fungsional">Koordinator Fungsional</option>
@@ -72,7 +72,7 @@
                                             <div class="col-sm-6">
                                                 <label for="pendidikan">Pendidikan</label>
                                                 <select class="form-control" id="pendidikan" name="pendidikan">
-                                                    <option selected>--- Pilih Pendidikan Terakhir ---</option>
+                                                    <option value="0_pendidikan">--- Pilih Pendidikan Terakhir ---</option>
                                                     <option value="SMA">SMA</option>
                                                     <option value="SMK">SMK</option>
                                                     <option value="D3">D3</option>
